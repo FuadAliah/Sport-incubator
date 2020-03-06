@@ -306,7 +306,7 @@ section {
 .data .trigger {
   top: 0;
   right: 0;
-  height: 100vh;
+  height: 100%;
   z-index: 99999;
   width: 100vw;
   margin-top: 60px;
@@ -713,6 +713,24 @@ section {
   width: 100%;
   margin-top: 10px;
   color: #c5c5c5;
+}
+
+.gallery .head-content .section-link {
+  font-size: 16px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 500;
+  padding: 12px 16px;
+  color: #fff;
+  background-color: #19a2e0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.gallery .head-content .section-link:hover {
+  color: #19a2e0;
+  background-color: #fff;
 }
 
 @media (max-width: 768px) {

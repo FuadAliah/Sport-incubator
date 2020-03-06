@@ -492,11 +492,13 @@ if (home.activeLink == 'home') {
 }
 $(document).bind('scroll', function () {
     $('section').each(function () {
-        if (
-            $(this).offset().top < window.pageYOffset + 10
-            && $(this).offset().top + $(this).height() > window.pageYOffset + 10
-        ) {
-            window.location.hash = $(this).attr('id');
+        if ($(this).offset().top < window.pageYOffset + 10 && $(this).offset().top + $(this).height() > window.pageYOffset + 10) {
+            var urlChanged = $(this).attr('id');
+            window.location.hash = urlChanged;
+            home.activeLink = urlChanged;
+        }
+        if (window.location.hash === '#undefined') {
+            window.location.hash = 'home';
         }
     });
 });
