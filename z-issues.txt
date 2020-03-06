@@ -1,0 +1,9 @@
+- news link selected in library detailed.
+- length of the phone number must be 10.
+
+
+
+- registeration submit.
+- contacts and registeration success message (error Send)
+
+- test
