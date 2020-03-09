@@ -434,8 +434,8 @@ var home = new Vue({
         },
         subscription(form) {
             if (this.validateForm(form)) {
-                var postBody = this.subsribe;
-                axios.post(this.serverPath + 'subscription/save', postBody)
+                var postBody = this.subscribe;
+                axios.post(this.serverPath + 'en/api/newsletter/subscribe', postBody)
                     .then(function (response) {
                         console.log(response);
                     })

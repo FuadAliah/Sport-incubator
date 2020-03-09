@@ -5,5 +5,5 @@
 
 - registeration submit.
 - contacts and registeration success message (error Send)
+- subscribe validate submit
 
-- test

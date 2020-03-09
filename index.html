@@ -360,7 +360,7 @@
                         data-aos-offset="600" data-aos-delay="200" data-aos-anchor=".gallery">
                         <div class="section-title text-white text-uppercase">{{gallery.title}}</div>
                         <div class="section-body">{{gallery.description}}</div>
-                        <a href="http://www.google.com" class="section-link mt-lg-4 mt-3 rounded">
+                        <a :href="gallery.external_link" target="_blank" class="section-link mt-lg-4 mt-3 rounded">
                             <span class="text-uppercase">see More</span>
                         </a>
                     </div>
