@@ -186,7 +186,7 @@ var home = new Vue({
         initPhotoAblum() {
             $('.home-photoAlbum').slick({
                 infinite: false,
-                slidesToShow: 4,
+                slidesToShow: 3,
                 slidesToScroll: 4,
                 dots: true,
                 prevArrow: false,

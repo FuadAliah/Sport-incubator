@@ -281,6 +281,17 @@ section {
   padding: 5%;
 }
 
+@media (max-width: 992px) {
+  .home,
+  .about,
+  .gallery,
+  .partner,
+  .library,
+  .mob-subscribe {
+    padding: 10% 5%;
+  }
+}
+
 @media (max-width: 768px) {
   .home,
   .about,
@@ -744,8 +755,8 @@ section {
   left: 0;
   right: 0;
   top: 0;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0)));
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
   opacity: 1;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -762,14 +773,15 @@ section {
   padding: 15px;
   width: 100%;
   color: #fff;
+  font-size: 22px;
+  line-height: 33px;
 }
 
-.gallery .body-content a p {
-  bottom: 9px;
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+@media (max-width: 1200px) {
+  .gallery .body-content a .overlay .text {
+    font-size: 18px;
+    line-height: 27px;
+  }
 }
 
 @media (max-width: 1200px) {
