@@ -30,6 +30,10 @@ var home = new Vue({
             activeList: 'library',
             libraryList: null,
         },
+        sub: {
+            activeList: null,
+            libraryList: null,
+        },
         contactPage: {
             first_name: null,
             sure_name: null,
@@ -467,6 +471,7 @@ function debounce(fn, wait) {
 }
 
 if (home.activeLink == 'home') {
+    window.location.hash = home.activeLink;
     $('body').on('mousewheel', debounce(function (event) {
         if (event.deltaY > 0) { //going up
             $('html,body').stop().animate({
@@ -497,8 +502,11 @@ $(document).bind('scroll', function () {
             window.location.hash = urlChanged;
             home.activeLink = urlChanged;
         }
-        if (window.location.hash === '#undefined') {
+        if (window.location.hash === '#sub') {
             window.location.hash = 'home';
+        }
+        if (window.location.hash === '#home') {
+            home.activeLink = 'home';
         }
     });
 });
