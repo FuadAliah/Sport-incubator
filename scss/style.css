@@ -50,7 +50,7 @@ html {
 
 @media (max-width: 768px) {
   .sidebar .custom-height {
-    height: 90vh;
+    height: 85vh;
   }
 }
 
