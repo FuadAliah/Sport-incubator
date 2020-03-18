@@ -81,7 +81,10 @@ var home = new Vue({
                 this.getNews();
                 this.activeLink = "news-detailed";
             }
-
+            if (window.location.href.indexOf("laibrary") > 0) { //detailed news page
+                this.getHome();
+                this.activeLink = "laibrary";
+            }
 
             if (window.location.href.indexOf("library-list") > 0) {
                 this.getNews();
@@ -376,10 +379,10 @@ var home = new Vue({
                     }
                 }
             })
-            $(form).find('input[number]').each(function () {
-                var phoneNum = $('#phone-reg').val();
-                var phoneLen = phoneNum.length
-                if (phoneLen < 10) {
+            $(form).find('#phone-reg').each(function () {
+                let phoneNum = $(this).val();
+                let phoneLen = phoneNum.length
+                if (phoneLen <= 9) {
                     $(this).addClass('red');
                 } else {
                     $(this).removeClass('red');
@@ -474,10 +477,12 @@ if (home.activeLink == 'home') {
     window.location.hash = home.activeLink;
     $('body').on('mousewheel', debounce(function (event) {
         if (event.deltaY > 0) { //going up
+            home.open = false
             $('html,body').stop().animate({
                 scrollTop: $(window).scrollTop() - $(window).height()
             }, 1000);
         } else {
+            home.open = false
             $('html,body').stop().animate({
                 scrollTop: $(window).scrollTop() + $(window).height()
             }, 1000);

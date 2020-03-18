@@ -1,5 +1,4 @@
 - news link selected in library detailed.
-- length of the phone number must be 10.
 
 
 
