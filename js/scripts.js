@@ -1,6 +1,8 @@
 var home = new Vue({
     el: "#app",
     data: {
+        language: '',
+        tr: {},
         loading: true,
         scrolling: $(window).scrollTop(),
         open: false,
@@ -55,6 +57,7 @@ var home = new Vue({
         }
     },
     created: function () {
+        this.setLanguage();
         this.setValues();
         if (this.activeLink == 'home') {
             this.getHome();
@@ -62,6 +65,15 @@ var home = new Vue({
         this.getFooter();
     },
     methods: {
+        setLanguage(newLang) {
+            lang = localStorage.lang || 'en';
+            if (newLang) {
+                lang = newLang;
+            }
+            this.language = lang;
+            localStorage.setItem('lang', lang);
+            this.tr = lang == "en" ? locales_en : locales_ar;
+        },
         setValues() {
             if (window.location.href.indexOf("about-detailed") > 0) {
                 this.getِAbout();

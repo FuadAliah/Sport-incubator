@@ -1,4 +1,5 @@
 - news link selected in library detailed.
+- when click on news in sidebar the homePage is shaking
 
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="html">
+<html class="html" lang="en">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,14 +12,12 @@
 <link rel="stylesheet" type="text/css" href="./scss/slick.css" />
 <link rel="stylesheet" type="text/css" href="./scss/slick-theme.css" />
 <link rel="stylesheet" href="./scss/style.css">
-
 <script src="./js/axios.min.js"></script>
 <link rel="shortcut icon" type="image/gif" href="./imgs/logo-animation.gif">
 <title>Street sports incubator</title>
 
 <body class="body">
-    <div id="app" :class="language">
-        <link rel="stylesheet" href="./scss/style.css" v-if="language="ar">
+    <div id="app">
         <div id="loader" v-if="loading" class="loading position-fixed"
             style="padding: 0; margin: 0; width: 100vw;height: 100vh;background: #f6f4e2;z-index: 9999;display: flex;align-items: center;justify-content: center;">
             <img src="./imgs/logo-animation.gif" height="120px" alt="">
@@ -28,29 +26,31 @@
             <div class="bg-white custom-height" id="sidebar-wrapper" @click="open = false">
                 <div class="list-group list-group-flush h-auto side-links">
                     <a href="#home" :class="[activeLink == 'home' ? 'active' : '']" @click="activeLink = 'home'"
-                        class="list-group-item-action w-100 text-uppercase">{{tr.home}}</a>
+                        class="list-group-item-action w-100 text-uppercase">Home</a>
                     <a href="#news" :class="[activeLink == 'news' ? 'active' : '']" @click="activeLink = 'news'"
-                        class="list-group-item-action w-100 text-uppercase">{{tr.news_events}}</a>
+                        class="list-group-item-action w-100 text-uppercase">News / Events</a>
                     <a href="#about" :class="[activeLink == 'about' ? 'active' : '']" @click="activeLink = 'about'"
-                        class="list-group-item-action w-100 text-uppercase">{{tr.About_us}}</a>
-                    <a href="#gallery" :class="[activeLink == 'gallery' ? 'active' : '']" @click="activeLink = 'gallery'"
-                        class="list-group-item-action w-100 text-uppercase">{{tr.gallery}}</a>
+                        class="list-group-item-action w-100 text-uppercase">About us</a>
+                    <a href="#gallery" :class="[activeLink == 'gallery' ? 'active' : '']"
+                        @click="activeLink = 'gallery'" class="list-group-item-action w-100 text-uppercase">Our
+                        Gallery</a>
                     <a href="#partners" :class="[activeLink == 'partners' ? 'active' : '']"
-                        @click="activeLink = 'partners'" class="list-group-item-action w-100 text-uppercase">{{tr.Our_partners}}</a>
+                        @click="activeLink = 'partners'" class="list-group-item-action w-100 text-uppercase">Our
+                        partners</a>
                     <a href="#library" :class="[activeLink == 'library' ? 'active' : '']"
-                        @click="activeLink = 'library'" class="list-group-item-action w-100 text-uppercase">{{tr.Our_library}}</a>
+                        @click="activeLink = 'library'" class="list-group-item-action w-100 text-uppercase">Our
+                        library</a>
                 </div>
                 <div class="list-group list-group-flush h-auto mt-auto side-links">
                     <div class="mt-auto">
                         <div class="d-flex text-center languages-links">
-                            <a href="javascript:void(0)" @click="setLanguage('en')"
-                                class="list-group-item-action w-100 text-uppercase">English</a>
-                            <a href="javascript:void(0)" @click="setLanguage('ar')"
-                                class="list-group-item-action w-100 ar-link">عربي</a>
+                            <a href="#" class="list-group-item-action w-100 text-uppercase">English</a>
+                            <a href="./index-ar.html" class="list-group-item-action w-100 ar-link">عربي</a>
                         </div>
                         <a href="./registration.html"
-                            class="list-group-item-action w-100 bg-orange text-uppercase">{{tr.Registration}}</a>
-                        <a href="./contacts.html" class="list-group-item-action w-100 bg-red text-uppercase">{{tr.Contact_us}}</a>
+                            class="list-group-item-action w-100 bg-orange text-uppercase">Registeration</a>
+                        <a href="./contacts.html" class="list-group-item-action w-100 bg-red text-uppercase">Contact
+                            us</a>
                     </div>
                 </div>
             </div>
@@ -596,8 +596,6 @@
     <script src="./js/vue.js"></script>
     <script src="./js/aos.js"></script>
     <script src="./lightbox2-dev/dist/js/lightbox.js"></script>
-    <script src="./js/locales_ar.js"></script>
-    <script src="./js/locales_en.js"></script>
     <script src="./js/scripts.js"></script>
 
     <script>
