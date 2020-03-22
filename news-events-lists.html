@@ -47,8 +47,10 @@
                 <div class="list-group list-group-flush h-auto mt-auto side-links">
                     <div class="mt-auto">
                         <div class="d-flex text-center languages-links">
-                            <a href="#" class="list-group-item-action w-100 text-uppercase">English</a>
-                            <a href="./index-ar.html" class="list-group-item-action w-100 ar-link">عربي</a>
+                            <a href="javascript:void(0)" @click="setLanguage('en')"
+                                class="list-group-item-action w-100 text-uppercase">English</a>
+                            <a href="javascript:void(0)" @click="setLanguage('ar')"
+                                class="list-group-item-action w-100 ar-link">عربي</a>
                         </div>
                         <a href="./registration.html"
                             class="list-group-item-action w-100 bg-orange text-uppercase">Registeration</a>
@@ -288,6 +290,8 @@
     <script src="js/vue.js"></script>
     <script src="js/axios.min.js"></script>
     <script src="js/aos.js"></script>
+    <script src="./js/locales_ar.js"></script>
+    <script src="./js/locales_en.js"></script>
     <script src="js/scripts.js"></script>
     <script>
         AOS.init();

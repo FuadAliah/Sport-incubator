@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-<link href="https://fonts.googleapis.com/css?family=Almarai:400,700,800&display=swap&subset=arabic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Almarai:500,700,800&display=swap&subset=arabic" rel="stylesheet">
 <link rel="stylesheet" href="./lightbox2-dev/dist/css/lightbox.css">
 <link rel="stylesheet" href="./scss/aos.css">
 <link rel="stylesheet" href="./scss/fonts.css">
@@ -19,7 +19,9 @@
 
 <body class="body">
     <div id="app" :class="language">
-        <link rel="stylesheet" href="./scss/style_ar.css" v-if="language='ar'">
+        <link rel="stylesheet" href="./scss/style_ar.css" v-if="language=='ar'">
+        <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css"
+            v-if="language=='ar'">
         <div id="loader" v-if="loading" class="loading position-fixed"
             style="padding: 0; margin: 0; width: 100vw;height: 100vh;background: #f6f4e2;z-index: 9999;display: flex;align-items: center;justify-content: center;">
             <img src="./imgs/logo-animation.gif" height="120px" alt="">
@@ -33,12 +35,15 @@
                         class="list-group-item-action w-100 text-uppercase">{{tr.news_events}}</a>
                     <a href="#about" :class="[activeLink == 'about' ? 'active' : '']" @click="activeLink = 'about'"
                         class="list-group-item-action w-100 text-uppercase">{{tr.About_us}}</a>
-                    <a href="#gallery" :class="[activeLink == 'gallery' ? 'active' : '']" @click="activeLink = 'gallery'"
+                    <a href="#gallery" :class="[activeLink == 'gallery' ? 'active' : '']"
+                        @click="activeLink = 'gallery'"
                         class="list-group-item-action w-100 text-uppercase">{{tr.gallery}}</a>
                     <a href="#partners" :class="[activeLink == 'partners' ? 'active' : '']"
-                        @click="activeLink = 'partners'" class="list-group-item-action w-100 text-uppercase">{{tr.Our_partners}}</a>
+                        @click="activeLink = 'partners'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.Our_partners}}</a>
                     <a href="#library" :class="[activeLink == 'library' ? 'active' : '']"
-                        @click="activeLink = 'library'" class="list-group-item-action w-100 text-uppercase">{{tr.Our_library}}</a>
+                        @click="activeLink = 'library'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.Our_library}}</a>
                 </div>
                 <div class="list-group list-group-flush h-auto mt-auto side-links">
                     <div class="mt-auto">
@@ -50,7 +55,8 @@
                         </div>
                         <a href="./registration.html"
                             class="list-group-item-action w-100 bg-orange text-uppercase">{{tr.registration}}</a>
-                        <a href="./contacts.html" class="list-group-item-action w-100 bg-red text-uppercase">{{tr.Contact_us}}</a>
+                        <a href="./contacts.html"
+                            class="list-group-item-action w-100 bg-red text-uppercase">{{tr.Contact_us}}</a>
                     </div>
                 </div>
             </div>
@@ -71,16 +77,16 @@
                         <img :src="serverPath+home.logo" alt="">
                     </div>
                     <div class="d-none d-md-block">
-                        <a href="./registration.html" class="bg-danger text-white rounded-pill register">Register
-                            now</a>
+                        <a href="./registration.html"
+                            class="bg-danger text-white rounded-pill register">{{tr.register_now}}</a>
                     </div>
                     <div class="text-white">
-                        <h2 class="m-0 text-white">WHAT IS STREET SPORT INCUBATOR?</h2>
+                        <h2 class="m-0 text-white text-uppercase">{{tr.about_street}}</h2>
                         <a href="{{home.video_link}}" class="text-white"><i class="fas fa-play-circle mt-4"
                                 style="font-size: 48px;"></i></a>
                     </div>
                     <div class="text-white">
-                        <h5 class="m-0 text-white" style="font-weight: normal">PROJECT BY</h5>
+                        <h5 class="m-0 text-white text-uppercase" style="font-weight: normal">{{tr.implement}}</h5>
                         <div class="mt-4">
                             <div class="container">
                                 <div class="row">
@@ -102,15 +108,15 @@
                 <div class="social position-absolute w-75 d-none d-lg-block">
                     <div class="d-flex justify-content-between px-5">
                         <a href="{{home.fb_link}}" class="text-dark" target="_blank"><i
-                                class="fab fa-facebook-f fa-lg mr-2"></i>Facebook</a>
+                                class="fab fa-facebook-f fa-lg mr-2"></i>{{tr.facebook}}</a>
                         <a href="{{home.tw_link}}" class="text-dark" target="_blank"><i
-                                class="fab fa-twitter fa-lg mr-2"></i>Twitter</a>
+                                class="fab fa-twitter fa-lg mr-2"></i>{{tr.twitter}}</a>
                         <a href="{{home.yt_link}}" class="text-dark" target="_blank"><i
-                                class="fab fa-youtube fa-lg mr-2"></i>Youtube</a>
+                                class="fab fa-youtube fa-lg mr-2"></i>{{tr.youtube}}</a>
                         <a href="{{home.in_link}}" class="text-dark" target="_blank"><i
-                                class="fab fa-linkedin fa-lg mr-2"></i>Linkedin</a>
+                                class="fab fa-linkedin fa-lg mr-2"></i>{{tr.linkedin}}</a>
                         <a href="{{home.ig_link}}" class="text-dark" target="_blank"><i
-                                class="fab fa-instagram fa-lg mr-2"></i>Instagram</a>
+                                class="fab fa-instagram fa-lg mr-2"></i>{{tr.instagram}}</a>
                     </div>
                 </div>
                 <div class="social social-mobile position-absolute w-100 d-block d-lg-none">
@@ -131,15 +137,15 @@
                         </div>
                         <div class="col-7 news h-100">
                             <div class="row h-50 mr-0">
-                                <div class="col p-0 aos" data-aos="fade-left" data-aos-offset="200"
-                                    data-aos-delay="200">
+                                <div class="col p-0 aos" data-aos-offset="200"
+                                    :data-aos="[language=='ar' ? 'fade-right' : 'fade-left']" data-aos-delay="200">
                                     <div class="news-card h-100 custom-card arrow-right">
                                         <div class="d-flex flex-column justify-content-between p-4 h-100">
                                             <div class="d-flex justify-content-between">
                                                 <h6 class="card-info text-muted m-0 align-middle"><small
                                                         class="font-weight-bold">{{ news[1].created_at }}</small>
                                                 </h6>
-                                                <div class="news-tag text-white text-uppercase">news</div>
+                                                <div class="news-tag text-white text-uppercase">{{tr.news}}</div>
                                             </div>
                                             <a :href="'news-detailed.html?news-id='+news[1].id+'&page-type=news'"
                                                 class="card-title text-red custom-title m-0 text-uppercase">
@@ -147,70 +153,75 @@
                                             <p class="card-text custom-paragraph m-0">
                                                 {{ news[1].text.slice(0, 65) + '...' }}</p>
                                             <a href="'news-detailed.html?news-id='+news[1].id+'&page-type=news'"
-                                                class="btn btn-link p-0 mr-auto text-red font-weight-bold text-uppercase custom-more">Read
-                                                more<i class="fas fa-chevron-right ml-2"></i></a>
+                                                class="btn btn-link p-0 mr-auto text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}<i
+                                                    class="fas ml-2"
+                                                    :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col p-0" data-aos="fade-left" data-aos-offset="400" data-aos-delay="300"
-                                    data-aos-anchor=".news">
+                                <div class="col p-0" data-aos-offset="400" data-aos-delay="300"
+                                    :data-aos="[language=='ar' ? 'fade-right' : 'fade-left']" data-aos-anchor=".news">
                                     <div class="news-card bg-white h-100">
                                         <img :src="serverPath+news[1].img" style="object-fit: cover;height: 50vh;" />
                                     </div>
                                 </div>
-                                <div class="col p-0" data-aos="fade-left" data-aos-offset="600" data-aos-delay="400"
-                                    data-aos-anchor=".news">
+                                <div class="col p-0" data-aos-offset="600" data-aos-delay="400"
+                                    :data-aos="[language=='ar' ? 'fade-right' : 'fade-left']" data-aos-anchor=".news">
                                     <div class="news-card h-100 d-flex flex-column">
                                         <a class="all-news bg-red h-50 position-relative"
                                             href="./news-events-lists.html?activeList=news">
                                             <div class="position-absolute custom-position">
                                                 <h2 class="font-weight-bold text-uppercase text-center text-white">
-                                                    news</h2>
-                                                <h5 class="font-weight-bold text-uppercase text-center text-white">
-                                                    Descover All</h5>
+                                                    {{tr.news}}</h2>
+                                                <h5 class="font-weight-bold text-uppercase text-center text-white"
+                                                    :class="[language=='ar' ? 'mt-3' : '']">
+                                                    {{tr.discoverAll}}</h5>
                                             </div>
                                         </a>
                                         <a class="all-events bg-red h-50 position-relative"
                                             href="./news-events-lists.html?activeList=events">
                                             <div class="position-absolute custom-position">
                                                 <h2 class="font-weight-bold text-uppercase text-center text-white">
-                                                    events</h2>
-                                                <h5 class="font-weight-bold text-uppercase text-center text-white">
-                                                    Descover All</h5>
+                                                    {{tr.events}}</h2>
+                                                <h5 class="font-weight-bold text-uppercase text-center text-white"
+                                                    :class="[language=='ar' ? 'mt-3' : '']">
+                                                    {{tr.discoverAll}}</h5>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="row h-50 mr-0">
-                                <div class="col p-0" data-aos="fade-left" data-aos-offset="200" data-aos-delay="200">
+                                <div class="col p-0" data-aos-offset="200" data-aos-delay="200"
+                                    :data-aos="[language=='ar' ? 'fade-right' : 'fade-left']">
                                     <div class="news-card h-100 custom-card bg-white arrow-left">
                                         <div class="d-flex flex-column justify-content-between p-4 h-100">
                                             <div class="d-flex justify-content-between">
                                                 <h6 class="card-info text-muted m-0 align-middle"><small
                                                         class="font-weight-bold">{{ news[0].created_at }}</small>
                                                 </h6>
-                                                <div class="news-tag text-white text-uppercase">news</div>
+                                                <div class="news-tag text-white text-uppercase">{{tr.news}}</div>
                                             </div>
                                             <a :href="'news-detailed.html?news-id='+news[0].id+'&page-type=news'"
                                                 class="card-title text-red custom-title m-0 text-uppercase">{{ news[0].title.slice(0, 90) }}</a>
                                             <p class="card-text custom-paragraph m-0">
                                                 {{ news[0].text.slice(0, 65) + '...' }}</p>
                                             <a href="'news-detailed.html?news-id='+news[0].id+'&page-type=news'"
-                                                class="btn btn-link p-0 mr-auto text-red font-weight-bold text-uppercase custom-more">Read
-                                                more<i class="fas fa-chevron-right ml-2"></i></a>
+                                                class="btn btn-link p-0 mr-auto text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}<i
+                                                    class="fas ml-2"
+                                                    :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col p-0" data-aos="fade-left" data-aos-offset="400" data-aos-delay="300"
-                                    data-aos-anchor=".news">
+                                <div class="col p-0" data-aos-offset="400" data-aos-delay="300"
+                                    :data-aos="[language=='ar' ? 'fade-right' : 'fade-left']" data-aos-anchor=".news">
                                     <div class="news-card h-100 custom-card arrow-right">
                                         <div class="d-flex flex-column justify-content-between p-4 h-100">
                                             <div class="d-flex justify-content-between">
                                                 <h6 class="card-info text-muted m-0 align-middle"><small
                                                         class="font-weight-bold">{{ events[0].event_at }}</small>
                                                 </h6>
-                                                <div class="news-tag text-white text-uppercase">event</div>
+                                                <div class="news-tag text-white text-uppercase">{{tr.event}}</div>
                                             </div>
                                             <a :href="'news-detailed.html?news-id='+events[0].id+'&page-type=events'"
                                                 class="card-title text-red custom-title m-0 text-uppercase">
@@ -218,13 +229,14 @@
                                             <p class="card-text custom-paragraph m-0">
                                                 {{ events[0].text.slice(0, 65) + '...' }}</p>
                                             <a :href="'news-detailed.html?news-id='+events[0].id+'&page-type=events'"
-                                                class="btn btn-link p-0 mr-auto text-red font-weight-bold text-uppercase custom-more">Read
-                                                more<i class="fas fa-chevron-right ml-2"></i></a>
+                                                class="btn btn-link p-0 mr-auto text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}<i
+                                                    class="fas ml-2"
+                                                    :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col p-0" data-aos="fade-left" data-aos-offset="600" data-aos-delay="400"
-                                    data-aos-anchor=".news">
+                                <div class="col p-0" data-aos-offset="600" data-aos-delay="400"
+                                    :data-aos="[language=='ar' ? 'fade-right' : 'fade-left']" data-aos-anchor=".news">
                                     <div class="news-card h-100">
                                         <img :src="serverPath+events[0].img" style="object-fit: cover;height: 50vh;" />
                                     </div>
@@ -291,7 +303,7 @@
                         </div>
                         <a href="{{about.video_link}}" class="section-link mt-lg-4 mt-3 rounded">
                             <i class="fas fa-play"></i>
-                            <span class="ml-2">Watch our video</span>
+                            <span class="ml-2">{{tr.watchVideo}}</span>
                         </a>
                     </div>
                     <div class="body-content h-auto h-md-50 text-center text-md-left">
@@ -311,8 +323,8 @@
                                         <div class="about-description">
                                             <p>{{about_pages.aboutTabs[0].description}}</p>
                                         </div>
-                                        <span class="text-blue">Read More
-                                            <i class="fas fa-chevron-right ml-2 align-middle"></i>
+                                        <span class="text-blue">{{tr.read_more}}<i class="fas ml-2 align-middle"
+                                                :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i>
                                         </span>
                                     </a>
                                     <a href="./about-detailed.html?activeList=about_game_jordan"
@@ -327,12 +339,12 @@
                                         <div class="about-description">
                                             <p>{{about_pages.aboutTabs[1].description}}</p>
                                         </div>
-                                        <span class="text-blue">Read More
-                                            <i class="fas fa-chevron-right ml-2 align-middle"></i>
+                                        <span class="text-blue">{{tr.read_more}}<i class="fas ml-2 align-middle"
+                                                :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i>
                                         </span>
                                     </a>
                                     <a href="./about-detailed.html?activeList=about_jyif"
-                                        class="d-flex flex-column h-100 text-white custom-hover mb-4">
+                                        class="d-flex flex-column h-100 text-white custom-hover mb-1">
                                         <div class="about-logos">
                                             <img class="d-inline-block"
                                                 :src="serverPath+about_pages.aboutTabs[2].logo" />
@@ -343,8 +355,8 @@
                                         <div class="about-description">
                                             <p>{{about_pages.aboutTabs[2].description}}</p>
                                         </div>
-                                        <span class="text-blue">Read More
-                                            <i class="fas fa-chevron-right ml-2 align-middle"></i>
+                                        <span class="text-blue">{{tr.read_more}}<i class="fas ml-2 align-middle"
+                                                :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i>
                                         </span>
                                     </a>
                                 </div>
@@ -361,7 +373,7 @@
                         <div class="section-title text-white text-uppercase">{{gallery.title}}</div>
                         <div class="section-body">{{gallery.description}}</div>
                         <a :href="gallery.external_link" target="_blank" class="section-link mt-lg-4 mt-3 rounded">
-                            <span class="text-uppercase">see More</span>
+                            <span class="text-uppercase">{{tr.seeAll}}</span>
                         </a>
                     </div>
                     <div class="body-content" data-aos="fade-up" data-aos-offset="200" data-aos-delay="300"
@@ -409,7 +421,7 @@
                         <div class="section-title text-white text-uppercase">{{library.title}}</div>
                         <div class="section-body">{{library.description}}</div>
                         <a href="./library-list.html?activeList=library" class="section-link mt-lg-4 mt-3 rounded">
-                            <span>see list</span>
+                            <span>{{tr.seeList}}</span>
                         </a>
                     </div>
                     <div class="body-content" data-aos="fade-up" data-aos-offset="200" data-aos-delay="300"
@@ -422,7 +434,7 @@
                                     <img :src="serverPath+item.img" />
                                     <div class="overlay position-absolute">
                                         <div class="text">{{ item.title }}
-                                            <p class="m-0 mt-2 text-blue">Read More</p>
+                                            <p class="m-0 mt-2 text-blue">{{tr.read_more}}</p>
                                         </div>
                                     </div>
                                 </a>
@@ -449,7 +461,7 @@
                                     req="true" placeholder="Enter Your E-mail" v-model="subscribe.email">
                                 <button @click="subscription('#validated-form')"
                                     class="rounded border-0 bg-red text-white text-uppercase w-100"
-                                    type="button">subscribe
+                                    type="button">{{tr.subscribe}}
                                 </button>
                             </form>
                         </div>
@@ -477,7 +489,7 @@
                                     req="true" placeholder="Enter Your E-mail" v-model="subscribe.email">
                                 <button @click="subscription('#validated-form')"
                                     class="border-0 position-absolute bg-red text-white text-uppercase w-25"
-                                    type="button">subscribe
+                                    type="button">{{tr.subscribe}}
                                 </button>
                             </form>
                         </div>

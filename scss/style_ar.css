@@ -1,10 +1,10 @@
+@charset "UTF-8";
 html {
   margin: 0;
 }
 
 .html,
 .body {
-  font-family: "Almarai", sans-serif;
   overflow: hidden;
 }
 
@@ -74,9 +74,10 @@ html {
 }
 
 .sidebar .side-links a:after {
-  content: "\f054";
+  content: "\f053";
   position: absolute;
-  right: 1.25rem;
+  left: 1.25rem;
+  right: unset;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
@@ -123,7 +124,8 @@ html {
   background-color: #d62b4d;
   z-index: 9999;
   top: 0;
-  left: 0;
+  left: unset;
+  right: 0;
   -webkit-transform: translateX(0px);
           transform: translateX(0px);
   -webkit-transition: all 0.3s ease-in-out;
@@ -197,7 +199,8 @@ html {
 body {
   max-width: 100vw;
   height: auto;
-  font-family: "Soho Pro";
+  font-family: "Almarai", sans-serif;
+  direction: rtl;
 }
 
 ::-webkit-scrollbar {
@@ -234,7 +237,7 @@ ul {
 }
 
 .bg-orange {
-  color: #fff;
+  color: #fff !important;
   background-color: #ee7531;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -245,7 +248,7 @@ ul {
 }
 
 .bg-red {
-  color: #fff;
+  color: #fff !important;
   background-color: #d62b4d;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -267,7 +270,7 @@ ul {
 }
 
 section {
-  font-family: "Soho Pro";
+  font-family: "Almarai", sans-serif !important;
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
@@ -325,8 +328,8 @@ section {
 }
 
 .dragged {
-  -webkit-transform: translateX(315px) !important;
-          transform: translateX(315px) !important;
+  -webkit-transform: translateX(-315px) !important;
+          transform: translateX(-315px) !important;
 }
 
 .home {
@@ -431,6 +434,7 @@ section {
 }
 
 .news {
+  padding-right: 0 !important;
   background-color: #f6f4e2;
 }
 
@@ -468,7 +472,12 @@ section {
 }
 
 .news .custom-card .custom-more {
-  font-size: 14px;
+  font-size: 16px;
+  direction: rtl;
+}
+
+.news .custom-card .custom-more i {
+  vertical-align: inherit;
 }
 
 @media (max-width: 1200px) {
@@ -501,10 +510,12 @@ section {
   height: 0;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-left: 20px solid #f6f4e2;
+  border-right: 20px solid #f6f4e2;
+  border-left: unset;
   position: absolute;
   top: 50%;
-  right: -20px;
+  right: unset;
+  left: -20px;
   z-index: 2;
   -webkit-transform: translateY(-20px);
           transform: translateY(-20px);
@@ -520,10 +531,12 @@ section {
   height: 0;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-right: 20px solid #ffffff;
+  border-left: 20px solid #ffffff;
+  border-right: unset;
   position: absolute;
   top: 50%;
-  left: -20px;
+  left: unset;
+  right: -20px;
   z-index: 2;
   -webkit-transform: translateY(-20px);
           transform: translateY(-20px);
@@ -571,15 +584,16 @@ section {
 }
 
 .about .section-tag::before {
-  content: "About us";
+  content: "من نحن";
   text-transform: uppercase;
   color: #424242;
   background: #fff;
-  margin-right: auto;
-  line-height: 14px;
+  margin-right: unset;
+  margin-left: auto;
+  line-height: 15px;
   padding: 10px 14px;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 800;
+  font-size: 15px;
 }
 
 .about .head-content .section-title {
@@ -605,11 +619,16 @@ section {
   width: -moz-fit-content;
   width: fit-content;
   font-weight: 500;
-  padding: 18px 16px;
+  padding: 14px 18px;
   color: #fff;
   background-color: #19a2e0;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+.about .head-content .section-link span {
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .about .head-content .section-link:hover {
@@ -699,15 +718,16 @@ section {
 }
 
 .gallery .section-tag::before {
-  content: "OUR GALLERY";
+  content: "معرض الصور";
   text-transform: uppercase;
   color: #424242;
   background: #fff;
-  margin-right: auto;
-  line-height: 14px;
+  margin-right: unset;
+  margin-left: auto;
+  line-height: 15px;
   padding: 10px 14px;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 800;
+  font-size: 15px;
 }
 
 .gallery .head-content .section-title {
@@ -733,7 +753,7 @@ section {
   width: -moz-fit-content;
   width: fit-content;
   font-weight: 500;
-  padding: 12px 16px;
+  padding: 14px 18px;
   color: #fff;
   background-color: #19a2e0;
   -webkit-transition: all 0.3s ease-in-out;
@@ -805,15 +825,16 @@ section {
 }
 
 .partner .section-tag::before {
-  content: "OUR partners";
+  content: "الشركاء";
   text-transform: uppercase;
   color: #424242;
   background: #fff;
-  margin-right: auto;
-  line-height: 14px;
+  margin-right: unset;
+  margin-left: auto;
+  line-height: 15px;
   padding: 10px 14px;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 800;
+  font-size: 15px;
 }
 
 .partner .head-content .section-title {
@@ -895,15 +916,16 @@ section {
 }
 
 .library .section-tag::before {
-  content: "LIBRARY";
+  content: "المكتبة";
   text-transform: uppercase;
   color: #424242;
   background: #fff;
-  margin-right: auto;
-  line-height: 14px;
+  margin-right: unset;
+  margin-left: auto;
+  line-height: 15px;
   padding: 10px 14px;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 800;
+  font-size: 15px;
 }
 
 .library .head-content .section-title {
@@ -1064,16 +1086,19 @@ section {
 }
 
 .footer #subscribe .sub button {
-  right: 0;
+  right: unset;
   line-height: 46.3px;
-  border-top-right-radius: 0.3rem;
-  border-bottom-right-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  left: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .footer #subscribe .sub .custom-input {
   width: 75%;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .footer #subscribe .sub .custom-input::-webkit-input-placeholder {
@@ -1102,7 +1127,8 @@ section {
 
 .footer #subscribe .sub .background {
   bottom: 0;
-  right: 3rem;
+  right: unset;
+  left: 3rem;
 }
 
 .footer .sub-footer {
