@@ -19,7 +19,7 @@
 
 <body class="body">
     <div id="app" :class="language">
-        <link rel="stylesheet" href="./scss/style.css" v-if="language="ar">
+        <link rel="stylesheet" href="./scss/style_ar.css" v-if="language='ar'">
         <div id="loader" v-if="loading" class="loading position-fixed"
             style="padding: 0; margin: 0; width: 100vw;height: 100vh;background: #f6f4e2;z-index: 9999;display: flex;align-items: center;justify-content: center;">
             <img src="./imgs/logo-animation.gif" height="120px" alt="">
@@ -49,7 +49,7 @@
                                 class="list-group-item-action w-100 ar-link">عربي</a>
                         </div>
                         <a href="./registration.html"
-                            class="list-group-item-action w-100 bg-orange text-uppercase">{{tr.Registration}}</a>
+                            class="list-group-item-action w-100 bg-orange text-uppercase">{{tr.registration}}</a>
                         <a href="./contacts.html" class="list-group-item-action w-100 bg-red text-uppercase">{{tr.Contact_us}}</a>
                     </div>
                 </div>

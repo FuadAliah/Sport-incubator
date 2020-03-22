@@ -5,6 +5,6 @@ var locales_en = {
     "gallery": "Our Gallery",
     "Our_partners": "Our Partners",
     "Our_library": "Our Library",
-    "Registration": "Registration",
+    "registration": "Registration",
     "Contact_us": "Contact us"
 }
