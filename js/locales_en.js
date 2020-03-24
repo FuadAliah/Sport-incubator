@@ -1,10 +1,10 @@
 var locales_en = {
     "home": "home",
     "news_events": "News / Events",
-    "About_us": "About us",
+    "about": "About us",
     "gallery": "Our Gallery",
-    "Our_partners": "Our Partners",
-    "Our_library": "Our Library",
+    "partners": "Our Partners",
+    "library": "Our Library",
 
     //home_section
     "registration": "Registration",
@@ -27,7 +27,7 @@ var locales_en = {
 
     //about_section
     "watchVideo": "Watch our video",
-    
+
     //gallery_section
     "seeAll": "See All",
 
@@ -35,5 +35,41 @@ var locales_en = {
     "seeList": "See List",
 
     //subscribe_section
-    "subscribe": "subscribe"
+    "subscribe": "subscribe",
+    "subscribeMsg": "Subscribe for updates",
+    "subscribeSlog": "get updates by subscribing our newsletter",
+    "ePlaceHolder": "Enter your E-mail",
+
+    //footer_section
+    "aboutIncubator": "About The Incubator",
+    "aboutGame": "About Game Jordan",
+    "aboutJyif": "About jyif",
+    "socialMedia": "Social Media",
+    "powered": "Powered by ",
+
+    //navbar
+    "back": "Back",
+
+    //new_events_list
+    "newsSlogan": "Keep up with our progress",
+    
+    //library_list
+    "libraryTab": "library",
+    "viewDoc": "View Document",
+    "saveDoc": "Save Document",
+
+    //register_page
+    "register": "register",
+    "registerTitle": "please complete the form below",
+    "mandatory": "Mandatory Fields*",
+    "accountInformation": "Account Information",
+    "profileInformation": "Profile Information",
+    "ideaInformation": "idea Information",
+    "register_btn": "register",
+
+    //contacts_page
+    "call": "Call",
+    "write": "Write",
+    "email": "Email",
+    "send": "Send Message",
 }

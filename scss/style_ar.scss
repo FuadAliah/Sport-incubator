@@ -189,7 +189,7 @@ ul {
   }
 }
 .bg-orange {
-  color: #fff !important;
+  color: #fff;
   background-color: $orangeColor;
   transition: $ease-in-out;
   &:hover {
@@ -197,7 +197,7 @@ ul {
   }
 }
 .bg-red {
-  color: #fff !important;
+  color: #fff;
   background-color: $redColor;
   transition: $ease-in-out;
   &:hover {
@@ -959,7 +959,7 @@ section {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         &::placeholder {
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-weight: lighter;
           color: #c0c0c0;
         }

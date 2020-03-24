@@ -34,16 +34,16 @@
                     <a href="#news" :class="[activeLink == 'news' ? 'active' : '']" @click="activeLink = 'news'"
                         class="list-group-item-action w-100 text-uppercase">{{tr.news_events}}</a>
                     <a href="#about" :class="[activeLink == 'about' ? 'active' : '']" @click="activeLink = 'about'"
-                        class="list-group-item-action w-100 text-uppercase">{{tr.About_us}}</a>
+                        class="list-group-item-action w-100 text-uppercase">{{tr.about}}</a>
                     <a href="#gallery" :class="[activeLink == 'gallery' ? 'active' : '']"
                         @click="activeLink = 'gallery'"
                         class="list-group-item-action w-100 text-uppercase">{{tr.gallery}}</a>
                     <a href="#partners" :class="[activeLink == 'partners' ? 'active' : '']"
                         @click="activeLink = 'partners'"
-                        class="list-group-item-action w-100 text-uppercase">{{tr.Our_partners}}</a>
+                        class="list-group-item-action w-100 text-uppercase">{{tr.partners}}</a>
                     <a href="#library" :class="[activeLink == 'library' ? 'active' : '']"
                         @click="activeLink = 'library'"
-                        class="list-group-item-action w-100 text-uppercase">{{tr.Our_library}}</a>
+                        class="list-group-item-action w-100 text-uppercase">{{tr.library}}</a>
                 </div>
                 <div class="list-group list-group-flush h-auto mt-auto side-links">
                     <div class="mt-auto">
@@ -153,7 +153,7 @@
                                             <p class="card-text custom-paragraph m-0">
                                                 {{ news[1].text.slice(0, 65) + '...' }}</p>
                                             <a href="'news-detailed.html?news-id='+news[1].id+'&page-type=news'"
-                                                class="btn btn-link p-0 mr-auto text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}<i
+                                                class="btn btn-link p-0 text-left text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}<i
                                                     class="fas ml-2"
                                                     :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i></a>
                                         </div>
@@ -207,7 +207,7 @@
                                             <p class="card-text custom-paragraph m-0">
                                                 {{ news[0].text.slice(0, 65) + '...' }}</p>
                                             <a href="'news-detailed.html?news-id='+news[0].id+'&page-type=news'"
-                                                class="btn btn-link p-0 mr-auto text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}<i
+                                                class="btn btn-link p-0 text-left text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}<i
                                                     class="fas ml-2"
                                                     :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i></a>
                                         </div>
@@ -229,7 +229,7 @@
                                             <p class="card-text custom-paragraph m-0">
                                                 {{ events[0].text.slice(0, 65) + '...' }}</p>
                                             <a :href="'news-detailed.html?news-id='+events[0].id+'&page-type=events'"
-                                                class="btn btn-link p-0 mr-auto text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}<i
+                                                class="btn btn-link p-0 text-left text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}<i
                                                     class="fas ml-2"
                                                     :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i></a>
                                         </div>
@@ -258,13 +258,14 @@
                                     <h6 class="card-info text-muted m-0 align-middle"><small
                                             class="font-weight-bold">{{ news[0].created_at }}</small>
                                     </h6>
-                                    <div class="news-tag text-white text-uppercase">news</div>
+                                    <div class="news-tag text-white text-uppercase">{{tr.news}}</div>
                                 </div>
                                 <a :href="'news-detailed.html?news-id='+news[0].id+'&page-type=news'"
                                     class="card-title text-red custom-title m-0">{{ news[0].title }}</a>
                                 <a :href="'news-detailed.html?news-id='+news[0].id+'&page-type=news'"
-                                    class="btn btn-link p-0 mr-auto text-red font-weight-bold text-uppercase custom-more">Read
-                                    more<i class="fas fa-chevron-right ml-2"></i></a>
+                                    class="btn btn-link p-0 text-left text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}
+                                    <i class="fas ml-2"
+                                        :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i></a>
                             </div>
                         </div>
                         <div class="h-25 w-100 d-flex">
@@ -272,18 +273,18 @@
                                 href="./news-events-lists.html?activeList=news">
                                 <div class="position-absolute custom-position">
                                     <h5 class="font-weight-bold text-uppercase text-center text-white">
-                                        news</h5>
+                                        {{tr.news}}</h5>
                                     <h6 class="font-weight-bold text-uppercase text-center text-white m-0">
-                                        Descover All</h6>
+                                        {{tr.discoverAll}}</h6>
                                 </div>
                             </a>
                             <a class="bg-red h-100 w-50 position-relative"
                                 href="./news-events-lists.html?activeList=events">
                                 <div class="position-absolute custom-position">
                                     <h5 class="font-weight-bold text-uppercase text-center text-white">
-                                        events</h5>
+                                        {{tr.events}}</h5>
                                     <h6 class="font-weight-bold text-uppercase text-center text-white m-0">
-                                        Descover All</h6>
+                                        {{tr.discoverAll}}</h6>
                                 </div>
                             </a>
                         </div>
@@ -477,16 +478,20 @@
                         <div class="col-6 h-50 d-flex flex-column justify-content-between">
                             <div class="left-content">
                                 <div class="text-info">
-                                    <h1 class="news-title m-0 text-uppercase">Subscribe for updates</h1>
+                                    <h1 class="news-title m-0 text-uppercase">{{tr.subscribeMsg}}</h1>
                                     <h5 class="news-paragraph mt-4 text-capitalize text-muted">
-                                        get updates by subscribing our newsletter
+                                        {{tr.subscribeSlog}}
                                     </h5>
                                 </div>
                             </div>
                             <form class="custom-form d-flex position-relative" id="validated-form" action=""
                                 method="post">
                                 <input type="email" class="custom-input form-control form-control-lg bg-light"
-                                    req="true" placeholder="Enter Your E-mail" v-model="subscribe.email">
+                                    v-if="language=='en'" req="true" placeholder="Enter Your E-mail"
+                                    v-model="subscribe.email">
+                                <input type="email" class="custom-input form-control form-control-lg bg-light"
+                                    v-if="language=='ar'" req="true" placeholder="أدخل بريدك الإلكتروني"
+                                    v-model="subscribe.email">
                                 <button @click="subscription('#validated-form')"
                                     class="border-0 position-absolute bg-red text-white text-uppercase w-25"
                                     type="button">{{tr.subscribe}}
@@ -509,30 +514,32 @@
                             <div class="row">
                                 <div class="col-12 col-md-4 mt-4 mt-md-0">
                                     <div class="abouts-links">
-                                        <h5 class="text-uppercase">About us</h5>
+                                        <h5 class="text-uppercase">{{tr.about}}</h5>
                                         <ul class="p-0 m-0 mt-3">
                                             <li class="py-1">
                                                 <a href="./about-detailed.html?activeList=about_the_incubator"
-                                                    class="text-secondary">About The Incubator</a>
+                                                    class="text-secondary">{{tr.aboutIncubator }}</a>
                                                 </li">
                                             <li class="py-1">
                                                 <a href="./about-detailed.html?activeList=about_game_jordan"
-                                                    class="text-secondary">About Game Jordan</a>
+                                                    class="text-secondary">{{tr.aboutGame}}</a>
                                             </li>
                                             <li class="py-1">
                                                 <a href="./about-detailed.html?activeList=about_jyif"
-                                                    class="text-secondary">About jyif</a>
+                                                    class="text-secondary">{{tr.aboutJyif}}</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 mt-4 mt-md-0">
                                     <div class="contacts-links">
-                                        <h5 class="text-uppercase">Contact us</h5>
+                                        <h5 class="text-uppercase">{{tr.Contact_us}}</h5>
                                         <ul class="p-0 m-0 mt-3">
                                             <li class="py-1">
                                                 <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
-                                                    {{ footer.contact_info.info.contact_phone }}
+                                                    <span class="phone-number">
+                                                        {{ footer.contact_info.info.contact_phone }}
+                                                    </span>
                                                 </p>
                                             </li>
                                             <li class="py-1">
@@ -541,7 +548,6 @@
                                                         class="text-secondary">
                                                         {{ footer.contact_info.info.contact_email }}
                                                     </a>
-
                                                 </p>
                                             </li>
                                         </ul>
@@ -549,7 +555,7 @@
                                 </div>
                                 <div class="col-12 col-md-4 mt-4 mt-md-0">
                                     <div class="Social-links">
-                                        <h5 class="text-uppercase">Social Media</h5 class="text-uppercase">
+                                        <h5 class="text-uppercase">{{tr.socialMedia}}</h5 class="text-uppercase">
                                         <ul class="p-0 m-0 mt-3 d-flex">
                                             <li class="border-right-0 border border-info">
                                                 <a :href="footer.contact_info.social_links.fb_link"
@@ -589,8 +595,8 @@
                     <div
                         class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
                         <h6 class="m-0"><small>{{ footer.contact_info.info.copy_write_en }}</small></h6 class="p-0">
-                        <h6 class="m-0 mt-2 mt-md-0"><small>Powered by <a href="http://www.eappera.com" target="_blank"
-                                    class="text-info">EappEra</a></small>
+                        <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com"
+                                    target="_blank" class="text-info">EappEra</a></small>
                         </h6>
                     </div>
                 </div>

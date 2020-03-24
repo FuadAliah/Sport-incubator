@@ -18,7 +18,11 @@
 </head>
 
 <body class="contacts">
-    <div id="app" style="height: 100vh;">
+    <div id="app" :class="language" style="height: 100vh;">
+        <link rel="stylesheet" href="./scss/style_ar.css" v-if="language=='ar'">
+        <link rel="stylesheet" href="./scss/internal-style_ar.css" v-if="language=='ar'">
+        <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css"
+            v-if="language=='ar'">
         <div id="loader" v-if="loading" class="loading position-fixed"
             style="padding: 0; margin: 0; width: 100vw;height: 100vh;background: #f6f4e2;z-index: 9999;display: flex;align-items: center;justify-content: center;">
             <img src="./imgs/logo-animation.gif" height="120px" alt="">
@@ -27,21 +31,22 @@
             <div class="bg-white custom-height" id="sidebar-wrapper" @click="open = false">
                 <div class="list-group list-group-flush h-auto side-links">
                     <a href="./index.html#home" :class="[activeLink == 'home' ? 'active' : '']"
-                        @click="activeLink = 'home'" class="list-group-item-action w-100 text-uppercase">Home</a>
+                        @click="activeLink = 'home'" class="list-group-item-action w-100 text-uppercase">{{tr.home}}</a>
                     <a href="./index.html#news" :class="[activeLink == 'news' ? 'active' : '']"
-                        @click="activeLink = 'news'" class="list-group-item-action w-100 text-uppercase">News /
-                        Events</a>
+                        @click="activeLink = 'news'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.news_events}}</a>
                     <a href="./index.html#about" :class="[activeLink == 'about' ? 'active' : '']"
-                        @click="activeLink = 'about'" class="list-group-item-action w-100 text-uppercase">About us</a>
+                        @click="activeLink = 'about'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.about}}</a>
                     <a href="./index.html#gallery" :class="[activeLink == 'gallery' ? 'active' : '']"
-                        @click="activeLink = 'gallery'" class="list-group-item-action w-100 text-uppercase">Our
-                        Gallery</a>
+                        @click="activeLink = 'gallery'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.gallery}}</a>
                     <a href="./index.html#partners" :class="[activeLink == 'partners' ? 'active' : '']"
-                        @click="activeLink = 'partners'" class="list-group-item-action w-100 text-uppercase">Our
-                        partners</a>
+                        @click="activeLink = 'partners'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.partners}}</a>
                     <a href="./index.html#library" :class="[activeLink == 'library' ? 'active' : '']"
-                        @click="activeLink = 'library'" class="list-group-item-action w-100 text-uppercase">Our
-                        library</a>
+                        @click="activeLink = 'library'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.library}}</a>
                 </div>
                 <div class="list-group list-group-flush h-auto mt-auto side-links">
                     <div class="mt-auto">
@@ -50,9 +55,9 @@
                             <a href="./index-ar.html" class="list-group-item-action w-100 ar-link">عربي</a>
                         </div>
                         <a href="./registration.html"
-                            class="list-group-item-action w-100 bg-orange text-uppercase">Registeration</a>
-                        <a href="javascript:void(0)" class="list-group-item-action w-100 bg-red text-uppercase">Contact
-                            us</a>
+                            class="list-group-item-action w-100 bg-orange text-uppercase">{{tr.registration}}</a>
+                        <a href="./contacts.html"
+                            class="list-group-item-action w-100 bg-red text-uppercase">{{tr.Contact_us}}</a>
                     </div>
                 </div>
             </div>
@@ -69,11 +74,13 @@
                 <div class="collapse navbar-collapse h-100" id="navbarNav">
                     <ul class="navbar-nav h-100">
                         <li class="nav-item border-right">
-                            <a class="nav-link py-0 px-4" href="#" onclick="goBack()"><i
-                                    class="fas fa-angle-left mr-2"></i>Back</a>
+                            <a class="nav-link py-0 px-4" href="#" onclick="goBack()"
+                                :style="language=='ar' ? 'margin: -3px 0;font-weight: 600;' : ''">
+                                <i class="fas mr-2" :class="[language=='ar' ? 'fa-angle-right' : 'fa-angle-left']"
+                                    :style="language=='ar' ? 'vertical-align: sub;' : ''"></i>{{tr.back}}</a>
                         </li>
                         <li class="nav-item border-right active">
-                            <a class="nav-link py-0 px-4 text-uppercase">contact us</a>
+                            <a class="nav-link py-0 px-4 text-uppercase">{{tr.Contact_us}}</a>
                         </li>
                     </ul>
                 </div>
@@ -82,12 +89,12 @@
                         <ul class="navbar-nav">
                             <li class="nav-item border-right">
                                 <a class="nav-link py-0 px-4" href="./index.html#2"><i
-                                        class="fas fa-angle-left mr-2"></i></a>
+                                        class="fas mr-2" :class="[language=='ar' ? 'fa-angle-right' : 'fa-angle-left']"></i></a>
                             </li>
                         </ul>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link py-0 px-4 text-uppercase">contact us</a>
+                                <a class="nav-link py-0 px-4 text-uppercase">{{tr.Contact_us}}</a>
                             </li>
                         </ul>
                     </div>
@@ -99,18 +106,15 @@
                         <div class="col-md-4 h-md-100 bg-white h-auto side-list p-4 p-md-5" data-aos="fade-right">
                             <div class="d-flex flex-column justify-content-between">
                                 <div class="h-50">
-                                    <div class="list-title text-uppercase mb-2">contact us</div>
-                                    <h4 class="list-slogan text-muted">We welcome <strong>feedback</strong> and
-                                        <strong>thoughts</strong> - from individuals,
-                                        education professionals, the international business community and official
-                                        organisations.
+                                    <div class="list-title text-uppercase mb-2">{{tr.Contact_us}}</div>
+                                    <h4 class="list-slogan text-muted">{{ footer.contact_info.info.contact_us_description_en }}
                                     </h4>
                                 </div>
                                 <div class="h-50 mt-5">
                                     <div class="d-flex flex-column">
                                         <div class="d-flex justify-content-between border-bottom py-3">
                                             <div class="key text-muted">
-                                                <h6 class="m-0">Call</h6>
+                                                <h6 class="m-0">{{tr.call}}</h6>
                                             </div>
                                             <div class="value text-muted">
                                                 <h6 class="m-0">{{ footer.contact_info.info.contact_phone }}</h6
@@ -119,7 +123,7 @@
                                         </div>
                                         <div class="d-flex justify-content-between border-bottom py-3">
                                             <div class="key text-muted">
-                                                <h6 class="m-0">Write</h6>
+                                                <h6 class="m-0">{{tr.write}}</h6>
                                             </div>
                                             <div class="value w-75 text-muted location">
                                                 <h6 class="mr-auto m-0 text-right"> Street Sports Incubator, P.O Box
@@ -128,7 +132,7 @@
                                         </div>
                                         <div class="d-flex justify-content-between border-bottom py-3">
                                             <div class="key text-muted">
-                                                <h6 class="m-0">Email</h6>
+                                                <h6 class="m-0">{{tr.email}}</h6>
                                             </div>
                                             <div class="value text-muted">
                                                 <h6 class="m-0">
@@ -141,29 +145,29 @@
                                         </div>
                                         <div class="d-flex justify-content-between border-bottom py-3">
                                             <div class="key text-muted">
-                                                <h6 class="m-0">Social</h6>
+                                                <h6 class="m-0">{{tr.socialMedia}}</h6>
                                             </div>
                                             <div class="Social-links">
                                                 <ul class="p-0 m-0 d-flex">
                                                     <li class="">
-                                                        <a href="{{home.fb_link}}" class="p-3 text-muted" target="_blank"><i
-                                                                class="fab fa-facebook-f fa-lg"></i></a>
+                                                        <a href="{{home.fb_link}}" class="p-3 text-muted"
+                                                            target="_blank"><i class="fab fa-facebook-f fa-lg"></i></a>
                                                     </li>
                                                     <li class="">
-                                                        <a href="{{home.tw_link}}" class="p-3 text-muted" target="_blank"><i
-                                                                class="fab fa-twitter fa-lg"></i></a>
+                                                        <a href="{{home.tw_link}}" class="p-3 text-muted"
+                                                            target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
                                                     </li>
                                                     <li class="border-right-0">
-                                                        <a href="{{home.yt_link}}" class="p-3 text-muted" target="_blank"><i
-                                                                class="fab fa-youtube fa-lg"></i></a>
+                                                        <a href="{{home.yt_link}}" class="p-3 text-muted"
+                                                            target="_blank"><i class="fab fa-youtube fa-lg"></i></a>
                                                     </li>
                                                     <li class="">
-                                                        <a href="{{home.in_link}}" class="p-3 text-muted" target="_blank"><i
-                                                                class="fab fa-linkedin fa-lg"></i></a>
+                                                        <a href="{{home.in_link}}" class="p-3 text-muted"
+                                                            target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
                                                     </li>
                                                     <li class="">
-                                                        <a href="{{home.ig_link}}" class="py-3 pl-3 pr-0 text-muted" target="_blank"><i
-                                                                class="fab fa-instagram fa-lg"></i></a>
+                                                        <a href="{{home.ig_link}}" class="py-3 pl-3 pr-0 text-muted"
+                                                            target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -175,16 +179,18 @@
                         <div class="col-md-8 content-list bg-white h-100 p-0" data-aos="fade-left">
                             <div class="container custom-container">
                                 <div class="contact-title">
-                                    <h4 class="text-muted">PLEASE COMPLETE THE FORM BELOW</h4>
-                                    <h6 class="text-info m-0"><small>* Mandatory fields</small></h6>
+                                    <h4 class="text-muted">{{tr.registerTitle}}</h4>
+                                    <h6 class="text-info m-0"><small>{{tr.mandatory}}</small></h6>
                                     <form class="custom-form" id="validated-form" action="" method="post">
                                         <div class="form-row custom-row">
                                             <div class="col-12 col-md-6 custom-input">
-                                                <input type="text" class="form-control form-control-lg" req="true" onkeypress="return /[a-z]/i.test(event.key)"
+                                                <input type="text" class="form-control form-control-lg" req="true"
+                                                    onkeypress="return /[a-z]/i.test(event.key)"
                                                     placeholder="First name*" v-model="contactPage.first_name">
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
-                                                <input type="text" class="form-control form-control-lg" req="true" onkeypress="return /[a-z]/i.test(event.key)"
+                                                <input type="text" class="form-control form-control-lg" req="true"
+                                                    onkeypress="return /[a-z]/i.test(event.key)"
                                                     placeholder="Last name*" v-model="contactPage.sure_name">
                                             </div>
                                         </div>
@@ -195,8 +201,8 @@
 
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
-                                                <input type="number" id="phone-reg" class="form-control form-control-lg" req="true"
-                                                    placeholder="Phone Number*" v-model="contactPage.phone">
+                                                <input type="number" id="phone-reg" class="form-control form-control-lg"
+                                                    req="true" placeholder="Phone Number*" v-model="contactPage.phone">
                                             </div>
                                         </div>
                                         <div class="form-row custom-row position-relative">
@@ -507,7 +513,7 @@
                                             <div class="col-12">
                                                 <button @click="postContact('#validated-form')"
                                                     class="btn bg-red text-uppercase custom-btn rounded-0"
-                                                    type="button"> Send Message
+                                                    type="button"> {{tr.send}}
                                                 </button>
                                             </div>
                                         </div>
@@ -519,40 +525,42 @@
                 </div>
             </div>
             <div id="sub-footer" class="sub-footer" v-if="footer.contact_info">
-                <div class="row px-4 py-5 p-md-5">
-                    <div class="col-12 col-md-4 mt-0">
+                <div class="row px-4 pt-5 p-md-5">
+                    <div class="col-12 col-md-4 mt-4 mt-md-0">
                         <div class="footer-logo">
                             <img src="./imgs/footer-logo.png" alt="" height="60">
                         </div>
                     </div>
-                    <div class="col-12 col-md-8 mt-3 mt-md-0">
+                    <div class="col-12 col-md-8">
                         <div class="row">
                             <div class="col-12 col-md-4 mt-4 mt-md-0">
                                 <div class="abouts-links">
-                                    <h5 class="text-uppercase">About us</h5>
+                                    <h5 class="text-uppercase">{{tr.about}}</h5>
                                     <ul class="p-0 m-0 mt-3">
                                         <li class="py-1">
                                             <a href="./about-detailed.html?activeList=about_the_incubator"
-                                                class="text-secondary">About The Incubator</a>
+                                                class="text-secondary">{{tr.aboutIncubator }}</a>
                                             </li">
                                         <li class="py-1">
                                             <a href="./about-detailed.html?activeList=about_game_jordan"
-                                                class="text-secondary">About Game Jordan</a>
+                                                class="text-secondary">{{tr.aboutGame}}</a>
                                         </li>
                                         <li class="py-1">
                                             <a href="./about-detailed.html?activeList=about_jyif"
-                                                class="text-secondary">About jyif</a>
+                                                class="text-secondary">{{tr.aboutJyif}}</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-12 col-md-4 mt-4 mt-md-0">
                                 <div class="contacts-links">
-                                    <h5 class="text-uppercase">Contact us</h5>
+                                    <h5 class="text-uppercase">{{tr.Contact_us}}</h5>
                                     <ul class="p-0 m-0 mt-3">
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
-                                                {{ footer.contact_info.info.contact_phone }}
+                                                <span class="phone-number">
+                                                    {{ footer.contact_info.info.contact_phone }}
+                                                </span>
                                             </p>
                                         </li>
                                         <li class="py-1">
@@ -560,7 +568,6 @@
                                                 <a href="mailto:info@streetsportsincubator.org" class="text-secondary">
                                                     {{ footer.contact_info.info.contact_email }}
                                                 </a>
-
                                             </p>
                                         </li>
                                     </ul>
@@ -568,7 +575,7 @@
                             </div>
                             <div class="col-12 col-md-4 mt-4 mt-md-0">
                                 <div class="Social-links">
-                                    <h5 class="text-uppercase">Social Media</h5 class="text-uppercase">
+                                    <h5 class="text-uppercase">{{tr.socialMedia}}</h5 class="text-uppercase">
                                     <ul class="p-0 m-0 mt-3 d-flex">
                                         <li class="border-right-0 border border-info">
                                             <a :href="footer.contact_info.social_links.fb_link"
@@ -608,7 +615,7 @@
                 <div
                     class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
                     <h6 class="m-0"><small>{{ footer.contact_info.info.copy_write_en }}</small></h6 class="p-0">
-                    <h6 class="m-0 mt-2 mt-md-0"><small>Powered by <a href="http://www.eappera.com" target="_blank"
+                    <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com" target="_blank"
                                 class="text-info">EappEra</a></small>
                     </h6>
                 </div>

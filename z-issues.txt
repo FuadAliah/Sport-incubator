@@ -1,9 +1,18 @@
 - news link selected in library detailed.
-- when click on news in sidebar the homePage is shaking
+- active list in library detailed.
+- when click on news in sidebar the homePage is shaking.
+- change hash and activeLink on scrolling.
+- sliders on rtl reflected.
 
 
 
 - registeration submit.
 - contacts and registeration success message (error Send)
-- subscribe validate submit
+- subscribe validate submit.
+
+
+
+side menu{
+    - register & contacts color style
+}
 

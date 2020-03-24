@@ -237,7 +237,7 @@ ul {
 }
 
 .bg-orange {
-  color: #fff !important;
+  color: #fff;
   background-color: #ee7531;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -248,7 +248,7 @@ ul {
 }
 
 .bg-red {
-  color: #fff !important;
+  color: #fff;
   background-color: #d62b4d;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -1102,25 +1102,25 @@ section {
 }
 
 .footer #subscribe .sub .custom-input::-webkit-input-placeholder {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: lighter;
   color: #c0c0c0;
 }
 
 .footer #subscribe .sub .custom-input:-ms-input-placeholder {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: lighter;
   color: #c0c0c0;
 }
 
 .footer #subscribe .sub .custom-input::-ms-input-placeholder {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: lighter;
   color: #c0c0c0;
 }
 
 .footer #subscribe .sub .custom-input::placeholder {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: lighter;
   color: #c0c0c0;
 }

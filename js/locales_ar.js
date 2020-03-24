@@ -1,10 +1,10 @@
 var locales_ar = {
     "home": "الرئيسية",
     "news_events": "الأخبار والفعاليات",
-    "About_us": "من نحن",
+    "about": "من نحن",
     "gallery": "معرض الصور",
-    "Our_partners": "الشركاء",
-    "Our_library": "المكتبة",
+    "partners": "الشركاء",
+    "library": "المكتبة",
 
     //home_section
     "registration": "سجل فكرتك الآن",
@@ -36,4 +36,40 @@ var locales_ar = {
 
     //subscribe_section
     "subscribe": "إشترك",
+    "subscribeMsg": "إشترك بنشرتنا الإخبارية",
+    "subscribeSlog": "اشترك بنشرتنا الإخبارية لتصلك آخر الأخبار",
+    "ePlaceHolder": "أدخل بريدك الإلكتروني",
+
+    //footer_section
+    "aboutIncubator": "حاضنة أعمال رياضات الشوارع",
+    "aboutGame": "جييم الأردن",
+    "aboutJyif": "الملتقى الاردني للابداع الشبابي",
+    "socialMedia": "التواصل الإجتماعي",
+    "powered": "تصميم وبرمجة ",
+
+    //navbar
+    "back": "رجوع",
+
+    //new_events_list
+    "newsSlogan": "واكب آخر أخبار المنظمة",
+
+    //library_list
+    "libraryTab": "المكتبة",
+    "viewDoc": "عرض الوثيقة",
+    "saveDoc": "حفظ الوثيقة",
+
+    //register
+    "register": "سجل فكرتك الآن",
+    "registerTitle": "الرجاء تعبئة المعلومات التالية",
+    "mandatory": "* حقول إجبارية",
+    "accountInformation": "المعلومات الشخصية",
+    "profileInformation": "معلومات الملف الشخصي",
+    "ideaInformation": "عن الفكرة",
+    "register_btn": "تسجيل",
+
+    //contacts_page
+    "call": "إتصل بنا",
+    "write": "العنوان",
+    "email": "البريد الإلكتروني",
+    "send": "أرسل",
 }

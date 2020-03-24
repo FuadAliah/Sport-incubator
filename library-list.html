@@ -18,7 +18,11 @@
 </head>
 
 <body class="library-list">
-    <div id="app" style="height: 100vh;">
+    <div id="app" :class="language" style="height: 100vh;">
+        <link rel="stylesheet" href="./scss/style_ar.css" v-if="language=='ar'">
+        <link rel="stylesheet" href="./scss/internal-style_ar.css" v-if="language=='ar'">
+        <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css"
+            v-if="language=='ar'">
         <div id="loader" v-if="loading" class="loading position-fixed"
             style="padding: 0; margin: 0; width: 100vw;height: 100vh;background: #f6f4e2;z-index: 9999;display: flex;align-items: center;justify-content: center;">
             <img src="./imgs/logo-animation.gif" height="120px" alt="">
@@ -27,32 +31,35 @@
             <div class="bg-white custom-height" id="sidebar-wrapper" @click="open = false">
                 <div class="list-group list-group-flush h-auto side-links">
                     <a href="./index.html#home" :class="[activeLink == 'home' ? 'active' : '']"
-                        @click="activeLink = 'home'" class="list-group-item-action w-100 text-uppercase">Home</a>
+                        @click="activeLink = 'home'" class="list-group-item-action w-100 text-uppercase">{{tr.home}}</a>
                     <a href="./index.html#news" :class="[activeLink == 'news' ? 'active' : '']"
-                        @click="activeLink = 'news'" class="list-group-item-action w-100 text-uppercase">News /
-                        Events</a>
+                        @click="activeLink = 'news'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.news_events}}</a>
                     <a href="./index.html#about" :class="[activeLink == 'about' ? 'active' : '']"
-                        @click="activeLink = 'about'" class="list-group-item-action w-100 text-uppercase">About us</a>
+                        @click="activeLink = 'about'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.about}}</a>
                     <a href="./index.html#gallery" :class="[activeLink == 'gallery' ? 'active' : '']"
-                        @click="activeLink = 'gallery'" class="list-group-item-action w-100 text-uppercase">Our
-                        Gallery</a>
+                        @click="activeLink = 'gallery'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.gallery}}</a>
                     <a href="./index.html#partners" :class="[activeLink == 'partners' ? 'active' : '']"
-                        @click="activeLink = 'partners'" class="list-group-item-action w-100 text-uppercase">Our
-                        partners</a>
+                        @click="activeLink = 'partners'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.partners}}</a>
                     <a href="./index.html#library" :class="[activeLink == 'library' ? 'active' : '']"
-                        @click="activeLink = 'library'" class="list-group-item-action w-100 text-uppercase">Our
-                        library</a>
+                        @click="activeLink = 'library'"
+                        class="list-group-item-action w-100 text-uppercase">{{tr.library}}</a>
                 </div>
                 <div class="list-group list-group-flush h-auto mt-auto side-links">
                     <div class="mt-auto">
                         <div class="d-flex text-center languages-links">
-                            <a href="#" class="list-group-item-action w-100 text-uppercase">English</a>
-                            <a href="./index-ar.html" class="list-group-item-action w-100 ar-link">عربي</a>
+                            <a href="javascript:void(0)" @click="setLanguage('en')"
+                                class="list-group-item-action w-100 text-uppercase">English</a>
+                            <a href="javascript:void(0)" @click="setLanguage('ar')"
+                                class="list-group-item-action w-100 ar-link">عربي</a>
                         </div>
                         <a href="./registration.html"
-                            class="list-group-item-action w-100 bg-orange text-uppercase">Registeration</a>
-                        <a href="./contacts.html" class="list-group-item-action w-100 bg-red text-uppercase">Contact
-                            us</a>
+                            class="list-group-item-action w-100 bg-orange text-uppercase">{{tr.registration}}</a>
+                        <a href="./contacts.html"
+                            class="list-group-item-action w-100 bg-red text-uppercase">{{tr.Contact_us}}</a>
                     </div>
                 </div>
             </div>
@@ -69,12 +76,14 @@
                 <div class="collapse navbar-collapse h-100" id="navbarNav">
                     <ul class="navbar-nav h-100">
                         <li class="nav-item border-right">
-                            <a class="nav-link py-0 px-4" href="./index.html#library">
-                                <i class="fas fa-angle-left mr-2"></i>Back</a>
+                            <a class="nav-link py-0 px-4" href="./index.html#library"
+                                :style="language=='ar' ? 'margin: -3px 0;font-weight: 600;' : ''">
+                                <i class="fas mr-2" :class="[language=='ar' ? 'fa-angle-right' : 'fa-angle-left']"
+                                    :style="language=='ar' ? 'vertical-align: sub;' : ''"></i>{{tr.back}}</a>
                         </li>
                         <li class="nav-item border-right" @click="newsPage.activeList = 'news'"
                             :class="[library_resources.activeList == 'library' ? 'active' : '']">
-                            <a class="nav-link py-0 px-4 text-uppercase" href="#">library</a>
+                            <a class="nav-link py-0 px-4 text-uppercase" href="#">{{tr.libraryTab}}</a>
                         </li>
                     </ul>
                 </div>
@@ -83,13 +92,13 @@
                         <ul class="navbar-nav">
                             <li class="nav-item border-right">
                                 <a class="nav-link py-0 px-4" href="./index.html#library"><i
-                                        class="fas fa-angle-left mr-2"></i>
+                                        class="fas mr-2" :class="[language=='ar' ? 'fa-angle-right' : 'fa-angle-left']"></i>
                                 </a>
                             </li>
                         </ul>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link py-0 px-4 text-uppercase text-dark">library</a>
+                                <a class="nav-link py-0 px-4 text-uppercase text-dark">{{tr.libraryTab}}</a>
                             </li>
                         </ul>
                     </div>
@@ -100,7 +109,7 @@
                 <div class="container-fluid h-100">
                     <div class="row h-100">
                         <div class="col-md-4 h-md-100 bg-white h-auto side-list p-4 p-md-5" data-aos="fade-right">
-                            <div class="list-title text-uppercase mb-2">library</div>
+                            <div class="list-title text-uppercase mb-2">{{tr.libraryTab}}</div>
                             <h4 class="list-slogan text-muted">
                                 Browse and download our <strong> publications, PR</strong> and useful media files</h4>
                         </div>
@@ -126,11 +135,11 @@
                                                 <div class="links d-flex justify-content-between mt-3">
                                                     <a :href="'./news-detailed.html?news-id='+item.id+'&page-type=library'"
                                                         class="view-btn text-red text-uppercase px-0">
-                                                        <i class="fas fa-angle-right mr-2"></i>View Document
+                                                        <i class="fas mr-2" :class="[language=='ar' ? 'fa-angle-left' : 'fa-angle-right']"></i>{{tr.viewDoc}}
                                                     </a>
                                                     <a :href="serverPath+item.doc_link_en" target="_blank"
                                                         class="download-btn text-white bg-red border rounded text-uppercase">
-                                                        <i class="fas fa-file-pdf mr-3"></i>Save Document
+                                                        <i class="fas fa-file-pdf mr-3"></i>{{tr.saveDoc}}
                                                     </a>
                                                 </div>
                                             </div>
@@ -143,40 +152,42 @@
                 </div>
             </div>
             <div id="sub-footer" class="sub-footer" v-if="footer.contact_info">
-                <div class="row px-4 py-5 p-md-5">
-                    <div class="col-12 col-md-4 mt-0">
+                <div class="row px-4 pt-5 p-md-5">
+                    <div class="col-12 col-md-4 mt-4 mt-md-0">
                         <div class="footer-logo">
                             <img src="./imgs/footer-logo.png" alt="" height="60">
                         </div>
                     </div>
-                    <div class="col-12 col-md-8 mt-3 mt-md-0">
+                    <div class="col-12 col-md-8">
                         <div class="row">
                             <div class="col-12 col-md-4 mt-4 mt-md-0">
                                 <div class="abouts-links">
-                                    <h5 class="text-uppercase">About us</h5>
+                                    <h5 class="text-uppercase">{{tr.about}}</h5>
                                     <ul class="p-0 m-0 mt-3">
                                         <li class="py-1">
                                             <a href="./about-detailed.html?activeList=about_the_incubator"
-                                                class="text-secondary">About The Incubator</a>
+                                                class="text-secondary">{{tr.aboutIncubator }}</a>
                                             </li">
                                         <li class="py-1">
                                             <a href="./about-detailed.html?activeList=about_game_jordan"
-                                                class="text-secondary">About Game Jordan</a>
+                                                class="text-secondary">{{tr.aboutGame}}</a>
                                         </li>
                                         <li class="py-1">
                                             <a href="./about-detailed.html?activeList=about_jyif"
-                                                class="text-secondary">About jyif</a>
+                                                class="text-secondary">{{tr.aboutJyif}}</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-12 col-md-4 mt-4 mt-md-0">
                                 <div class="contacts-links">
-                                    <h5 class="text-uppercase">Contact us</h5>
+                                    <h5 class="text-uppercase">{{tr.Contact_us}}</h5>
                                     <ul class="p-0 m-0 mt-3">
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
-                                                {{ footer.contact_info.info.contact_phone }}
+                                                <span class="phone-number">
+                                                    {{ footer.contact_info.info.contact_phone }}
+                                                </span>
                                             </p>
                                         </li>
                                         <li class="py-1">
@@ -184,7 +195,6 @@
                                                 <a href="mailto:info@streetsportsincubator.org" class="text-secondary">
                                                     {{ footer.contact_info.info.contact_email }}
                                                 </a>
-
                                             </p>
                                         </li>
                                     </ul>
@@ -192,7 +202,7 @@
                             </div>
                             <div class="col-12 col-md-4 mt-4 mt-md-0">
                                 <div class="Social-links">
-                                    <h5 class="text-uppercase">Social Media</h5 class="text-uppercase">
+                                    <h5 class="text-uppercase">{{tr.socialMedia}}</h5 class="text-uppercase">
                                     <ul class="p-0 m-0 mt-3 d-flex">
                                         <li class="border-right-0 border border-info">
                                             <a :href="footer.contact_info.social_links.fb_link"
@@ -232,7 +242,7 @@
                 <div
                     class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
                     <h6 class="m-0"><small>{{ footer.contact_info.info.copy_write_en }}</small></h6 class="p-0">
-                    <h6 class="m-0 mt-2 mt-md-0"><small>Powered by <a href="http://www.eappera.com" target="_blank"
+                    <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com" target="_blank"
                                 class="text-info">EappEra</a></small>
                     </h6>
                 </div>
