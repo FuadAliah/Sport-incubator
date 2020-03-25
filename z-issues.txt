@@ -1,6 +1,5 @@
 - news link selected in library detailed.
 - active list in library detailed.
-- when click on news in sidebar the homePage is shaking.
 - change hash and activeLink on scrolling.
 - sliders on rtl reflected.
 

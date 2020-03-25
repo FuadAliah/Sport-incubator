@@ -51,8 +51,10 @@
                 <div class="list-group list-group-flush h-auto mt-auto side-links">
                     <div class="mt-auto">
                         <div class="d-flex text-center languages-links">
-                            <a href="#" class="list-group-item-action w-100 text-uppercase">English</a>
-                            <a href="./index-ar.html" class="list-group-item-action w-100 ar-link">عربي</a>
+                            <a href="javascript:void(0)" @click="setLanguage('en')"
+                                class="list-group-item-action w-100 text-uppercase">English</a>
+                            <a href="javascript:void(0)" @click="setLanguage('ar')"
+                                class="list-group-item-action w-100 ar-link">عربي</a> 
                         </div>
                         <a href="./registration.html"
                             class="list-group-item-action w-100 bg-orange text-uppercase">{{tr.registration}}</a>
@@ -88,8 +90,8 @@
                     <div class="d-flex">
                         <ul class="navbar-nav">
                             <li class="nav-item border-right">
-                                <a class="nav-link py-0 px-4" href="./index.html#2"><i
-                                        class="fas mr-2" :class="[language=='ar' ? 'fa-angle-right' : 'fa-angle-left']"></i></a>
+                                <a class="nav-link py-0 px-4" href="./index.html#2"><i class="fas mr-2"
+                                        :class="[language=='ar' ? 'fa-angle-right' : 'fa-angle-left']"></i></a>
                             </li>
                         </ul>
                         <ul class="navbar-nav">
@@ -107,7 +109,8 @@
                             <div class="d-flex flex-column justify-content-between">
                                 <div class="h-50">
                                     <div class="list-title text-uppercase mb-2">{{tr.Contact_us}}</div>
-                                    <h4 class="list-slogan text-muted">{{ footer.contact_info.info.contact_us_description_en }}
+                                    <h4 class="list-slogan text-muted">
+                                        {{ footer.contact_info.info.contact_us_description_en }}
                                     </h4>
                                 </div>
                                 <div class="h-50 mt-5">

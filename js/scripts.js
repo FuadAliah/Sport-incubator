@@ -93,7 +93,7 @@ var home = new Vue({
                 this.getNews();
                 this.activeLink = "news-detailed";
             }
-            
+
             // if (window.location.href.indexOf("library") > 0) { //detailed news page
             //     this.getHome();
             //     this.activeLink = "library";
@@ -207,7 +207,7 @@ var home = new Vue({
             $('.home-photoAlbum').slick({
                 infinite: false,
                 slidesToShow: 3,
-                slidesToScroll: 4,
+                slidesToScroll: 3,
                 dots: true,
                 prevArrow: false,
                 nextArrow: false,
@@ -487,7 +487,6 @@ function debounce(fn, wait) {
 }
 
 if (home.activeLink == 'home') {
-    // window.location.hash = home.activeLink;
     $('body').on('mousewheel', debounce(function (event) {
         if (event.deltaY > 0) { //going up
             home.open = false
@@ -513,9 +512,9 @@ if (home.activeLink == 'home') {
         }
     });
 }
-// $(document).bind('scroll', function () {
+// $(document).bind('mousewheel', function () {
 //     $('section').each(function () {
-//         if ($(this).offset().top < window.pageYOffset + 10 && $(this).offset().top + $(this).height() > window.pageYOffset + 10) {
+//         if ($(window).scrollTop() < $(this).offset().top) {
 //             var urlChanged = $(this).attr('id');
 //             window.location.hash = urlChanged;
 //             home.activeLink = urlChanged;

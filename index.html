@@ -380,7 +380,7 @@
                     <div class="body-content" data-aos="fade-up" data-aos-offset="200" data-aos-delay="300"
                         data-aos-anchor=".gallery">
                         <div class="h-100">
-                            <div class="home-photoAlbum">
+                            <div class="home-photoAlbum" :data-dir='language'>
                                 <a :href="serverPath+photo.image" data-lightbox="roadtrip" :data-title="photo.title_en"
                                     class="gallery-item position-relative" v-for="photo in gallery_images">
                                     <img :src="serverPath+photo.image" />
@@ -393,7 +393,7 @@
                     </div>
                 </div>
             </section>
-            <section id="partners" v-if="partners" class="section partner" style="background-size: cover;"
+            <section id="partners" class="section partner" style="background-size: cover;" v-if="partners"
                 :style="{ backgroundImage: 'url('+serverPath+partners.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 w-100">
                     <div class="head-content h-50 d-flex flex-column section-tag" data-aos="fade-right"
@@ -414,7 +414,7 @@
                     </div>
                 </div>
             </section>
-            <section id="library" v-if="library" class="section library" style="background-size: cover;"
+            <section id="library" class="section library" style="background-size: cover;" v-if="library"
                 :style="{ backgroundImage: 'url('+serverPath+library.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 w-100">
                     <div class="head-content h-50 d-flex flex-column section-tag" data-aos="fade-right"
@@ -444,7 +444,7 @@
                     </div>
                 </div>
             </section>
-            <section id="sub" v-if="sub" class="section mob-subscribe d-block d-md-none">
+            <section id="sub" class="section mob-subscribe d-block d-md-none" v-if="sub">
                 <div class="container-fluid bg-white h-100">
                     <div class="row d-flex flex-column justify-content-between h-100">
                         <div class="d-flex flex-column justify-content-between h-50">
