@@ -294,8 +294,9 @@
             <section id="about" class="section about" style="background-size: cover;" v-if="about"
                 :style="{ backgroundImage: 'url('+serverPath+about.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 w-100">
-                    <div class="head-content h-auto h-md-50 d-flex flex-column section-tag" data-aos="fade-right"
-                        data-aos-offset="600" data-aos-delay="200" data-aos-anchor=".about">
+                    <div class="head-content h-auto h-md-50 d-flex flex-column section-tag"
+                        :data-aos="[language=='ar' ? 'fade-left' : 'fade-right']" data-aos-offset="600"
+                        data-aos-delay="200" data-aos-anchor=".about">
                         <div class="section-title text-white text-uppercase">
                             {{about.title}}
                         </div>
@@ -369,8 +370,9 @@
             <section id="gallery" class="section gallery" style="background-size: cover;" v-if="gallery_images"
                 :style="{ backgroundImage: 'url('+serverPath+gallery.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 w-100">
-                    <div class="head-content h-50 d-flex flex-column section-tag" data-aos="fade-right"
-                        data-aos-offset="600" data-aos-delay="200" data-aos-anchor=".gallery">
+                    <div class="head-content h-50 d-flex flex-column section-tag"
+                        :data-aos="[language=='ar' ? 'fade-left' : 'fade-right']" data-aos-offset="600"
+                        data-aos-delay="200" data-aos-anchor=".gallery">
                         <div class="section-title text-white text-uppercase">{{gallery.title}}</div>
                         <div class="section-body">{{gallery.description}}</div>
                         <a :href="gallery.external_link" target="_blank" class="section-link mt-lg-4 mt-3 rounded">
@@ -380,7 +382,7 @@
                     <div class="body-content" data-aos="fade-up" data-aos-offset="200" data-aos-delay="300"
                         data-aos-anchor=".gallery">
                         <div class="h-100">
-                            <div class="home-photoAlbum" :data-dir='language'>
+                            <div class="home-photoAlbum">
                                 <a :href="serverPath+photo.image" data-lightbox="roadtrip" :data-title="photo.title_en"
                                     class="gallery-item position-relative" v-for="photo in gallery_images">
                                     <img :src="serverPath+photo.image" />
@@ -396,8 +398,9 @@
             <section id="partners" class="section partner" style="background-size: cover;" v-if="partners"
                 :style="{ backgroundImage: 'url('+serverPath+partners.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 w-100">
-                    <div class="head-content h-50 d-flex flex-column section-tag" data-aos="fade-right"
-                        data-aos-offset="600" data-aos-delay="200" data-aos-anchor=".partner">
+                    <div class="head-content h-50 d-flex flex-column section-tag"
+                        :data-aos="[language=='ar' ? 'fade-left' : 'fade-right']" data-aos-offset="600"
+                        data-aos-delay="200" data-aos-anchor=".partner">
                         <div class="section-title text-white text-uppercase">{{partners.title}}</div>
                         <div class="section-body">{{partners.description}}</div>
                     </div>
@@ -417,8 +420,9 @@
             <section id="library" class="section library" style="background-size: cover;" v-if="library"
                 :style="{ backgroundImage: 'url('+serverPath+library.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 w-100">
-                    <div class="head-content h-50 d-flex flex-column section-tag" data-aos="fade-right"
-                        data-aos-offset="600" data-aos-delay="200" data-aos-anchor=".library">
+                    <div class="head-content h-50 d-flex flex-column section-tag"
+                        :data-aos="[language=='ar' ? 'fade-left' : 'fade-right']" data-aos-offset="600"
+                        data-aos-delay="200" data-aos-anchor=".library">
                         <div class="section-title text-white text-uppercase">{{library.title}}</div>
                         <div class="section-body">{{library.description}}</div>
                         <a href="./library-list.html?activeList=library" class="section-link mt-lg-4 mt-3 rounded">
