@@ -383,11 +383,11 @@
                         data-aos-anchor=".gallery">
                         <div class="h-100">
                             <div class="home-photoAlbum">
-                                <a :href="serverPath+photo.image" data-lightbox="roadtrip" :data-title="photo.title_en"
-                                    class="gallery-item position-relative" v-for="photo in gallery_images">
+                                <a :href="photo.link" class="gallery-item position-relative"
+                                    v-for="photo in gallery_images">
                                     <img :src="serverPath+photo.image" />
                                     <div class="overlay position-absolute">
-                                        <div class="text">{{ photo.title_en }}</div>
+                                        <div class="text">{{ photo.title }}</div>
                                     </div>
                                 </a>
                             </div>
@@ -448,22 +448,26 @@
                     </div>
                 </div>
             </section>
-            <section id="sub" class="section mob-subscribe d-block d-md-none" v-if="sub">
+            <section class="section mob-subscribe d-block d-md-none" v-if="sub">
                 <div class="container-fluid bg-white h-100">
                     <div class="row d-flex flex-column justify-content-between h-100">
                         <div class="d-flex flex-column justify-content-between h-50">
                             <div class="left-content">
                                 <div class="text-info">
-                                    <h1 class="news-title text-red m-0 text-uppercase">Subscribe for updates</h1>
+                                    <h1 class="news-title text-red m-0 text-uppercase">{{tr.subscribeMsg}}</h1>
                                     <h5 class="news-paragraph mt-3 text-capitalize text-muted">
-                                        get updates by subscribing our newsletter
+                                        {{tr.subscribeSlog}}
                                     </h5>
                                 </div>
                             </div>
                             <form class="custom-form d-flex flex-column position-relative" id="validated-form" action=""
                                 method="post">
                                 <input type="email" class="custom-input rounded form-control form-control-lg bg-light"
-                                    req="true" placeholder="Enter Your E-mail" v-model="subscribe.email">
+                                    v-if="language=='en'" req="true" placeholder="Enter Your E-mail"
+                                    v-model="subscribe.email">
+                                <input type="email" class="custom-input form-control form-control-lg bg-light"
+                                    v-if="language=='ar'" req="true" placeholder="أدخل بريدك الإلكتروني"
+                                    v-model="subscribe.email">
                                 <button @click="subscription('#validated-form')"
                                     class="rounded border-0 bg-red text-white text-uppercase w-100"
                                     type="button">{{tr.subscribe}}
@@ -542,7 +546,7 @@
                                             <li class="py-1">
                                                 <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
                                                     <span class="phone-number">
-                                                        {{ footer.contact_info.info.contact_phone }}
+                                                        {{ footer.contact_info.info[0].contact_phone }}
                                                     </span>
                                                 </p>
                                             </li>
@@ -550,7 +554,7 @@
                                                 <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
                                                     <a href="mailto:info@streetsportsincubator.org"
                                                         class="text-secondary">
-                                                        {{ footer.contact_info.info.contact_email }}
+                                                        {{ footer.contact_info.info[0].contact_email }}
                                                     </a>
                                                 </p>
                                             </li>

@@ -12,6 +12,6 @@
 
 
 side menu{
-    - register & contacts color style
+    - register & contacts color style.
 }
 

@@ -57,6 +57,7 @@ var locales_ar = {
     "libraryTab": "المكتبة",
     "viewDoc": "عرض الوثيقة",
     "saveDoc": "حفظ الوثيقة",
+    "librarySlog": "تصفّح وحمّل منشوراتنا وملفات الوسائط",
 
     //register
     "register": "سجل فكرتك الآن",

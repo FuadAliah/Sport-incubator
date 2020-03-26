@@ -115,65 +115,122 @@ var home = new Vue({
                 this.activeLink = "registration";
             }
         },
+        // en & ar
         getHome() {
             var self = this;
             this.loading = true;
-            axios.get("http://cms.streetsportsincubator.org/en/api/home")
-                .then(function (response) {
-                    self.home = response.data.data.home;
-                    self.news = response.data.data.news;
-                    self.events = response.data.data.events;
-                    self.about = response.data.data.about;
-                    self.gallery = response.data.data.gallery;
-                    self.partner_images = response.data.data.partner_images;
-                    self.about_pages.aboutTabs = response.data.data.about_pages;
-                    self.gallery_images = response.data.data.gallery_images;
-                    self.partners = response.data.data.partners;
-                    self.library = response.data.data.library;
-                    self.library_resources.libraryList = response.data.data.library_resources;
-                    self.loading = false;
-                    setTimeout(() => {
-                        if (self.activeLink == 'home') {
-                            self.initPhotoAblum();
-                            self.scrollToSection();
-                            $(function () {
-                                $("a[href*='#']:not([href='#'])").click(function (e) {
-                                    e.preventDefault();
-                                    setTimeout(() => {
-                                        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                                            home.scrollToSection(e.target.hash);
-                                        }
-                                    }, 100);
-
+            if (this.language == 'ar') {
+                axios.get("http://cms.streetsportsincubator.org/ar/api/home")
+                    .then(function (response) {
+                        self.home = response.data.data.home;
+                        self.news = response.data.data.news;
+                        self.events = response.data.data.events;
+                        self.about = response.data.data.about;
+                        self.gallery = response.data.data.gallery;
+                        self.partner_images = response.data.data.partner_images;
+                        self.about_pages.aboutTabs = response.data.data.about_pages;
+                        self.gallery_images = response.data.data.gallery_images;
+                        self.partners = response.data.data.partners;
+                        self.library = response.data.data.library;
+                        self.library_resources.libraryList = response.data.data.library_resources;
+                        self.loading = false;
+                        setTimeout(() => {
+                            if (self.activeLink == 'home') {
+                                self.initPhotoAblum();
+                                self.scrollToSection();
+                                $(function () {
+                                    $("a[href*='#']:not([href='#'])").click(function (e) {
+                                        e.preventDefault();
+                                        setTimeout(() => {
+                                            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                                                home.scrollToSection(e.target.hash);
+                                            }
+                                        }, 100);
+                                    });
                                 });
-                            });
-                        }
-                    }, 300);
-
-                })
+                            }
+                        }, 300);
+                    })
+            } else {
+                axios.get("http://cms.streetsportsincubator.org/en/api/home")
+                    .then(function (response) {
+                        self.home = response.data.data.home;
+                        self.news = response.data.data.news;
+                        self.events = response.data.data.events;
+                        self.about = response.data.data.about;
+                        self.gallery = response.data.data.gallery;
+                        self.partner_images = response.data.data.partner_images;
+                        self.about_pages.aboutTabs = response.data.data.about_pages;
+                        self.gallery_images = response.data.data.gallery_images;
+                        self.partners = response.data.data.partners;
+                        self.library = response.data.data.library;
+                        self.library_resources.libraryList = response.data.data.library_resources;
+                        self.loading = false;
+                        setTimeout(() => {
+                            if (self.activeLink == 'home') {
+                                self.initPhotoAblum();
+                                self.scrollToSection();
+                                $(function () {
+                                    $("a[href*='#']:not([href='#'])").click(function (e) {
+                                        e.preventDefault();
+                                        setTimeout(() => {
+                                            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                                                home.scrollToSection(e.target.hash);
+                                            }
+                                        }, 100);
+                                    });
+                                });
+                            }
+                        }, 300);
+                    })
+            }
         },
+        // en & ar
         getNews() {
             var self = this;
             this.loading = true;
-            axios.get("http://cms.streetsportsincubator.org/en/api/news")
-                .then(function (response) {
-                    self.newsPage.newsList = response.data.news;
-                    axios.get("http://cms.streetsportsincubator.org/en/api/events")
-                        .then(function (response) {
-                            self.newsPage.eventsList = response.data.data.events;
-                            axios.get("http://cms.streetsportsincubator.org/en/api/library")
-                                .then(function (response) {
-                                    self.loading = false;
-                                    self.library_resources.libraryList = response.data.data.resources;
-                                    if (self.activeLink == 'news-detailed') {
-                                        self.newsPage.activeList = self.readQueryString('page-type');
-                                        if (self.readQueryString('news-id')) {
-                                            self.getDetailedNews(self.readQueryString('news-id'), self.readQueryString('page-type'));
+            if (this.language == 'ar') {
+                axios.get("http://cms.streetsportsincubator.org/ar/api/news")
+                    .then(function (response) {
+                        self.newsPage.newsList = response.data.news;
+                        axios.get("http://cms.streetsportsincubator.org/ar/api/events")
+                            .then(function (response) {
+                                self.newsPage.eventsList = response.data.data.events;
+                                axios.get("http://cms.streetsportsincubator.org/ar/api/library")
+                                    .then(function (response) {
+                                        self.loading = false;
+                                        self.library_resources.libraryList = response.data.data.resources;
+                                        if (self.activeLink == 'news-detailed') {
+                                            self.newsPage.activeList = self.readQueryString('page-type');
+                                            if (self.readQueryString('news-id')) {
+                                                self.getDetailedNews(self.readQueryString('news-id'), self.readQueryString('page-type'));
+                                            }
                                         }
-                                    }
-                                })
-                        })
-                })
+                                    })
+                            })
+                    })
+            } else {
+                axios.get("http://cms.streetsportsincubator.org/en/api/news")
+                    .then(function (response) {
+                        self.newsPage.newsList = response.data.news;
+                        axios.get("http://cms.streetsportsincubator.org/en/api/events")
+                            .then(function (response) {
+                                self.newsPage.eventsList = response.data.data.events;
+                                axios.get("http://cms.streetsportsincubator.org/en/api/library")
+                                    .then(function (response) {
+                                        self.loading = false;
+                                        self.library_resources.libraryList = response.data.data.resources;
+                                        if (self.activeLink == 'news-detailed') {
+                                            self.newsPage.activeList = self.readQueryString('page-type');
+                                            if (self.readQueryString('news-id')) {
+                                                self.getDetailedNews(self.readQueryString('news-id'), self.readQueryString('page-type'));
+                                            }
+                                        }
+                                    })
+                            })
+                    })
+            }
+
         },
         getDetailedNews(newsId, pageType) {
             if (pageType == 'events') {
@@ -187,167 +244,339 @@ var home = new Vue({
                 return obj.id === parseInt(newsId);
             })
         },
+        // en & ar
         getِAbout() {
             var self = this;
             this.loading = true;
-            axios.get("http://cms.streetsportsincubator.org//en/api/about/pages")
-                .then(function (response) {
-                    self.about_pages.aboutContent = response.data.data.pages;
-                    self.loading = false;
-                })
+            if (this.language == 'ar') {
+                axios.get("http://cms.streetsportsincubator.org/ar/api/about/pages")
+                    .then(function (response) {
+                        self.about_pages.aboutContent = response.data.data.pages;
+                        self.loading = false;
+                    })
+            } else {
+                axios.get("http://cms.streetsportsincubator.org/en/api/about/pages")
+                    .then(function (response) {
+                        self.about_pages.aboutContent = response.data.data.pages;
+                        self.loading = false;
+                    })
+            }
         },
+        // en & 
         getFooter() {
             var self = this;
-            axios.get("http://cms.streetsportsincubator.org/en/api/contact-us/info")
-                .then(function (response) {
-                    self.footer.contact_info = response.data.data;
-                })
+            if (this.language == 'ar') {
+                axios.get("http://cms.streetsportsincubator.org/ar/api/contact-us/info")
+                    .then(function (response) {
+                        self.footer.contact_info = response.data.data;
+                    })
+            } else {
+                axios.get("http://cms.streetsportsincubator.org/en/api/contact-us/info")
+                    .then(function (response) {
+                        self.footer.contact_info = response.data.data;
+                    })
+            }
         },
         initPhotoAblum() {
-            $('.home-photoAlbum').slick({
-                infinite: false,
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                dots: true,
-                prevArrow: false,
-                nextArrow: false,
-                responsive: [
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 3,
-                            arrows: false,
-                            centerPadding: '30px',
+            if (this.language == 'en') {
+                $('.home-photoAlbum').slick({
+                    infinite: false,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    dots: true,
+                    prevArrow: false,
+                    nextArrow: false,
+                    rtl: false,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '30px',
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '20px',
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                arrows: true,
+                                centerMode: true,
+                                centerPadding: '30px',
+                                slidesToShow: 1,
+                                dots: true,
+                            }
                         }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 3,
-                            arrows: false,
-                            centerPadding: '20px',
+                    ]
+                });
+                $('.home-about').slick({
+                    infinite: false,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    dots: false,
+                    prevArrow: false,
+                    nextArrow: false,
+                    rtl: false,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '30px',
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                                arrows: false,
+                                centerPadding: '30px',
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                arrows: false,
+                                centerMode: true,
+                                centerPadding: '0px',
+                                slidesToShow: 1,
+                                dots: true,
+                            }
                         }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            arrows: true,
-                            centerMode: true,
-                            centerPadding: '30px',
-                            slidesToShow: 1,
-                            dots: true,
+                    ]
+                });
+                $('.home-partners').slick({
+                    infinite: false,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    dots: true,
+                    prevArrow: false,
+                    nextArrow: false,
+                    rtl: false,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '30px',
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '20px',
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                arrows: false,
+                                centerMode: true,
+                                centerPadding: '30px',
+                                slidesToShow: 1,
+                                dots: true,
+                            }
                         }
-                    }
-                ]
-            });
-            $('.home-about').slick({
-                infinite: false,
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                dots: false,
-                prevArrow: false,
-                nextArrow: false,
-                responsive: [
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 3,
-                            arrows: false,
-                            centerPadding: '30px',
+                    ]
+                });
+                $('.home-library').slick({
+                    infinite: false,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    dots: true,
+                    prevArrow: false,
+                    nextArrow: false,
+                    rtl: false,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '30px',
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '20px',
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                arrows: true,
+                                centerMode: true,
+                                centerPadding: '30px',
+                                slidesToShow: 1,
+                                dots: true,
+                            }
                         }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 1,
-                            arrows: false,
-                            centerPadding: '30px',
+                    ]
+                });
+            } else {
+                $('.home-photoAlbum').slick({
+                    infinite: false,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    dots: true,
+                    prevArrow: false,
+                    nextArrow: false,
+                    rtl: true,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '30px',
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '20px',
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                arrows: true,
+                                centerMode: true,
+                                centerPadding: '30px',
+                                slidesToShow: 1,
+                                dots: true,
+                            }
                         }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '0px',
-                            slidesToShow: 1,
-                            dots: true,
+                    ]
+                });
+                $('.home-about').slick({
+                    infinite: false,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    dots: false,
+                    prevArrow: false,
+                    nextArrow: false,
+                    rtl: true,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '30px',
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                                arrows: false,
+                                centerPadding: '30px',
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                arrows: false,
+                                centerMode: true,
+                                centerPadding: '0px',
+                                slidesToShow: 1,
+                                dots: true,
+                            }
                         }
-                    }
-                ]
-            });
-            $('.home-partners').slick({
-                infinite: false,
-                slidesToShow: 4,
-                slidesToScroll: 4,
-                dots: true,
-                prevArrow: false,
-                nextArrow: false,
-                responsive: [
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 3,
-                            arrows: false,
-                            centerPadding: '30px',
+                    ]
+                });
+                $('.home-partners').slick({
+                    infinite: false,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    dots: true,
+                    prevArrow: false,
+                    nextArrow: false,
+                    rtl: true,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '30px',
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '20px',
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                arrows: false,
+                                centerMode: true,
+                                centerPadding: '30px',
+                                slidesToShow: 1,
+                                dots: true,
+                            }
                         }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 3,
-                            arrows: false,
-                            centerPadding: '20px',
+                    ]
+                });
+                $('.home-library').slick({
+                    infinite: false,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    dots: true,
+                    prevArrow: false,
+                    nextArrow: false,
+                    rtl: true,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '30px',
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 3,
+                                arrows: false,
+                                centerPadding: '20px',
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                arrows: true,
+                                centerMode: true,
+                                centerPadding: '30px',
+                                slidesToShow: 1,
+                                dots: true,
+                            }
                         }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            arrows: false,
-                            centerMode: true,
-                            centerPadding: '30px',
-                            slidesToShow: 1,
-                            dots: true,
-                        }
-                    }
-                ]
-            });
-            $('.home-library').slick({
-                infinite: false,
-                slidesToShow: 4,
-                slidesToScroll: 4,
-                dots: true,
-                prevArrow: false,
-                nextArrow: false,
-                responsive: [
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 3,
-                            arrows: false,
-                            centerPadding: '30px',
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 3,
-                            arrows: false,
-                            centerPadding: '20px',
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            arrows: true,
-                            centerMode: true,
-                            centerPadding: '30px',
-                            slidesToShow: 1,
-                            dots: true,
-                        }
-                    }
-                ]
-            });
+                    ]
+                });
+            }
         },
         scrollTop() {
             window.scrollTo({
@@ -474,6 +703,10 @@ function goBack() {
     window.history.back();
 }
 
+$('.languages-links a').on('click', function () {
+    location.reload();
+})
+
 function debounce(fn, wait) {
     var time = Date.now();
     return function () {
@@ -512,18 +745,27 @@ if (home.activeLink == 'home') {
         }
     });
 }
-// $(document).bind('mousewheel', function () {
+// $(document).on('mousewheel', function () {
 //     $('section').each(function () {
-//         if ($(window).scrollTop() < $(this).offset().top) {
-//             var urlChanged = $(this).attr('id');
-//             window.location.hash = urlChanged;
-//             home.activeLink = urlChanged;
+//         if ($(this).offset().top == 0) {
+//             var sec_id = $(this).attr('id');
+//             window.location.hash = sec_id;
+//             home.activeLink = sec_id;
 //         }
-//         if (window.location.hash === '#sub') {
-//             window.location.hash = 'home';
-//         }
-//         if (window.location.hash === '#home') {
-//             home.activeLink = 'home';
+//     });
+// });
+
+
+// $(document).bind('scroll',function(e){
+//     $('section').each(function(){
+//         if (
+//            $(this).offset().top < window.pageYOffset + 10
+// //begins before top
+//         && $(this).offset().top + $(this).height() > window.pageYOffset + 10
+// //but ends in visible area
+// //+ 10 allows you to change hash before it hits the top border
+//         ) {
+//             window.location.hash = $(this).attr('id');
 //         }
 //     });
 // });

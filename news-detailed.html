@@ -89,6 +89,7 @@
                         </li>
                         <li class="nav-item border-right active">
                             <a class="nav-link py-0 px-4 text-uppercase">{{tr.news}}</a>
+                            <!-- <a class="nav-link py-0 px-4 text-uppercase" v-if="activeLink=='library'">{{tr.libraryTab}}</a> -->
                         </li>
                     </ul>
                 </div>
@@ -154,13 +155,13 @@
                                     </a>
                                 </div>
                                 <div class="title my-4 text-uppercase position-relative">
-                                    {{newsPage.detailedNews[0].title_en}}
+                                    {{newsPage.detailedNews[0].title}}
                                 </div>
                                 <div class="body-content m-0">
-                                    <p class="text-secondary" v-html="newsPage.detailedNews[0].text_en">
+                                    <p class="text-secondary" v-html="newsPage.detailedNews[0].text">
                                     </p>
                                     <div class="download" v-if="readQueryString('page-type')=='library'">
-                                        <a :href="serverPath+newsPage.detailedNews[0].doc_link_en" target="_blank"
+                                        <a :href="serverPath+newsPage.detailedNews[0].doc_link" target="_blank"
                                             class="download-btn text-white bg-red border rounded text-uppercase d-block">
                                             <i class="fas fa-file-pdf mr-3"></i>{{tr.saveDoc}}
                                         </a>
@@ -206,14 +207,15 @@
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
                                                 <span class="phone-number">
-                                                    {{ footer.contact_info.info.contact_phone }}
+                                                    {{ footer.contact_info.info[0].contact_phone }}
                                                 </span>
                                             </p>
                                         </li>
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
-                                                <a href="mailto:info@streetsportsincubator.org" class="text-secondary">
-                                                    {{ footer.contact_info.info.contact_email }}
+                                                <a href="mailto:info@streetsportsincubator.org"
+                                                    class="text-secondary">
+                                                    {{ footer.contact_info.info[0].contact_email }}
                                                 </a>
                                             </p>
                                         </li>
@@ -262,8 +264,8 @@
                 <div
                     class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
                     <h6 class="m-0"><small>{{ footer.contact_info.info.copy_write_en }}</small></h6 class="p-0">
-                    <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com" target="_blank"
-                                class="text-info">EappEra</a></small>
+                    <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com"
+                                target="_blank" class="text-info">EappEra</a></small>
                     </h6>
                 </div>
             </div>

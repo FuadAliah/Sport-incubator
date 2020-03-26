@@ -85,17 +85,17 @@
                         <li class="nav-item border-right" @click="about_pages.activeList = 'about_the_incubator'"
                             :class="[about_pages.activeList == 'about_the_incubator' ? 'active' : '']">
                             <a href="#"
-                                class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[2].title_en }}</a>
+                                class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[2].title }}</a>
                         </li>
                         <li class="nav-item border-right" @click="about_pages.activeList = 'about_game_jordan'"
                             :class="[about_pages.activeList == 'about_game_jordan' ? 'active' : '']">
                             <a href="#"
-                                class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[1].title_en }}</a>
+                                class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[1].title }}</a>
                         </li>
                         <li class="nav-item border-right" @click="about_pages.activeList = 'about_jyif'"
                             :class="[about_pages.activeList == 'about_jyif' ? 'active' : '']">
                             <a href="#"
-                                class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[0].title_en }}</a>
+                                class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[0].title }}</a>
                         </li>
                     </ul>
                 </div>
@@ -103,8 +103,8 @@
                     <div class="d-flex">
                         <ul class="navbar-nav">
                             <li class="nav-item border-right">
-                                <a class="nav-link py-0 px-4" href="./index.html#about"><i
-                                        class="fas mr-2" :class="[language=='ar' ? 'fa-angle-right' : 'fa-angle-left']"></i></a>
+                                <a class="nav-link py-0 px-4" href="./index.html#about"><i class="fas mr-2"
+                                        :class="[language=='ar' ? 'fa-angle-right' : 'fa-angle-left']"></i></a>
                             </li>
                         </ul>
                         <div class="btn-group w-100 custom-mob-dropdown">
@@ -117,21 +117,21 @@
                                     :class="[about_pages.activeList == 'about_the_incubator' ? 'active' : '']">
                                     <a class="nav-link py-3 px-4 text-uppercase"
                                         :class="[about_pages.activeList == 'about_the_incubator' ? 'text-red' : 'text-dark']">
-                                        {{ about_pages.aboutContent[2].title_en }}
+                                        {{ about_pages.aboutContent[2].title }}
                                     </a>
                                 </li>
                                 <li class="nav-item" @click="about_pages.activeList = 'about_game_jordan'"
                                     :class="[about_pages.activeList == 'about_game_jordan' ? 'active' : '']">
                                     <a class="nav-link py-3 px-4 text-uppercase"
                                         :class="[about_pages.activeList == 'about_game_jordan' ? 'text-red' : 'text-dark']">
-                                        {{ about_pages.aboutContent[1].title_en }}
+                                        {{ about_pages.aboutContent[1].title }}
                                     </a>
                                 </li>
                                 <li class="nav-item" @click="about_pages.activeList = 'about_jyif'"
                                     :class="[about_pages.activeList == 'about_jyif' ? 'active' : '']">
                                     <a class="nav-link py-3 px-4 text-uppercase"
                                         :class="[about_pages.activeList == 'about_jyif' ? 'text-red' : 'text-dark']">
-                                        {{ about_pages.aboutContent[0].title_en }}
+                                        {{ about_pages.aboutContent[0].title }}
                                     </a>
                                 </li>
                             </div>
@@ -145,12 +145,12 @@
                     <img id="head-img" class="w-100"
                         style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('../imgs/about-bg.jpg') center; background-size: cover;">
                     <div class="page-title position-absolute">
-                        <h2 class="text-white text-uppercase w-100">{{ about_pages.aboutContent[2].title_en }}</h2>
+                        <h2 class="text-white text-uppercase w-100">{{ about_pages.aboutContent[2].title }}</h2>
                     </div>
                 </div>
                 <div class="content" data-aos="fade-up">
                     <div class="body-content m-0">
-                        <p class="text-secondary" v-html="about_pages.aboutContent[2].long_desc_en">
+                        <p class="text-secondary" v-html="about_pages.aboutContent[2].long_desc">
                         </p>
                     </div>
                 </div>
@@ -160,12 +160,12 @@
                     <img id="head-img" class="w-100"
                         style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('../imgs/about-bg.jpg') center; background-size: cover;">
                     <div id="gone" class="page-title position-absolute w-75">
-                        <h2 class="text-white text-uppercase w-100">{{ about_pages.aboutContent[1].title_en }}</h2>
+                        <h2 class="text-white text-uppercase w-100">{{ about_pages.aboutContent[1].title }}</h2>
                     </div>
                 </div>
                 <div class="content" data-aos="fade-up">
                     <div class="body-content m-0">
-                        <p class="text-secondary" v-html="about_pages.aboutContent[1].long_desc_en">
+                        <p class="text-secondary" v-html="about_pages.aboutContent[1].long_desc">
                         </p>
                     </div>
                 </div>
@@ -175,12 +175,12 @@
                     <img id="head-img" class="w-100"
                         style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('../imgs/about-bg.jpg') center; background-size: cover;">
                     <div id="gone" class="page-title position-absolute w-75">
-                        <h2 class="text-white text-uppercase w-100">{{ about_pages.aboutContent[0].title_en }}</h2>
+                        <h2 class="text-white text-uppercase w-100">{{ about_pages.aboutContent[0].title }}</h2>
                     </div>
                 </div>
                 <div class="content" data-aos="fade-up">
                     <div class="body-content m-0">
-                        <p class="text-secondary" v-html="about_pages.aboutContent[0].long_desc_en"></p>
+                        <p class="text-secondary" v-html="about_pages.aboutContent[0].long_desc"></p>
                     </div>
                 </div>
             </div>
@@ -220,14 +220,14 @@
                                     <li class="py-1">
                                         <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
                                             <span class="phone-number">
-                                                {{ footer.contact_info.info.contact_phone }}
+                                                {{ footer.contact_info.info[0].contact_phone }}
                                             </span>
                                         </p>
                                     </li>
                                     <li class="py-1">
                                         <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
                                             <a href="mailto:info@streetsportsincubator.org" class="text-secondary">
-                                                {{ footer.contact_info.info.contact_email }}
+                                                {{ footer.contact_info.info[0].contact_email }}
                                             </a>
                                         </p>
                                     </li>

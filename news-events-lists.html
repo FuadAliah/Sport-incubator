@@ -145,9 +145,9 @@
                                                     </h6>
                                                 </div>
                                                 <a :href="'./news-detailed.html?news-id='+new.id+'&page-type=news'"
-                                                    class="card-title text-red custom-title text-uppercase">{{new.title_en.slice(0, 32) + '...'}}</a>
+                                                    class="card-title text-red custom-title text-uppercase">{{new.title.slice(0, 32) + '...'}}</a>
                                                 <p class="card-text custom-paragraph m-0">
-                                                    {{ new.text_en.slice(0, 200) + '...' }}
+                                                    {{ new.text.slice(0, 200) + '...' }}
                                                 </p>
                                             </div>
                                         </div>
@@ -182,9 +182,9 @@
                                                             class="font-weight-bold">{{event.event_at}}</small></h6>
                                                 </div>
                                                 <a :href="'./news-detailed.html?news-id='+event.id+'&page-type=events'"
-                                                    class="card-title text-red custom-title text-uppercase">{{event.title_en.slice(0, 32) + '...'}}</a>
+                                                    class="card-title text-red custom-title text-uppercase">{{event.title.slice(0, 32) + '...'}}</a>
                                                 <p class="card-text custom-paragraph m-0">
-                                                    {{ event.text_en.slice(0, 200) + '...' }}</p>
+                                                    {{ event.text.slice(0, 200) + '...' }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -230,14 +230,15 @@
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
                                                 <span class="phone-number">
-                                                    {{ footer.contact_info.info.contact_phone }}
+                                                    {{ footer.contact_info.info[0].contact_phone }}
                                                 </span>
                                             </p>
                                         </li>
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
-                                                <a href="mailto:info@streetsportsincubator.org" class="text-secondary">
-                                                    {{ footer.contact_info.info.contact_email }}
+                                                <a href="mailto:info@streetsportsincubator.org"
+                                                    class="text-secondary">
+                                                    {{ footer.contact_info.info[0].contact_email }}
                                                 </a>
                                             </p>
                                         </li>
@@ -286,8 +287,8 @@
                 <div
                     class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
                     <h6 class="m-0"><small>{{ footer.contact_info.info.copy_write_en }}</small></h6 class="p-0">
-                    <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com" target="_blank"
-                                class="text-info">EappEra</a></small>
+                    <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com"
+                                target="_blank" class="text-info">EappEra</a></small>
                     </h6>
                 </div>
             </div>

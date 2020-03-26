@@ -54,7 +54,7 @@
                             <a href="javascript:void(0)" @click="setLanguage('en')"
                                 class="list-group-item-action w-100 text-uppercase">English</a>
                             <a href="javascript:void(0)" @click="setLanguage('ar')"
-                                class="list-group-item-action w-100 ar-link">عربي</a> 
+                                class="list-group-item-action w-100 ar-link">عربي</a>
                         </div>
                         <a href="./registration.html"
                             class="list-group-item-action w-100 bg-orange text-uppercase">{{tr.registration}}</a>
@@ -110,7 +110,7 @@
                                 <div class="h-50">
                                     <div class="list-title text-uppercase mb-2">{{tr.Contact_us}}</div>
                                     <h4 class="list-slogan text-muted">
-                                        {{ footer.contact_info.info.contact_us_description_en }}
+                                        {{ footer.contact_info.info[0].contact_us_description }}
                                     </h4>
                                 </div>
                                 <div class="h-50 mt-5">
@@ -120,7 +120,7 @@
                                                 <h6 class="m-0">{{tr.call}}</h6>
                                             </div>
                                             <div class="value text-muted">
-                                                <h6 class="m-0">{{ footer.contact_info.info.contact_phone }}</h6
+                                                <h6 class="m-0">{{ footer.contact_info.info[0].contact_phone }}</h6
                                                     class="m-0">
                                             </div>
                                         </div>
@@ -141,7 +141,7 @@
                                                 <h6 class="m-0">
                                                     <a href="mailto:info@streetsportsincubator.org"
                                                         class="text-secondary">
-                                                        {{ footer.contact_info.info.contact_email }}
+                                                        {{ footer.contact_info.info[0].contact_email }}
                                                     </a>
                                                 </h6>
                                             </div>
@@ -562,14 +562,14 @@
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
                                                 <span class="phone-number">
-                                                    {{ footer.contact_info.info.contact_phone }}
+                                                    {{ footer.contact_info.info[0].contact_phone }}
                                                 </span>
                                             </p>
                                         </li>
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
                                                 <a href="mailto:info@streetsportsincubator.org" class="text-secondary">
-                                                    {{ footer.contact_info.info.contact_email }}
+                                                    {{ footer.contact_info.info[0].contact_email }}
                                                 </a>
                                             </p>
                                         </li>

@@ -112,7 +112,7 @@
                                 <div class="h-50">
                                     <div class="list-title text-uppercase mb-2">{{tr.register}}</div>
                                     <h4 class="list-slogan text-muted">
-                                        {{ footer.contact_info.info.registration_description_en }}
+                                        {{ footer.contact_info.info[0].registration_description }}
                                     </h4>
                                 </div>
                             </div>
@@ -818,14 +818,14 @@
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
                                                 <span class="phone-number">
-                                                    {{ footer.contact_info.info.contact_phone }}
+                                                    {{ footer.contact_info.info[0].contact_phone }}
                                                 </span>
                                             </p>
                                         </li>
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
                                                 <a href="mailto:info@streetsportsincubator.org" class="text-secondary">
-                                                    {{ footer.contact_info.info.contact_email }}
+                                                    {{ footer.contact_info.info[0].contact_email }}
                                                 </a>
                                             </p>
                                         </li>
