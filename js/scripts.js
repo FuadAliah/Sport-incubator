@@ -73,6 +73,31 @@ var home = new Vue({
             this.language = lang;
             localStorage.setItem('lang', lang);
             this.tr = lang == "en" ? locales_en : locales_ar;
+            if (this.language == 'en') {
+                $('#f-name').attr('placeholder', 'First Name*')
+                $('#l-name').attr('placeholder', 'Last Name*')
+                $('#email').attr('placeholder', 'Email*')
+                $('#phone-reg').attr('placeholder', 'Phone Number*')
+                $('#business').attr('placeholder', 'Business / organisation')
+                $('#message').attr('placeholder', 'Message*')
+                $('#date').attr('placeholder', 'Date Of Birth*')
+                $('#address').attr('placeholder', 'Your Address*')
+                $('#about_you').attr('placeholder', 'Tell us about yourself')
+                $('#about_idea').attr('placeholder', 'Tell us about your Idea / Project*')
+                $('#yChoose').attr('placeholder', 'Why Should we Choose you?')
+            } else {
+                $('#f-name').attr('placeholder', 'الإسم الأول*')
+                $('#l-name').attr('placeholder', 'الإسم الأخير*')
+                $('#email').attr('placeholder', 'البريد الإلكتروني*')
+                $('#phone-reg').attr('placeholder', 'رقم الهاتف*')
+                $('#business').attr('placeholder', 'أعمال / منظمة*')
+                $('#message').attr('placeholder', 'نص الرسالة*')
+                $('#date').attr('placeholder', 'تاريخ الميلاد*')
+                $('#address').attr('placeholder', 'العنوان*')
+                $('#about_you').attr('placeholder', 'حدّثنا عن نفسك')
+                $('#about_idea').attr('placeholder', 'حدّثنا عن فكرتك / مشروعك*')
+                $('#yChoose').attr('placeholder', 'لماذا علينا اختيارك؟')
+            }
         },
         setValues() {
             if (window.location.href.indexOf("about-detailed") > 0) {
@@ -94,9 +119,12 @@ var home = new Vue({
                 this.activeLink = "news-detailed";
             }
 
-            // if (window.location.href.indexOf("library") > 0) { //detailed news page
-            //     this.getHome();
+            // if (window.location.href.indexOf("page-type=library") > 0) {
+            //     this.getNews();
             //     this.activeLink = "library";
+            //     if (this.readQueryString('activeList')) {
+            //         this.library_resources.activeList = this.readQueryString('activeList');
+            //     }
             // }
 
             if (window.location.href.indexOf("library-list") > 0) {
@@ -722,10 +750,11 @@ function debounce(fn, wait) {
 if (home.activeLink == 'home') {
     $('body').on('mousewheel', debounce(function (event) {
         if (event.deltaY > 0) { //going up
-            home.open = false
+            home.open = false;
             $('html,body').stop().animate({
                 scrollTop: $(window).scrollTop() - $(window).height()
             }, 1000);
+
         } else {
             home.open = false
             $('html,body').stop().animate({
@@ -745,27 +774,45 @@ if (home.activeLink == 'home') {
         }
     });
 }
-// $(document).on('mousewheel', function () {
+
+
+
+if (home.activeLink == 'home') {
+    window.addEventListener('scroll', function () {
+        let scroll = this.pageYOffset;
+        let height = document.documentElement.clientHeight;
+        window.location.hash = 'home';
+        if (scroll / height == 1) {
+            window.location.hash = 'news';
+            home.activeLink = 'news'
+        } else if (scroll / height == 2) {
+            window.location.hash = 'about';
+            home.activeLink = 'about'
+        } else if (scroll / height == 3) {
+            window.location.hash = 'gallery';
+            home.activeLink = 'gallery';
+        } else if (scroll / height == 4) {
+            window.location.hash = 'partners';
+            home.activeLink = 'partners'
+        } else if (scroll / height == 5) {
+            window.location.hash = 'library';
+            home.activeLink = 'library'
+        } else if (scroll / height == 6) {
+            window.location.hash = 'contacts';
+            home.activeLink = 'contacts'
+        }
+    })
+}
+
+
+
+
+// $(document).on('mousewheel', function (e) {
 //     $('section').each(function () {
-//         if ($(this).offset().top == 0) {
-//             var sec_id = $(this).attr('id');
-//             window.location.hash = sec_id;
-//             home.activeLink = sec_id;
-//         }
-//     });
-// });
-
-
-// $(document).bind('scroll',function(e){
-//     $('section').each(function(){
-//         if (
-//            $(this).offset().top < window.pageYOffset + 10
-// //begins before top
-//         && $(this).offset().top + $(this).height() > window.pageYOffset + 10
-// //but ends in visible area
-// //+ 10 allows you to change hash before it hits the top border
-//         ) {
-//             window.location.hash = $(this).attr('id');
+//         var sec_id = $(this).attr('data-hash');
+//         if ($(this).offset().top < $(window).scrollTop() + 20 && $(this).offset().top + $(this).height() > $(window).scrollTop() + 20) {
+//             window.location.hash = sec_id
+//             home.activeLink = sec_id
 //         }
 //     });
 // });

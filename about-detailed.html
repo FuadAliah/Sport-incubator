@@ -150,7 +150,8 @@
                 </div>
                 <div class="content" data-aos="fade-up">
                     <div class="body-content m-0">
-                        <p class="text-secondary" v-html="about_pages.aboutContent[2].long_desc">
+                        <img :src="serverPath+about_pages.aboutContent[2].logo" class="mb-4" height="90">
+                        <p class="text-secondary" v-html="about_pages.aboutContent[2].long_description">
                         </p>
                     </div>
                 </div>
@@ -165,7 +166,8 @@
                 </div>
                 <div class="content" data-aos="fade-up">
                     <div class="body-content m-0">
-                        <p class="text-secondary" v-html="about_pages.aboutContent[1].long_desc">
+                        <img :src="serverPath+about_pages.aboutContent[1].logo" class="mb-4" height="90">
+                        <p class="text-secondary" v-html="about_pages.aboutContent[1].long_description">
                         </p>
                     </div>
                 </div>
@@ -180,7 +182,8 @@
                 </div>
                 <div class="content" data-aos="fade-up">
                     <div class="body-content m-0">
-                        <p class="text-secondary" v-html="about_pages.aboutContent[0].long_desc"></p>
+                        <img :src="serverPath+about_pages.aboutContent[0].logo" class="mb-4" height="90">
+                        <p class="text-secondary" v-html="about_pages.aboutContent[0].long_description"></p>
                     </div>
                 </div>
             </div>
@@ -270,7 +273,7 @@
             </div>
             <div
                 class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
-                <h6 class="m-0"><small>{{ footer.contact_info.info.copy_write_en }}</small></h6 class="p-0">
+                <h6 class="m-0"><small>{{ footer.contact_info.info[0].copy_write }}</small></h6 class="p-0">
                 <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com" target="_blank"
                             class="text-info">EappEra</a></small>
                 </h6>

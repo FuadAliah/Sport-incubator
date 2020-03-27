@@ -597,7 +597,8 @@ input[type="number"]::-webkit-outer-spin-button {
                 i {
                   position: absolute;
                   top: 50%;
-                  right: 25px;
+                  right: unset;
+                  left: 25px;
                   transform: translateY(-50%);
                   color: #8a8a8a;
                   font-size: 16px;
@@ -721,7 +722,8 @@ input[type="number"]::-webkit-outer-spin-button {
                 i {
                   position: absolute;
                   top: 50%;
-                  right: 25px;
+                  right: unset;
+                  left: 25px;
                   transform: translateY(-50%);
                   color: #8a8a8a;
                   font-size: 16px;

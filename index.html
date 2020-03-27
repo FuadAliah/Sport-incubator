@@ -49,7 +49,8 @@
                     <div class="mt-auto">
                         <div class="d-flex text-center languages-links">
                             <a href="javascript:void(0)" @click="setLanguage('en')"
-                                class="list-group-item-action w-100 text-uppercase">English</a>
+                                class="list-group-item-action w-100 text-uppercase"
+                                style="font-family: Soho Pro;">English</a>
                             <a href="javascript:void(0)" @click="setLanguage('ar')"
                                 class="list-group-item-action w-100 ar-link">عربي</a>
                         </div>
@@ -70,7 +71,7 @@
         </a>
         <div class="data" :class="[open == true ? 'dragged' : '' ]">
             <div class="trigger position-absolute" v-if="open == true" @click="open = !open"></div>
-            <section id="home" class="section home text-center position-relative" v-if="home"
+            <section id="home" data-hash="home" class="section home text-center position-relative" v-if="home"
                 style="background-size: cover;" :style="{ backgroundImage: 'url('+serverPath+home.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 custom-mobile-height">
                     <div class="logo-white">
@@ -129,7 +130,7 @@
                     </div>
                 </div>
             </section>
-            <section id="news" class="section news" v-if="news">
+            <section id="news" data-hash="news" class="section news" v-if="news">
                 <div class="h-100 d-none d-lg-block">
                     <div class="row h-100">
                         <div class="col-5 news-one p-0" data-aos="fade-in" data-aos-delay="200">
@@ -291,7 +292,7 @@
                     </div>
                 </div>
             </section>
-            <section id="about" class="section about" style="background-size: cover;" v-if="about"
+            <section id="about" data-hash="about" class="section about" style="background-size: cover;" v-if="about"
                 :style="{ backgroundImage: 'url('+serverPath+about.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 w-100">
                     <div class="head-content h-auto h-md-50 d-flex flex-column section-tag"
@@ -323,7 +324,7 @@
                                             <h4>{{about_pages.aboutTabs[0].title}}</h4>
                                         </div>
                                         <div class="about-description">
-                                            <p>{{about_pages.aboutTabs[0].description}}</p>
+                                            <p>{{about_pages.aboutTabs[0].short_description}}</p>
                                         </div>
                                         <span class="text-blue">{{tr.read_more}}<i class="fas ml-2 align-middle"
                                                 :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i>
@@ -339,7 +340,7 @@
                                             <h4>{{about_pages.aboutTabs[1].title}}</h4>
                                         </div>
                                         <div class="about-description">
-                                            <p>{{about_pages.aboutTabs[1].description}}</p>
+                                            <p>{{about_pages.aboutTabs[1].short_description}}</p>
                                         </div>
                                         <span class="text-blue">{{tr.read_more}}<i class="fas ml-2 align-middle"
                                                 :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i>
@@ -355,7 +356,7 @@
                                             <h4>{{about_pages.aboutTabs[2].title}}</h4>
                                         </div>
                                         <div class="about-description">
-                                            <p>{{about_pages.aboutTabs[2].description}}</p>
+                                            <p>{{about_pages.aboutTabs[2].short_description}}</p>
                                         </div>
                                         <span class="text-blue">{{tr.read_more}}<i class="fas ml-2 align-middle"
                                                 :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i>
@@ -367,8 +368,8 @@
                     </div>
                 </div>
             </section>
-            <section id="gallery" class="section gallery" style="background-size: cover;" v-if="gallery_images"
-                :style="{ backgroundImage: 'url('+serverPath+gallery.background+')'}">
+            <section id="gallery" data-hash="gallery" class="section gallery" style="background-size: cover;"
+                v-if="gallery_images" :style="{ backgroundImage: 'url('+serverPath+gallery.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 w-100">
                     <div class="head-content h-50 d-flex flex-column section-tag"
                         :data-aos="[language=='ar' ? 'fade-left' : 'fade-right']" data-aos-offset="600"
@@ -395,8 +396,8 @@
                     </div>
                 </div>
             </section>
-            <section id="partners" class="section partner" style="background-size: cover;" v-if="partners"
-                :style="{ backgroundImage: 'url('+serverPath+partners.background+')'}">
+            <section id="partners" data-hash="partners" class="section partner" style="background-size: cover;"
+                v-if="partners" :style="{ backgroundImage: 'url('+serverPath+partners.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 w-100">
                     <div class="head-content h-50 d-flex flex-column section-tag"
                         :data-aos="[language=='ar' ? 'fade-left' : 'fade-right']" data-aos-offset="600"
@@ -417,8 +418,8 @@
                     </div>
                 </div>
             </section>
-            <section id="library" class="section library" style="background-size: cover;" v-if="library"
-                :style="{ backgroundImage: 'url('+serverPath+library.background+')'}">
+            <section id="library" data-hash="library" class="section library" style="background-size: cover;"
+                v-if="library" :style="{ backgroundImage: 'url('+serverPath+library.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 w-100">
                     <div class="head-content h-50 d-flex flex-column section-tag"
                         :data-aos="[language=='ar' ? 'fade-left' : 'fade-right']" data-aos-offset="600"
@@ -480,7 +481,7 @@
                     </div>
                 </div>
             </section>
-            <section id="contacts" class="section footer">
+            <section id="contacts" data-hash="contacts" class="section footer">
                 <div id="subscribe" class="container-fluid d-none d-md-block bg-white">
                     <div class="row align-items-center sub ml-5 position-relative">
                         <div class="col-6 h-50 d-flex flex-column justify-content-between">
@@ -602,7 +603,7 @@
                     </div>
                     <div
                         class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
-                        <h6 class="m-0"><small>{{ footer.contact_info.info.copy_write_en }}</small></h6 class="p-0">
+                        <h6 class="m-0"><small>{{ footer.contact_info.info[0].copy_write }}</small></h6 class="p-0">
                         <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com"
                                     target="_blank" class="text-info">EappEra</a></small>
                         </h6>

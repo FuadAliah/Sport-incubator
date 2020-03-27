@@ -878,7 +878,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .contacts .news-content .content-list .custom-container .contact-title .custom-form .custom-row .custom-input i {
   position: absolute;
   top: 50%;
-  right: 25px;
+  right: unset;
+  left: 25px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   color: #8a8a8a;
@@ -1063,7 +1064,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .register .news-content .content-list .custom-container .contact-title .custom-form .custom-row .custom-input i {
   position: absolute;
   top: 50%;
-  right: 25px;
+  right: unset;
+  left: 25px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   color: #8a8a8a;

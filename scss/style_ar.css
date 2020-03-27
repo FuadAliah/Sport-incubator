@@ -66,10 +66,11 @@ html {
 
 .sidebar .side-links a:hover {
   background: #f6f4e2;
+  color: #495057 !important;
 }
 
 .sidebar .side-links a.active {
-  color: #fff;
+  color: #fff !important;
   background-color: #19a2e0;
 }
 
@@ -237,7 +238,7 @@ ul {
 }
 
 .bg-orange {
-  color: #fff;
+  color: #fff !important;
   background-color: #ee7531;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -248,7 +249,7 @@ ul {
 }
 
 .bg-red {
-  color: #fff;
+  color: #fff !important;
   background-color: #d62b4d;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -256,6 +257,17 @@ ul {
 
 .bg-red:hover {
   background-color: #ad213d;
+}
+
+.bg-reds {
+  color: #fff !important;
+  background-color: #d62b4d !important;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.bg-reds:hover {
+  background-color: #ad213d !important;
 }
 
 .bg-blue {

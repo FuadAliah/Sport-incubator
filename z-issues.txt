@@ -1,17 +1,11 @@
-- news link selected in library detailed.
-- active list in library detailed.
-- change hash and activeLink on scrolling.
-- sliders on rtl reflected.
+- news link selected & active list in library detailed.
+- arabic placeholders.
+
+
+
 
 
 
 - registeration submit.
 - contacts and registeration success message (error Send)
 - subscribe validate submit.
-
-
-
-side menu{
-    - register & contacts color style.
-}
-

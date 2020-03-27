@@ -55,9 +55,10 @@ html {
       position: relative;
       &:hover {
         background: $newsColor;
+        color: #495057 !important;
       }
       &.active {
-        color: #fff;
+        color: #fff !important;
         background-color: $blueColor;
       }
       &:after {
@@ -189,7 +190,7 @@ ul {
   }
 }
 .bg-orange {
-  color: #fff;
+  color: #fff !important;
   background-color: $orangeColor;
   transition: $ease-in-out;
   &:hover {
@@ -197,11 +198,19 @@ ul {
   }
 }
 .bg-red {
-  color: #fff;
+  color: #fff !important;
   background-color: $redColor;
   transition: $ease-in-out;
   &:hover {
     background-color: darken($redColor, 10%);
+  }
+}
+.bg-reds {
+  color: #fff !important;
+  background-color: $redColor !important;
+  transition: $ease-in-out;
+  &:hover {
+    background-color: darken($redColor, 10%) !important;
   }
 }
 .bg-blue {

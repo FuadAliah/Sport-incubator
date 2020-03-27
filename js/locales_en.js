@@ -52,7 +52,7 @@ var locales_en = {
 
     //new_events_list
     "newsSlogan": "Keep up with our progress",
-    
+
     //library_list
     "libraryTab": "library",
     "viewDoc": "View Document",
@@ -67,10 +67,28 @@ var locales_en = {
     "profileInformation": "Profile Information",
     "ideaInformation": "idea Information",
     "register_btn": "register",
+    "gender": "Gender*",
+    "male": "Male",
+    "female": "Female",
+    "nationality": "Nationality*",
+    "placeOfBirth": "Place Of Birth*",
+    "haveTeam": "Do you have a team?",
+    "yes": "Yes",
+    "no": "No",
+    "teamMembers": "Number of Team members",
+    
 
     //contacts_page
     "call": "Call",
     "write": "Write",
     "email": "Email",
     "send": "Send Message",
+    "country": "country",
+    "t_about": "I'd like to talk about",
+    "general": "General",
+    "humanResources": "Human Resources",
+    "media": "Media",
+    "partnerships": "Partnerships",
+    "careers": "Careers",
+    "funding": "Funding",
 }
