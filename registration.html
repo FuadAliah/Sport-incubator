@@ -131,18 +131,18 @@
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="text" class="form-control form-control-lg" id="f-name"
                                                     req="true" onkeypress="return /[a-z]/i.test(event.key)"
-                                                    placeholder="" v-model="firstName">
+                                                    :placeholder="translate('firstName')" v-model="firstName">
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="text" class="form-control form-control-lg" id="l-name"
                                                     req="true" onkeypress="return /[a-z]/i.test(event.key)"
-                                                    placeholder="" v-model="lastName">
+                                                    :placeholder="translate('lastName')" v-model="lastName">
                                             </div>
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="date" class="form-control form-control-lg" id="date"
-                                                    req="true" placeholder="">
+                                                    req="true" :placeholder="translate('date')">
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
                                                 <select class="custom-select" req="true">
@@ -1163,16 +1163,16 @@
                                         <div class="form-row custom-row position-relative">
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="number" class="form-control form-control-lg" req="true"
-                                                    id="phone-reg" placeholder="Phone Number*" v-model="phone">
+                                                    id="phone-reg" :placeholder="translate('phone-reg')"  v-model="phone">
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="email" class="form-control form-control-lg" id="email"
-                                                    req="true" placeholder="" v-model="email">
+                                                    req="true" :placeholder="translate('email')" v-model="email">
                                             </div>
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 custom-input">
-                                                <textarea name="" rows="8" placeholder="" id="address"
+                                                <textarea name="" rows="8" :placeholder="translate('address')" id="address"
                                                     req="true"></textarea>
                                             </div>
                                         </div>
@@ -1183,18 +1183,18 @@
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 custom-input">
-                                                <textarea name="" rows="6" id="about_you" placeholder=""></textarea>
+                                                <textarea name="" rows="6" id="about_you" :placeholder="translate('about_you')"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 custom-input">
                                                 <textarea name="" rows="6" req="true" id="about_idea"
-                                                    placeholder=""></textarea>
+                                                    :placeholder="translate('about_idea')"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 custom-input">
-                                                <textarea name="" rows="6" id="yChoose" placeholder=""></textarea>
+                                                <textarea name="" rows="6" id="yChoose" :placeholder="translate('yChoose')"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-row custom-row">

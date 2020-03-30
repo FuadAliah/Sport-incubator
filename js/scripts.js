@@ -36,7 +36,7 @@ var home = new Vue({
             activeList: null,
             libraryList: null,
         },
-        contactPage: {
+        contactPagePostBody: {
             first_name: null,
             sure_name: null,
             email: null,
@@ -54,7 +54,8 @@ var home = new Vue({
         },
         footer: {
             contact_info: null,
-        }
+        },
+        messageSent: false,
     },
     created: function () {
         this.setLanguage();
@@ -73,31 +74,9 @@ var home = new Vue({
             this.language = lang;
             localStorage.setItem('lang', lang);
             this.tr = lang == "en" ? locales_en : locales_ar;
-            if (this.language == 'en') {
-                $('#f-name').attr('placeholder', 'First Name*')
-                $('#l-name').attr('placeholder', 'Last Name*')
-                $('#email').attr('placeholder', 'Email*')
-                $('#phone-reg').attr('placeholder', 'Phone Number*')
-                $('#business').attr('placeholder', 'Business / organisation')
-                $('#message').attr('placeholder', 'Message*')
-                $('#date').attr('placeholder', 'Date Of Birth*')
-                $('#address').attr('placeholder', 'Your Address*')
-                $('#about_you').attr('placeholder', 'Tell us about yourself')
-                $('#about_idea').attr('placeholder', 'Tell us about your Idea / Project*')
-                $('#yChoose').attr('placeholder', 'Why Should we Choose you?')
-            } else {
-                $('#f-name').attr('placeholder', 'الإسم الأول*')
-                $('#l-name').attr('placeholder', 'الإسم الأخير*')
-                $('#email').attr('placeholder', 'البريد الإلكتروني*')
-                $('#phone-reg').attr('placeholder', 'رقم الهاتف*')
-                $('#business').attr('placeholder', 'أعمال / منظمة*')
-                $('#message').attr('placeholder', 'نص الرسالة*')
-                $('#date').attr('placeholder', 'تاريخ الميلاد*')
-                $('#address').attr('placeholder', 'العنوان*')
-                $('#about_you').attr('placeholder', 'حدّثنا عن نفسك')
-                $('#about_idea').attr('placeholder', 'حدّثنا عن فكرتك / مشروعك*')
-                $('#yChoose').attr('placeholder', 'لماذا علينا اختيارك؟')
-            }
+        },
+        translate(word) {
+            return this.tr[word]
         },
         setValues() {
             if (window.location.href.indexOf("about-detailed") > 0) {
@@ -119,21 +98,7 @@ var home = new Vue({
                 this.activeLink = "news-detailed";
             }
 
-            // if (window.location.href.indexOf("page-type=library") > 0) {
-            //     this.getNews();
-            //     this.activeLink = "library";
-            //     if (this.readQueryString('activeList')) {
-            //         this.library_resources.activeList = this.readQueryString('activeList');
-            //     }
-            // }
 
-            if (window.location.href.indexOf("library-list") > 0) {
-                this.getNews();
-                this.activeLink = "library";
-                if (this.readQueryString('activeList')) {
-                    this.library_resources.activeList = this.readQueryString('activeList');
-                }
-            }
             if (window.location.href.indexOf("contacts") > 0) {
                 this.getHome();
                 this.activeLink = "contacts";
@@ -267,6 +232,8 @@ var home = new Vue({
                 newsList = this.newsPage.newsList;
             } else if (pageType == 'library') {
                 newsList = this.library_resources.libraryList;
+                this.activeLink = "library";
+                this.newsPage.activeList = "library";
             }
             this.newsPage.detailedNews = newsList.filter(obj => {
                 return obj.id === parseInt(newsId);
@@ -685,13 +652,24 @@ var home = new Vue({
         },
         postContact(form) {
             if (this.validateForm(form)) {
-                var postBody = this.contactPage;
+                var postBody = this.contactPagePostBody;
                 axios.post(this.serverPath + 'contact-us/save', postBody)
                     .then(function (response) {
-                        console.log(response);
+                        // new
+                        this.contactPagePostBody = {
+                            first_name: null,
+                            sure_name: null,
+                            email: null,
+                            phone: null,
+                            country: null,
+                            business: null,
+                            topic: null,
+                            message: null,
+                        },
+                            this.messageSent = true;
+                        location.reload();
                     })
                     .catch(function (error) {
-                        this.scrollTop(0, 0);
                         console.log(error.response);
                     });
             }
@@ -748,7 +726,7 @@ function debounce(fn, wait) {
     }
 }
 
-if (home.activeLink == 'home' ) {
+if (home.activeLink == 'home') {
     $('body').on('mousewheel', debounce(function (event) {
         if (event.deltaY > 0) { //going up
             home.open = false;

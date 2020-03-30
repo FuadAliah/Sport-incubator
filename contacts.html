@@ -182,36 +182,48 @@
                         <div class="col-md-8 content-list bg-white h-100 p-0" data-aos="fade-left">
                             <div class="container custom-container">
                                 <div class="contact-title">
+                                    <div class="messageSent" v-if="messageSent == true">
+                                        <div class="alert alert-success d-flex align-items-center" role="alert">
+                                            <i class="far fa-check-circle mr-2 fa-lg"></i>
+                                            <div class="textMessage">
+                                                {{tr.mSuccess}}
+                                            </div>
+                                        </div>
+                                    </div>
                                     <h4 class="text-muted">{{tr.registerTitle}}</h4>
                                     <h6 class="text-info m-0"><small>{{tr.mandatory}}</small></h6>
                                     <form class="custom-form" id="validated-form" action="" method="post">
                                         <div class="form-row custom-row">
                                             <div class="col-12 col-md-6 custom-input">
-                                                <input type="text" class="form-control form-control-lg" id="f-name"
-                                                    req="true" onkeypress="return /[a-z]/i.test(event.key)"
-                                                    placeholder="" v-model="contactPage.first_name">
+                                                <input type="text" class="form-control form-control-lg" req="true"
+                                                    onkeypress="return /[a-z]/i.test(event.key)"
+                                                    :placeholder="translate('firstName')"
+                                                    v-model="contactPagePostBody.first_name">
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="text" class="form-control form-control-lg" id="l-name"
                                                     req="true" onkeypress="return /[a-z]/i.test(event.key)"
-                                                    placeholder="" v-model="contactPage.sure_name">
+                                                    :placeholder="translate('lastName')"
+                                                    v-model="contactPagePostBody.sure_name">
                                             </div>
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="email" class="form-control form-control-lg" id="email"
-                                                    req="true" placeholder="" v-model="contactPage.email">
+                                                    req="true" :placeholder="translate('email')"
+                                                    v-model="contactPagePostBody.email">
 
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="number" id="phone-reg" class="form-control form-control-lg"
-                                                    req="true" placeholder="" v-model="contactPage.phone">
+                                                    req="true" :placeholder="translate('phone-reg')"
+                                                    v-model="contactPagePostBody.phone">
                                             </div>
                                         </div>
                                         <div class="form-row custom-row position-relative">
                                             <div class="col-12 col-md-6 custom-input">
-                                                <select class="custom-select" req="true" v-model="contactPage.country"
-                                                    v-if="language=='en'">
+                                                <select class="custom-select" req="true"
+                                                    v-model="contactPagePostBody.country" v-if="language=='en'">
                                                     <option value="" disabled selected>{{tr.country}}</option>
                                                     <div class="en">
                                                         <option value="Afghanistan">Afghanistan</option>
@@ -503,8 +515,8 @@
                                                         <option value="Zimbabwe">Zimbabwe</option>
                                                     </div>
                                                 </select>
-                                                <select class="custom-select" req="true" v-model="contactPage.country"
-                                                    v-if="language=='ar'">
+                                                <select class="custom-select" req="true"
+                                                    v-model="contactPagePostBody.country" v-if="language=='ar'">
                                                     <option value="" disabled selected>{{tr.country}}</option>
                                                     <div class="ar">
                                                         <option value="أفغانستان">أفغانستان</option>
@@ -712,12 +724,13 @@
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="text" class="form-control form-control-lg" id="business"
-                                                    v-model="contactPage.business" placeholder="">
+                                                    v-model="contactPagePostBody.business"
+                                                    :placeholder="translate('business')">
                                             </div>
                                         </div>
                                         <div class="form-row custom-row position-relative">
                                             <div class="col-12 custom-input">
-                                                <select class="custom-select" v-model="contactPage.topic">
+                                                <select class="custom-select" v-model="contactPagePostBody.topic">
                                                     <option value="" disabled selected>{{tr.t_about}}</option>
                                                     <option value="General">{{tr.general}}</option>
                                                     <option value="Human Resources">{{tr.humanResources}}</option>
@@ -731,8 +744,9 @@
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 custom-input">
-                                                <textarea name="" id="message" rows="8" placeholder=""
-                                                    v-model="contactPage.message" req="true">
+                                                <textarea name="" id="message" rows="8"
+                                                    :placeholder="translate('message')"
+                                                    v-model="contactPagePostBody.message" req="true">
                                                 </textarea>
                                             </div>
                                         </div>

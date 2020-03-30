@@ -79,7 +79,7 @@ var locales_en = {
     "yes": "Yes",
     "no": "No",
     "teamMembers": "Number of Team members",
-    
+
 
     //contacts_page
     "call": "Call",
@@ -94,4 +94,16 @@ var locales_en = {
     "partnerships": "Partnerships",
     "careers": "Careers",
     "funding": "Funding",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email*",
+    "phone-reg": "Phone Number*",
+    "business": "Business / organisation",
+    "message": "Message*",
+    "date": "Date Of Birth*",
+    "address": "Your Address*",
+    "about_you": "Tell us about yourself",
+    "about_idea": "Tell us about your Idea / Project*",
+    "yChoose": "Why Should we Choose you?",
+    "mSuccess": "Your Message has been Sent Successfully!",
 }
