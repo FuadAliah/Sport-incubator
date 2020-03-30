@@ -59,7 +59,7 @@ var locales_en = {
     "saveDoc": "Save Document",
     "librarySlog": "Browse and download our publications, PR and useful media files",
 
-    //about_page
+    //about_pages
     "aboutTag": "about us",
 
     //register_page
