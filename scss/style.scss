@@ -34,6 +34,9 @@ html {
 }
 
 .sidebar {
+  width: 315px;
+  transition: $ease-in-out;
+  opacity: 0;
   .custom-height {
     height: 100vh;
     display: flex;
@@ -42,9 +45,6 @@ html {
       height: 85vh;
     }
   }
-  width: 315px;
-  transition: $ease-in-out;
-  opacity: 0;
   .side-links {
     a {
       font-size: 16px;

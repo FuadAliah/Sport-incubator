@@ -691,6 +691,7 @@ var home = new Vue({
                         console.log(response);
                     })
                     .catch(function (error) {
+                        this.scrollTop(0, 0);
                         console.log(error.response);
                     });
             }
@@ -747,7 +748,7 @@ function debounce(fn, wait) {
     }
 }
 
-if (home.activeLink == 'home') {
+if (home.activeLink == 'home' ) {
     $('body').on('mousewheel', debounce(function (event) {
         if (event.deltaY > 0) { //going up
             home.open = false;
@@ -775,8 +776,6 @@ if (home.activeLink == 'home') {
     });
 }
 
-
-
 if (home.activeLink == 'home') {
     window.addEventListener('scroll', function () {
         let scroll = this.pageYOffset;
@@ -803,16 +802,3 @@ if (home.activeLink == 'home') {
         }
     })
 }
-
-
-
-
-// $(document).on('mousewheel', function (e) {
-//     $('section').each(function () {
-//         var sec_id = $(this).attr('data-hash');
-//         if ($(this).offset().top < $(window).scrollTop() + 20 && $(this).offset().top + $(this).height() > $(window).scrollTop() + 20) {
-//             window.location.hash = sec_id
-//             home.activeLink = sec_id
-//         }
-//     });
-// });

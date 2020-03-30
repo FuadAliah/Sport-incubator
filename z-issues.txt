@@ -1,9 +1,4 @@
 - news link selected & active list in library detailed.
-- arabic placeholders.
-
-
-
-
 
 
 - registeration submit.

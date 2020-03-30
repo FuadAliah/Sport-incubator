@@ -82,21 +82,23 @@
                                 <i class="fas mr-2" :class="[language=='ar' ? 'fa-angle-right' : 'fa-angle-left']"
                                     :style="language=='ar' ? 'vertical-align: sub;' : ''"></i>{{tr.back}}</a>
                         </li>
-                        <li class="nav-item border-right" @click="about_pages.activeList = 'about_the_incubator'"
-                            :class="[about_pages.activeList == 'about_the_incubator' ? 'active' : '']">
-                            <a href="#"
-                                class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[2].title }}</a>
-                        </li>
-                        <li class="nav-item border-right" @click="about_pages.activeList = 'about_game_jordan'"
-                            :class="[about_pages.activeList == 'about_game_jordan' ? 'active' : '']">
-                            <a href="#"
-                                class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[1].title }}</a>
-                        </li>
-                        <li class="nav-item border-right" @click="about_pages.activeList = 'about_jyif'"
-                            :class="[about_pages.activeList == 'about_jyif' ? 'active' : '']">
-                            <a href="#"
-                                class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[0].title }}</a>
-                        </li>
+                        <ul class="navbar p-0" :style="language == 'ar' ? 'direction: ltr;' : 'direction: rtl;'">
+                            <li class="nav-item border-right" @click="about_pages.activeList = 'about_the_incubator'"
+                                :class="[about_pages.activeList == 'about_the_incubator' ? 'active' : '']">
+                                <a href="#"
+                                    class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[2].title }}</a>
+                            </li>
+                            <li class="nav-item border-right" @click="about_pages.activeList = 'about_game_jordan'"
+                                :class="[about_pages.activeList == 'about_game_jordan' ? 'active' : '']">
+                                <a href="#"
+                                    class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[1].title }}</a>
+                            </li>
+                            <li class="nav-item border-right" @click="about_pages.activeList = 'about_jyif'"
+                                :class="[about_pages.activeList == 'about_jyif' ? 'active' : '']">
+                                <a href="#"
+                                    class="nav-link py-0 px-4 text-uppercase">{{ about_pages.aboutContent[0].title }}</a>
+                            </li>
+                        </ul>
                     </ul>
                 </div>
                 <div class="moile-nav d-block d-lg-none">
@@ -144,15 +146,19 @@
                 <div class="head-img position-relative" data-aos="fade">
                     <img id="head-img" class="w-100"
                         style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('../imgs/about-bg.jpg') center; background-size: cover;">
-                    <div class="page-title position-absolute">
-                        <h2 class="text-white text-uppercase w-100">{{ about_pages.aboutContent[2].title }}</h2>
+                    <div class="page-title position-absolute w-100">
+                        <div class="banner-content">
+                            <div class="title">
+                                <h5 class="text-dark text-uppercase section-nameTag">{{tr.aboutTag}}</h5>
+                                <h2 class="text-white text-uppercase m-0">{{ about_pages.aboutContent[2].title }}</h2>
+                            </div>
+                            <img :src="serverPath+about_pages.aboutContent[2].logo" height="60">
+                        </div>
                     </div>
                 </div>
                 <div class="content" data-aos="fade-up">
                     <div class="body-content m-0">
-                        <img :src="serverPath+about_pages.aboutContent[2].logo" class="mb-4" height="90">
-                        <p class="text-secondary" v-html="about_pages.aboutContent[2].long_description">
-                        </p>
+                        <p class="text-secondary" v-html="about_pages.aboutContent[2].long_description"></p>
                     </div>
                 </div>
             </div>
@@ -160,15 +166,19 @@
                 <div class="head-img position-relative" data-aos="fade">
                     <img id="head-img" class="w-100"
                         style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('../imgs/about-bg.jpg') center; background-size: cover;">
-                    <div id="gone" class="page-title position-absolute w-75">
-                        <h2 class="text-white text-uppercase w-100">{{ about_pages.aboutContent[1].title }}</h2>
+                    <div class="page-title position-absolute w-100">
+                        <div class="banner-content">
+                            <div class="title">
+                                <h5 class="text-dark text-uppercase section-nameTag">{{tr.aboutTag}}</h5>
+                                <h2 class="text-white text-uppercase m-0">{{ about_pages.aboutContent[1].title }}</h2>
+                            </div>
+                            <img :src="serverPath+about_pages.aboutContent[1].logo" height="60">
+                        </div>
                     </div>
                 </div>
                 <div class="content" data-aos="fade-up">
                     <div class="body-content m-0">
-                        <img :src="serverPath+about_pages.aboutContent[1].logo" class="mb-4" height="90">
-                        <p class="text-secondary" v-html="about_pages.aboutContent[1].long_description">
-                        </p>
+                        <p class="text-secondary" v-html="about_pages.aboutContent[1].long_description"></p>
                     </div>
                 </div>
             </div>
@@ -176,107 +186,117 @@
                 <div class="head-img position-relative" data-aos="fade">
                     <img id="head-img" class="w-100"
                         style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('../imgs/about-bg.jpg') center; background-size: cover;">
-                    <div id="gone" class="page-title position-absolute w-75">
-                        <h2 class="text-white text-uppercase w-100">{{ about_pages.aboutContent[0].title }}</h2>
+                    <div class="page-title position-absolute w-100">
+                        <div class="banner-content">
+                            <div class="title">
+                                <h5 class="text-dark text-uppercase section-nameTag">{{tr.aboutTag}}</h5>
+                                <h2 class="text-white text-uppercase m-0">{{ about_pages.aboutContent[0].title }}</h2>
+                            </div>
+                            <img :src="serverPath+about_pages.aboutContent[0].logo" height="60">
+                        </div>
                     </div>
                 </div>
                 <div class="content" data-aos="fade-up">
                     <div class="body-content m-0">
-                        <img :src="serverPath+about_pages.aboutContent[0].logo" class="mb-4" height="90">
                         <p class="text-secondary" v-html="about_pages.aboutContent[0].long_description"></p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="sub-footer" class="sub-footer" v-if="footer.contact_info">
-            <div class="row px-4 pt-5 p-md-5">
-                <div class="col-12 col-md-4 mt-4 mt-md-0">
-                    <div class="footer-logo">
-                        <img src="./imgs/footer-logo.png" alt="" height="60">
-                    </div>
-                </div>
-                <div class="col-12 col-md-8">
-                    <div class="row">
-                        <div class="col-12 col-md-4 mt-4 mt-md-0">
-                            <div class="abouts-links">
-                                <h5 class="text-uppercase">{{tr.about}}</h5>
-                                <ul class="p-0 m-0 mt-3">
-                                    <li class="py-1">
-                                        <a href="./about-detailed.html?activeList=about_the_incubator"
-                                            class="text-secondary">{{tr.aboutIncubator }}</a>
-                                        </li">
-                                    <li class="py-1">
-                                        <a href="./about-detailed.html?activeList=about_game_jordan"
-                                            class="text-secondary">{{tr.aboutGame}}</a>
-                                    </li>
-                                    <li class="py-1">
-                                        <a href="./about-detailed.html?activeList=about_jyif"
-                                            class="text-secondary">{{tr.aboutJyif}}</a>
-                                    </li>
-                                </ul>
-                            </div>
+            <div id="sub-footer" class="sub-footer" v-if="footer.contact_info">
+                <div class="row px-4 pt-5 p-md-5">
+                    <div class="col-12 col-md-4 mt-4 mt-md-0">
+                        <div class="footer-logo">
+                            <img src="./imgs/footer-logo.png" alt="" height="60">
                         </div>
-                        <div class="col-12 col-md-4 mt-4 mt-md-0">
-                            <div class="contacts-links">
-                                <h5 class="text-uppercase">{{tr.Contact_us}}</h5>
-                                <ul class="p-0 m-0 mt-3">
-                                    <li class="py-1">
-                                        <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
-                                            <span class="phone-number">
-                                                {{ footer.contact_info.info[0].contact_phone }}
-                                            </span>
-                                        </p>
-                                    </li>
-                                    <li class="py-1">
-                                        <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
-                                            <a href="mailto:info@streetsportsincubator.org" class="text-secondary">
-                                                {{ footer.contact_info.info[0].contact_email }}
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            <div class="col-12 col-md-4 mt-4 mt-md-0">
+                                <div class="abouts-links">
+                                    <h5 class="text-uppercase">{{tr.about}}</h5>
+                                    <ul class="p-0 m-0 mt-3">
+                                        <li class="py-1">
+                                            <a href="./about-detailed.html?activeList=about_the_incubator"
+                                                class="text-secondary">{{tr.aboutIncubator }}</a>
+                                            </li">
+                                        <li class="py-1">
+                                            <a href="./about-detailed.html?activeList=about_game_jordan"
+                                                class="text-secondary">{{tr.aboutGame}}</a>
+                                        </li>
+                                        <li class="py-1">
+                                            <a href="./about-detailed.html?activeList=about_jyif"
+                                                class="text-secondary">{{tr.aboutJyif}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-4 mt-md-0">
+                                <div class="contacts-links">
+                                    <h5 class="text-uppercase">{{tr.Contact_us}}</h5>
+                                    <ul class="p-0 m-0 mt-3">
+                                        <li class="py-1">
+                                            <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
+                                                <span class="phone-number">
+                                                    {{ footer.contact_info.info[0].contact_phone }}
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li class="py-1">
+                                            <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
+                                                <a href="mailto:info@streetsportsincubator.org" class="text-secondary">
+                                                    {{ footer.contact_info.info[0].contact_email }}
+                                                </a>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mt-4 mt-md-0">
+                                <div class="Social-links">
+                                    <h5 class="text-uppercase">{{tr.socialMedia}}</h5 class="text-uppercase">
+                                    <ul class="p-0 m-0 mt-3 d-flex">
+                                        <li class="border-right-0 border border-info">
+                                            <a :href="footer.contact_info.social_links.fb_link"
+                                                class="facebook text-dark">
+                                                <i class="fab fa-facebook-f fa-lg"></i></a>
+                                        </li>
+                                        <li class="border-right-0 border border-info">
+                                            <a :href="footer.contact_info.social_links.tw_link"
+                                                class="twitter text-dark">
+                                                <i class="fab fa-twitter fa-lg"></i>
                                             </a>
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4 mt-4 mt-md-0">
-                            <div class="Social-links">
-                                <h5 class="text-uppercase">{{tr.socialMedia}}</h5 class="text-uppercase">
-                                <ul class="p-0 m-0 mt-3 d-flex">
-                                    <li class="border-right-0 border border-info">
-                                        <a :href="footer.contact_info.social_links.fb_link" class="facebook text-dark">
-                                            <i class="fab fa-facebook-f fa-lg"></i></a>
-                                    </li>
-                                    <li class="border-right-0 border border-info">
-                                        <a :href="footer.contact_info.social_links.tw_link" class="twitter text-dark">
-                                            <i class="fab fa-twitter fa-lg"></i>
-                                        </a>
-                                    </li>
-                                    <li class="border-right-0 border border-info">
-                                        <a :href="footer.contact_info.social_links.yt_link" class="youtube text-dark">
-                                            <i class="fab fa-youtube fa-lg"></i>
-                                        </a>
-                                    </li>
-                                    <li class="border-right-0 border border-info">
-                                        <a :href="footer.contact_info.social_links.in_link" class="linkedin text-dark">
-                                            <i class="fab fa-linkedin fa-lg"></i>
-                                        </a>
-                                    </li>
-                                    <li class="border border-info">
-                                        <a :href="footer.contact_info.social_links.ig_link" class="instagram text-dark">
-                                            <i class="fab fa-instagram fa-lg"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                                        </li>
+                                        <li class="border-right-0 border border-info">
+                                            <a :href="footer.contact_info.social_links.yt_link"
+                                                class="youtube text-dark">
+                                                <i class="fab fa-youtube fa-lg"></i>
+                                            </a>
+                                        </li>
+                                        <li class="border-right-0 border border-info">
+                                            <a :href="footer.contact_info.social_links.in_link"
+                                                class="linkedin text-dark">
+                                                <i class="fab fa-linkedin fa-lg"></i>
+                                            </a>
+                                        </li>
+                                        <li class="border border-info">
+                                            <a :href="footer.contact_info.social_links.ig_link"
+                                                class="instagram text-dark">
+                                                <i class="fab fa-instagram fa-lg"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div
-                class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
-                <h6 class="m-0"><small>{{ footer.contact_info.info[0].copy_write }}</small></h6 class="p-0">
-                <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com" target="_blank"
-                            class="text-info">EappEra</a></small>
-                </h6>
+                <div
+                    class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
+                    <h6 class="m-0"><small>{{ footer.contact_info.info[0].copy_write }}</small></h6 class="p-0">
+                    <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com" target="_blank"
+                                class="text-info">EappEra</a></small>
+                    </h6>
+                </div>
             </div>
         </div>
     </div>

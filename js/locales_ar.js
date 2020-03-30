@@ -59,6 +59,9 @@ var locales_ar = {
     "saveDoc": "حفظ الوثيقة",
     "librarySlog": "تصفّح وحمّل منشوراتنا وملفات الوسائط",
 
+    //about_page
+    "aboutTag": "من نحن",
+
     //register
     "register": "سجل فكرتك الآن",
     "registerTitle": "الرجاء تعبئة المعلومات التالية",

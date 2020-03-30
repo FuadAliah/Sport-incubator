@@ -261,6 +261,7 @@ input[type="number"]::-webkit-outer-spin-button {
           width: 100%;
           height: 4px;
           background: $redColor;
+          right: 0;
         }
         a {
           color: $redColor !important;
@@ -306,25 +307,41 @@ input[type="number"]::-webkit-outer-spin-button {
       max-height: 150px;
       overflow: hidden;
       transition: $ease-in-out;
-      img {
+      @media (max-width: 768px) {
+        max-height: 220px;
+      }
+      > img {
         background-position: center;
         height: 150px;
+        @media (max-width: 768px) {
+          height: 220px;
+        }
       }
       .page-title {
         top: 50%;
-        right: 5%;
+        padding: 0 5%;
         line-height: 55px;
         transform: translateY(-50%);
-        &::before {
-          content: "من نحن";
-          text-transform: uppercase;
-          color: #424242;
-          background: #fff;
-          margin-right: auto;
-          line-height: 8px;
-          padding: 8px;
-          font-weight: 700;
-          font-size: 13px;
+        .banner-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: end;
+          }
+          .title {
+            @media (max-width: 768px) {
+              margin-bottom: 15px;
+            }
+            .section-nameTag {
+              background: #fff;
+              padding: 8px;
+              font-weight: 700;
+              font-size: 13px;
+              width: fit-content;
+            }
+          }
         }
         @media (max-width: 768px) {
           width: 90%;
@@ -354,7 +371,7 @@ input[type="number"]::-webkit-outer-spin-button {
         }
       }
       .body-content {
-        width: 90%;
+        width: 80%;
         p {
           font-size: 1.15rem;
           line-height: 2rem;
