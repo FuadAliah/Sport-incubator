@@ -45,17 +45,18 @@ var home = new Vue({
             business: null,
             topic: null,
             message: null,
+            messageSent: false,
         },
         registerPage: {
             //values
         },
         subscribe: {
             email: null,
+            subscribeSuccess: false,
         },
         footer: {
             contact_info: null,
         },
-        messageSent: false,
     },
     created: function () {
         this.setLanguage();
@@ -656,7 +657,7 @@ var home = new Vue({
                 axios.post(this.serverPath + 'contact-us/save', postBody)
                     .then(function (response) {
                         // new
-                        this.contactPagePostBody = {
+                        home.contactPagePostBody = {
                             first_name: null,
                             sure_name: null,
                             email: null,
@@ -665,9 +666,12 @@ var home = new Vue({
                             business: null,
                             topic: null,
                             message: null,
-                        },
-                            this.messageSent = true;
-                        location.reload();
+                            messageSent: true,
+                        }
+                        setTimeout(function () {
+                            $('#mesSent').fadeOut('slow')
+                        }, 3000)
+                        // location.reload();
                     })
                     .catch(function (error) {
                         console.log(error.response);
@@ -683,7 +687,6 @@ var home = new Vue({
                         console.log(response);
                     })
                     .catch(function (error) {
-                        this.scrollTop(0, 0);
                         console.log(error);
                     });
             }
@@ -693,7 +696,13 @@ var home = new Vue({
                 var postBody = this.subscribe;
                 axios.post(this.serverPath + 'en/api/newsletter/subscribe', postBody)
                     .then(function (response) {
-                        console.log(response);
+                        home.subscribe = {
+                            email: null,
+                            subscribeSuccess: true,
+                        }
+                        setTimeout(function () {
+                            $('#subSuccess').fadeOut('slow')
+                        }, 3000)
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -705,6 +714,8 @@ var home = new Vue({
 $('.data.dragged').on('click', function () {
     $(this).removeClass('dragged');
 });
+
+
 
 function goBack() {
     window.history.back();

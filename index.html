@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css"
             v-if="language=='ar'">
         <div id="loader" v-if="loading" class="loading position-fixed"
-            style="padding: 0; margin: 0; width: 100vw;height: 100vh;background: #f6f4e2;z-index: 9999;display: flex;align-items: center;justify-content: center;">
+            style="padding: 0; margin: 0; width: 100vw;height: 100vh;background: #f6f4e2;z-index: 999999;display: flex;align-items: center;justify-content: center;">
             <img src="./imgs/logo-animation.gif" height="120px" alt="">
         </div>
         <div class="sidebar h-100 position-fixed border-right" :class="[open == true ? 'show' : '']">
@@ -506,6 +506,15 @@
                                     type="button">{{tr.subscribe}}
                                 </button>
                             </form>
+                            <div id="subSuccess" class="subscribeSuccess" v-if="subscribe.subscribeSuccess">
+                                <div class="alert alert-success text-success d-flex align-items-center mt-3"
+                                    role="alert">
+                                    <i class="far fa-check-circle mr-2 fa-lg"></i>
+                                    <div class="textMessage">
+                                        {{tr.mSuccess}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="background position-absolute">
                             <img src="./imgs/email1.svg" alt="">
