@@ -83,8 +83,17 @@
                     </div>
                     <div class="text-white">
                         <h2 class="m-0 text-white text-uppercase">{{tr.about_street}}</h2>
-                        <a href="{{home.video_link}}" class="text-white"><i class="fas fa-play-circle mt-4"
-                                style="font-size: 48px;"></i></a>
+                        <a href="javascript:void(0)" class="text-white" onclick="videoPopup()">
+                            <i class="fas fa-play-circle mt-4" style="font-size: 48px;"></i>
+                        </a>
+                        <!-- <div class="popup" id="myPopup">
+                            <div class="bg-white h-75 w-75 m-auto">
+                                <iframe class="embed-responsive-item" width="75%" height="75%" :src="home.video_link"
+                                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="background" id="background"></div>
+                        </div> -->
                     </div>
                     <div class="text-white">
                         <h5 class="m-0 text-white text-uppercase" style="font-weight: normal">{{tr.implement}}</h5>
@@ -108,25 +117,30 @@
                 </div>
                 <div class="social position-absolute w-75 d-none d-lg-block">
                     <div class="d-flex justify-content-between px-5">
-                        <a href="{{home.fb_link}}" class="text-dark" target="_blank"><i
-                                class="fab fa-facebook-f fa-lg mr-2"></i>{{tr.facebook}}</a>
-                        <a href="{{home.tw_link}}" class="text-dark" target="_blank"><i
-                                class="fab fa-twitter fa-lg mr-2"></i>{{tr.twitter}}</a>
-                        <a href="{{home.yt_link}}" class="text-dark" target="_blank"><i
-                                class="fab fa-youtube fa-lg mr-2"></i>{{tr.youtube}}</a>
-                        <a href="{{home.in_link}}" class="text-dark" target="_blank"><i
-                                class="fab fa-linkedin fa-lg mr-2"></i>{{tr.linkedin}}</a>
-                        <a href="{{home.ig_link}}" class="text-dark" target="_blank"><i
-                                class="fab fa-instagram fa-lg mr-2"></i>{{tr.instagram}}</a>
+                        <a href="{{home.fb_link}}" class="text-dark" target="_blank">
+                            <i class="fab fa-facebook-f fa-lg mr-2"></i>{{tr.facebook}}</a>
+                        <a href="{{home.tw_link}}" class="text-dark" target="_blank">
+                            <i class="fab fa-twitter fa-lg mr-2"></i>{{tr.twitter}}</a>
+                        <a href="{{home.yt_link}}" class="text-dark" target="_blank">
+                            <i class="fab fa-youtube fa-lg mr-2"></i>{{tr.youtube}}</a>
+                        <a href="{{home.in_link}}" class="text-dark" target="_blank">
+                            <i class="fab fa-linkedin fa-lg mr-2"></i>{{tr.linkedin}}</a>
+                        <a href="{{home.ig_link}}" class="text-dark" target="_blank">
+                            <i class="fab fa-instagram fa-lg mr-2"></i>{{tr.instagram}}</a>
                     </div>
                 </div>
                 <div class="social social-mobile position-absolute w-100 d-block d-lg-none">
                     <div class="d-flex justify-content-between px-2 px-md-5">
-                        <a href="{{home.fb_link}}" class="text-white"><i class="fab fa-facebook-f fa-lg mr-2"></i></a>
-                        <a href="{{home.tw_link}}" class="text-white"><i class="fab fa-twitter fa-lg mr-2"></i></a>
-                        <a href="{{home.yt_link}}" class="text-white"><i class="fab fa-youtube fa-lg mr-2"></i></a>
-                        <a href="{{home.in_link}}" class="text-white"><i class="fab fa-linkedin fa-lg mr-2"></i></a>
-                        <a href="{{home.ig_link}}" class="text-white"><i class="fab fa-instagram fa-lg mr-2"></i></a>
+                        <a href="{{home.fb_link}}" class="text-white" target="_blank"><i
+                                class="fab fa-facebook-f fa-lg mr-2"></i></a>
+                        <a href="{{home.tw_link}}" class="text-white" target="_blank"><i
+                                class="fab fa-twitter fa-lg mr-2"></i></a>
+                        <a href="{{home.yt_link}}" class="text-white" target="_blank"><i
+                                class="fab fa-youtube fa-lg mr-2"></i></a>
+                        <a href="{{home.in_link}}" class="text-white" target="_blank"><i
+                                class="fab fa-linkedin fa-lg mr-2"></i></a>
+                        <a href="{{home.ig_link}}" class="text-white" target="_blank"><i
+                                class="fab fa-instagram fa-lg mr-2"></i></a>
                     </div>
                 </div>
             </section>
@@ -247,12 +261,12 @@
                     </div>
                 </div>
                 <div class="h-100 d-block d-lg-none mobile-news">
-                    <div class="row h-50 m-0">
+                    <div class="row m-0" style="height: 40%;">
                         <div class="col-12 news-one p-0" style="background-size: cover;">
-                            <img :src="serverPath+news[0].img">
+                            <img :src="serverPath+news[0].img" style="object-fit: cover;">
                         </div>
                     </div>
-                    <div class="row h-50 news m-0">
+                    <div class="row news m-0" style="height: 60%;">
                         <div class="news-card h-75 custom-card bg-white w-100 arrow-up">
                             <div class="d-flex flex-column justify-content-between p-4 h-100">
                                 <div class="d-flex justify-content-between">
@@ -384,7 +398,7 @@
                         data-aos-anchor=".gallery">
                         <div class="h-100">
                             <div class="home-photoAlbum">
-                                <a :href="photo.link" class="gallery-item position-relative"
+                                <a :href="photo.link" class="gallery-item position-relative" target="_blank"
                                     v-for="photo in gallery_images">
                                     <img :src="serverPath+photo.image" />
                                     <div class="overlay position-absolute">
@@ -474,6 +488,15 @@
                                     type="button">{{tr.subscribe}}
                                 </button>
                             </form>
+                            <div id="subSuccess" class="subscribeSuccess" v-if="subscribe.subscribeSuccess">
+                                <div class="alert alert-success text-success d-flex align-items-center mt-3"
+                                    role="alert">
+                                    <i class="far fa-check-circle mr-2 fa-lg"></i>
+                                    <div class="textMessage">
+                                        {{tr.subSuccess}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="background h-auto">
                             <img src="./imgs/email1.svg" alt="">
@@ -511,7 +534,7 @@
                                     role="alert">
                                     <i class="far fa-check-circle mr-2 fa-lg"></i>
                                     <div class="textMessage">
-                                        {{tr.mSuccess}}
+                                        {{tr.subSuccess}}
                                     </div>
                                 </div>
                             </div>
@@ -536,15 +559,15 @@
                                         <ul class="p-0 m-0 mt-3">
                                             <li class="py-1">
                                                 <a href="./about-detailed.html?activeList=about_the_incubator"
-                                                    class="text-secondary">{{tr.aboutIncubator }}</a>
+                                                    class="text-secondary text-uppercase ">{{tr.aboutIncubator }}</a>
                                                 </li">
                                             <li class="py-1">
                                                 <a href="./about-detailed.html?activeList=about_game_jordan"
-                                                    class="text-secondary">{{tr.aboutGame}}</a>
+                                                    class="text-secondary text-uppercase ">{{tr.aboutGame}}</a>
                                             </li>
                                             <li class="py-1">
                                                 <a href="./about-detailed.html?activeList=about_jyif"
-                                                    class="text-secondary">{{tr.aboutJyif}}</a>
+                                                    class="text-secondary text-uppercase ">{{tr.aboutJyif}}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -554,11 +577,14 @@
                                         <h5 class="text-uppercase">{{tr.Contact_us}}</h5>
                                         <ul class="p-0 m-0 mt-3">
                                             <li class="py-1">
-                                                <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
-                                                    <span class="phone-number">
+                                                <div class="m-0 text-secondary d-flex align-items-center">
+                                                    <i class="fas fa-phone-alt"
+                                                        :class="language=='ar' ? 'ml-1' : 'mr-1'"></i>
+                                                    <div class="phone-number"
+                                                        :style="language=='ar' ? 'direction: ltr; margin-right: 6px;' : ''">
                                                         {{ footer.contact_info.info[0].contact_phone }}
-                                                    </span>
-                                                </p>
+                                                    </div>
+                                                </div>
                                             </li>
                                             <li class="py-1">
                                                 <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
@@ -576,30 +602,30 @@
                                         <h5 class="text-uppercase">{{tr.socialMedia}}</h5 class="text-uppercase">
                                         <ul class="p-0 m-0 mt-3 d-flex">
                                             <li class="border-right-0 border border-info">
-                                                <a :href="footer.contact_info.social_links.fb_link"
+                                                <a :href="footer.contact_info.social_links.fb_link" target="_blank"
                                                     class="facebook text-dark">
                                                     <i class="fab fa-facebook-f fa-lg"></i></a>
                                             </li>
                                             <li class="border-right-0 border border-info">
-                                                <a :href="footer.contact_info.social_links.tw_link"
+                                                <a :href="footer.contact_info.social_links.tw_link" target="_blank"
                                                     class="twitter text-dark">
                                                     <i class="fab fa-twitter fa-lg"></i>
                                                 </a>
                                             </li>
                                             <li class="border-right-0 border border-info">
-                                                <a :href="footer.contact_info.social_links.yt_link"
+                                                <a :href="footer.contact_info.social_links.yt_link" target="_blank"
                                                     class="youtube text-dark">
                                                     <i class="fab fa-youtube fa-lg"></i>
                                                 </a>
                                             </li>
                                             <li class="border-right-0 border border-info">
-                                                <a :href="footer.contact_info.social_links.in_link"
+                                                <a :href="footer.contact_info.social_links.in_link" target="_blank"
                                                     class="linkedin text-dark">
                                                     <i class="fab fa-linkedin fa-lg"></i>
                                                 </a>
                                             </li>
                                             <li class="border border-info">
-                                                <a :href="footer.contact_info.social_links.ig_link"
+                                                <a :href="footer.contact_info.social_links.ig_link" target="_blank"
                                                     class="instagram text-dark">
                                                     <i class="fab fa-instagram fa-lg"></i>
                                                 </a>

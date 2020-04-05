@@ -39,6 +39,7 @@ var locales_en = {
     "subscribeMsg": "Subscribe for updates",
     "subscribeSlog": "get updates by subscribing our newsletter",
     "ePlaceHolder": "Enter your E-mail",
+    "subSuccess": "Thank You for Subscribing!",
 
     //footer_section
     "aboutIncubator": "About The Incubator",
@@ -64,7 +65,7 @@ var locales_en = {
 
     //register_page
     "register": "register",
-    "registerTitle": "please complete the form below",
+    "registerTitle": "Please complete the form below",
     "mandatory": "Mandatory Fields*",
     "accountInformation": "Account Information",
     "profileInformation": "Profile Information",
@@ -94,8 +95,8 @@ var locales_en = {
     "partnerships": "Partnerships",
     "careers": "Careers",
     "funding": "Funding",
-    "firstName": "First Name",
-    "lastName": "Last Name",
+    "firstName": "First Name*",
+    "lastName": "Last Name*",
     "email": "Email*",
     "phone-reg": "Phone Number*",
     "business": "Business / organisation",

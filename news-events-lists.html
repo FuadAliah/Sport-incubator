@@ -210,15 +210,15 @@
                                     <ul class="p-0 m-0 mt-3">
                                         <li class="py-1">
                                             <a href="./about-detailed.html?activeList=about_the_incubator"
-                                                class="text-secondary">{{tr.aboutIncubator }}</a>
+                                                class="text-secondary text-uppercase ">{{tr.aboutIncubator }}</a>
                                             </li">
                                         <li class="py-1">
                                             <a href="./about-detailed.html?activeList=about_game_jordan"
-                                                class="text-secondary">{{tr.aboutGame}}</a>
+                                                class="text-secondary text-uppercase ">{{tr.aboutGame}}</a>
                                         </li>
                                         <li class="py-1">
                                             <a href="./about-detailed.html?activeList=about_jyif"
-                                                class="text-secondary">{{tr.aboutJyif}}</a>
+                                                class="text-secondary text-uppercase ">{{tr.aboutJyif}}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -228,11 +228,14 @@
                                     <h5 class="text-uppercase">{{tr.Contact_us}}</h5>
                                     <ul class="p-0 m-0 mt-3">
                                         <li class="py-1">
-                                            <p class="m-0 text-secondary"><i class="fas fa-phone-alt mr-1"></i>
-                                                <span class="phone-number">
+                                            <div class="m-0 text-secondary d-flex align-items-center">
+                                                <i class="fas fa-phone-alt"
+                                                    :class="language=='ar' ? 'ml-1' : 'mr-1'"></i>
+                                                <div class="phone-number"
+                                                    :style="language=='ar' ? 'direction: ltr; margin-right: 6px;' : ''">
                                                     {{ footer.contact_info.info[0].contact_phone }}
-                                                </span>
-                                            </p>
+                                                </div>
+                                            </div>
                                         </li>
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
@@ -250,30 +253,30 @@
                                     <h5 class="text-uppercase">{{tr.socialMedia}}</h5 class="text-uppercase">
                                     <ul class="p-0 m-0 mt-3 d-flex">
                                         <li class="border-right-0 border border-info">
-                                            <a :href="footer.contact_info.social_links.fb_link"
+                                            <a :href="footer.contact_info.social_links.fb_link" target="_blank"
                                                 class="facebook text-dark">
                                                 <i class="fab fa-facebook-f fa-lg"></i></a>
                                         </li>
                                         <li class="border-right-0 border border-info">
-                                            <a :href="footer.contact_info.social_links.tw_link"
+                                            <a :href="footer.contact_info.social_links.tw_link" target="_blank"
                                                 class="twitter text-dark">
                                                 <i class="fab fa-twitter fa-lg"></i>
                                             </a>
                                         </li>
                                         <li class="border-right-0 border border-info">
-                                            <a :href="footer.contact_info.social_links.yt_link"
+                                            <a :href="footer.contact_info.social_links.yt_link" target="_blank"
                                                 class="youtube text-dark">
                                                 <i class="fab fa-youtube fa-lg"></i>
                                             </a>
                                         </li>
                                         <li class="border-right-0 border border-info">
-                                            <a :href="footer.contact_info.social_links.in_link"
+                                            <a :href="footer.contact_info.social_links.in_link" target="_blank"
                                                 class="linkedin text-dark">
                                                 <i class="fab fa-linkedin fa-lg"></i>
                                             </a>
                                         </li>
                                         <li class="border border-info">
-                                            <a :href="footer.contact_info.social_links.ig_link"
+                                            <a :href="footer.contact_info.social_links.ig_link" target="_blank"
                                                 class="instagram text-dark">
                                                 <i class="fab fa-instagram fa-lg"></i>
                                             </a>
@@ -286,7 +289,7 @@
                 </div>
                 <div
                     class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
-                    <h6 class="m-0"><small>{{ footer.contact_info.info.copy_write_en }}</small></h6 class="p-0">
+                    <h6 class="m-0"><small>{{ footer.contact_info.info[0].copy_write }}</small></h6 class="p-0">
                     <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com"
                                 target="_blank" class="text-info">EappEra</a></small>
                     </h6>

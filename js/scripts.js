@@ -258,7 +258,7 @@ var home = new Vue({
                     })
             }
         },
-        // en & 
+        // en & ar
         getFooter() {
             var self = this;
             if (this.language == 'ar') {
@@ -702,7 +702,7 @@ var home = new Vue({
                         }
                         setTimeout(function () {
                             $('#subSuccess').fadeOut('slow')
-                        }, 3000)
+                        }, 3000);
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -715,7 +715,10 @@ $('.data.dragged').on('click', function () {
     $(this).removeClass('dragged');
 });
 
-
+function videoPopup() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
 
 function goBack() {
     window.history.back();

@@ -39,6 +39,7 @@ var locales_ar = {
     "subscribeMsg": "إشترك بنشرتنا الإخبارية",
     "subscribeSlog": "اشترك بنشرتنا الإخبارية لتصلك آخر الأخبار",
     "ePlaceHolder": "أدخل بريدك الإلكتروني",
+    "subSuccess": "شكراً لاشتراكك معنا!",
 
     //footer_section
     "aboutIncubator": "حاضنة أعمال رياضات الشوارع",
