@@ -120,7 +120,7 @@
                                                 <h6 class="m-0">{{tr.call}}</h6>
                                             </div>
                                             <div class="value text-muted">
-                                                <h6 class="m-0">{{ footer.contact_info.info[0].contact_phone }}</h6
+                                                <h6 class="m-0" style="direction:ltr;">{{ footer.contact_info.info[0].contact_phone }}</h6
                                                     class="m-0">
                                             </div>
                                         </div>
@@ -182,7 +182,8 @@
                         <div class="col-md-8 content-list bg-white h-100 p-0">
                             <div class="container custom-container">
                                 <div class="contact-title">
-                                    <div id="mesSent" class="messageSent" v-if="contactPagePostBody.messageSent == true">
+                                    <div id="mesSent" class="messageSent"
+                                        v-if="contactPagePostBody.messageSent == true">
                                         <div class="alert alert-success d-flex align-items-center" role="alert">
                                             <i class="far fa-check-circle mr-2 fa-lg"></i>
                                             <div class="textMessage">
@@ -196,14 +197,12 @@
                                         <div class="form-row custom-row">
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="text" class="form-control form-control-lg" req="true"
-                                                    onkeypress="return /[a-z]/i.test(event.key)"
                                                     :placeholder="translate('firstName')"
                                                     v-model="contactPagePostBody.first_name">
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="text" class="form-control form-control-lg" id="l-name"
-                                                    req="true" onkeypress="return /[a-z]/i.test(event.key)"
-                                                    :placeholder="translate('lastName')"
+                                                    req="true" :placeholder="translate('lastName')"
                                                     v-model="contactPagePostBody.sure_name">
                                             </div>
                                         </div>
@@ -809,8 +808,7 @@
                                         </li>
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
-                                                <a href="mailto:info@streetsportsincubator.org"
-                                                    class="text-secondary">
+                                                <a href="mailto:info@streetsportsincubator.org" class="text-secondary">
                                                     {{ footer.contact_info.info[0].contact_email }}
                                                 </a>
                                             </p>
@@ -860,8 +858,8 @@
                 <div
                     class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
                     <h6 class="m-0"><small>{{ footer.contact_info.info[0].copy_write }}</small></h6 class="p-0">
-                    <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com"
-                                target="_blank" class="text-info">EappEra</a></small>
+                    <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com" target="_blank"
+                                class="text-info">EappEra</a></small>
                     </h6>
                 </div>
             </div>

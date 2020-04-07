@@ -27,6 +27,7 @@ var locales_en = {
 
     //about_section
     "watchVideo": "Watch our video",
+    
 
     //gallery_section
     "seeAll": "See All",
@@ -62,6 +63,9 @@ var locales_en = {
 
     //about_pages
     "aboutTag": "about us",
+    "about_jyif": "About jyif",
+    "about_the_incubator": "About The Incubator",
+    "about_game_jordan": "About Game Jordan",
 
     //register_page
     "register": "register",

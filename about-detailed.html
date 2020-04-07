@@ -112,14 +112,16 @@
                         <div class="btn-group w-100 custom-mob-dropdown">
                             <div class="bg-white w-100 p-3 text-uppercase custom-toggle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                {{about_pages.activeList.split('_').join(' ');}}
+                                <!-- {{about_pages.activeList.split('_').join(' ');}} -->
+                                {{translate(about_pages.activeList)}}
+                                
                             </div>
                             <div class="dropdown-menu p-0 custom-dropdown">
                                 <li class="nav-item" @click="about_pages.activeList = 'about_the_incubator'"
                                     :class="[about_pages.activeList == 'about_the_incubator' ? 'active' : '']">
                                     <a class="nav-link py-3 px-4 text-uppercase"
                                         :class="[about_pages.activeList == 'about_the_incubator' ? 'text-red' : 'text-dark']">
-                                        {{ about_pages.aboutContent[2].title }}
+                                        {{ about_pages.aboutContent[0].title }}
                                     </a>
                                 </li>
                                 <li class="nav-item" @click="about_pages.activeList = 'about_game_jordan'"
@@ -133,7 +135,7 @@
                                     :class="[about_pages.activeList == 'about_jyif' ? 'active' : '']">
                                     <a class="nav-link py-3 px-4 text-uppercase"
                                         :class="[about_pages.activeList == 'about_jyif' ? 'text-red' : 'text-dark']">
-                                        {{ about_pages.aboutContent[0].title }}
+                                        {{ about_pages.aboutContent[2].title }}
                                     </a>
                                 </li>
                             </div>

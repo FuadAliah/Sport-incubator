@@ -120,7 +120,7 @@
                             <div class="bg-white w-100 p-3 text-uppercase"
                                 v-if="readQueryString('page-type')!='library'"
                                 :class="[newsPage.activeList == 'news' ? 'text-red' : 'text-dark']">
-                                {{newsPage.activeList}}
+                                {{translate(newsPage.activeList)}}
                             </div>
                             <div class="dropdown-menu text-red p-0 custom-dropdown">
                                 <li class="nav-item" @click="newsPage.activeList = 'news'"

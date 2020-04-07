@@ -671,7 +671,6 @@ var home = new Vue({
                         setTimeout(function () {
                             $('#mesSent').fadeOut('slow')
                         }, 3000)
-                        // location.reload();
                     })
                     .catch(function (error) {
                         console.log(error.response);

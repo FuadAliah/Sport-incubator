@@ -62,6 +62,9 @@ var locales_ar = {
 
     //about_page
     "aboutTag": "من نحن",
+    "about_jyif": "الملتقى الاردني للابداع الشبابي",
+    "about_the_incubator": "حاضنة أعمال رياضات الشوارع",
+    "about_game_jordan": "جييم الأردن",
 
     //register
     "register": "سجل فكرتك الآن",
