@@ -728,19 +728,21 @@ $('.languages-links a').on('click', function () {
     location.reload();
 })
 
-function debounce(fn, wait) {
-    var time = Date.now();
-    return function () {
-        var context = this,
-            args = arguments;
-        if ((time + wait - Date.now()) < 0) {
-            fn.apply(context, args);
-            time = Date.now();
+if (!window.matchMedia("(max-width: 700px)").matches) {
+    function debounce(fn, wait) {
+        var time = Date.now();
+        return function () {
+            var context = this,
+                args = arguments;
+            if ((time + wait - Date.now()) < 0) {
+                fn.apply(context, args);
+                time = Date.now();
+            }
         }
     }
 }
 
-if (home.activeLink == 'home') {
+if (home.activeLink == 'home' && !window.matchMedia("(max-width: 700px)").matches) {
     $('body').on('mousewheel', debounce(function (event) {
         if (event.deltaY > 0) { //going up
             home.open = false;
@@ -768,7 +770,7 @@ if (home.activeLink == 'home') {
     });
 }
 
-if (home.activeLink == 'home') {
+if (home.activeLink == 'home' && !window.matchMedia("(max-width: 700px)").matches) {
     window.addEventListener('scroll', function () {
         let scroll = this.pageYOffset;
         let height = document.documentElement.clientHeight;

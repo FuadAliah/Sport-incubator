@@ -120,7 +120,7 @@ html {
   width: 60px;
   height: 60px;
   background-color: #d62b4d;
-  z-index: 9999;
+  z-index: 999;
   top: 0;
   left: 0;
   -webkit-transform: translateX(0px);
@@ -197,6 +197,10 @@ body {
   max-width: 100vw;
   height: auto;
   font-family: "Soho Pro";
+}
+
+body .modal-backdrop {
+  display: none !important;
 }
 
 ::-webkit-scrollbar {
@@ -363,33 +367,47 @@ section {
   color: #d62b4d !important;
 }
 
-.home .popup {
-  display: none;
-  position: absolute;
-  z-index: 99999999;
+.home .exampleModal {
   width: 100%;
-  height: 100%;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  border-radius: 8px;
-  -webkit-box-shadow: 1px 0 3px 0 rgba(0, 0, 0, 0.6);
-          box-shadow: 1px 0 3px 0 rgba(0, 0, 0, 0.6);
+  height: 100vh;
 }
 
-.home .popup .background {
-  display: none;
-  background: rgba(0, 0, 0, 0.8);
+.home .exampleModal::before {
+  content: "";
+  width: 100vw;
+  height: 100vh;
   position: absolute;
+  background: rgba(0, 0, 0, 0.8);
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  z-index: 0;
 }
 
-.home .show {
-  display: unset;
+.home .exampleModal .custom-dialog {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  max-width: 60%;
+}
+
+@media (max-width: 768) {
+  .home .exampleModal .custom-dialog {
+    min-width: 90% !important;
+  }
+}
+
+.home .bg-transparent {
+  background: none;
+  border: 0;
+  outline: none;
 }
 
 @media (max-width: 768px) {
@@ -598,6 +616,44 @@ section {
   }
 }
 
+.about .exampleModal {
+  width: 100%;
+  height: 100vh;
+  top: 200vh;
+}
+
+.about .exampleModal::before {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.about .exampleModal .custom-dialog {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  max-width: 60%;
+}
+
+@media (max-width: 768) {
+  .about .exampleModal .custom-dialog {
+    min-width: 90% !important;
+  }
+}
+
 .about .section-tag::before {
   content: "About us";
   text-transform: uppercase;
@@ -638,6 +694,7 @@ section {
   background-color: #19a2e0;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  border: 0;
 }
 
 .about .head-content .section-link:hover {
@@ -1065,12 +1122,6 @@ section {
 
 .mob-subscribe .news-paragraph {
   line-height: 2rem;
-}
-
-.mob-subscribe .background {
-  position: absolute;
-  bottom: 0;
-  left: 0;
 }
 
 .mob-subscribe .subscribeSuccess {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="html">
+<html class="html" :dir="language=='ar' ? 'rtl' : 'ltr'">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -83,17 +83,24 @@
                     </div>
                     <div class="text-white">
                         <h2 class="m-0 text-white text-uppercase">{{tr.about_street}}</h2>
-                        <a href="javascript:void(0)" class="text-white" onclick="videoPopup()">
-                            <i class="fas fa-play-circle mt-4" style="font-size: 48px;"></i>
-                        </a>
-                        <!-- <div class="popup" id="myPopup">
-                            <div class="bg-white h-75 w-75 m-auto">
-                                <iframe class="embed-responsive-item" width="75%" height="75%" :src="home.video_link"
-                                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-                                </iframe>
+                        <button type="button" class="bg-transparent" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fas fa-play-circle mt-4 text-white" style="font-size: 48px;"></i>
+                        </button>
+                    </div>
+                    <div class="modal fade exampleModal" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog custom-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body p-2">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <!-- ?autoplay=1 -->
+                                        <iframe class="embed-responsive-item" width="100%" :src="home.video_link"
+                                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="background" id="background"></div>
-                        </div> -->
+                        </div>
                     </div>
                     <div class="text-white">
                         <h5 class="m-0 text-white text-uppercase" style="font-weight: normal">{{tr.implement}}</h5>
@@ -101,12 +108,12 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <a href="{{home.p_by_text_1}}" :title="home.p_by_text_1">
+                                        <a href="{{home.p_by_text_1}}" :title="home.p_by_text_1" target="_blank">
                                             <img :src="serverPath+home.p_by_img_1" alt="">
                                         </a>
                                     </div>
                                     <div class="col-lg-6 mt-4 mt-lg-0">
-                                        <a href="{{home.p_by_text_2}}" :title="home.p_by_text_2">
+                                        <a href="{{home.p_by_text_2}}" :title="home.p_by_text_2" target="_blank">
                                             <img :src="serverPath+home.p_by_img_2" alt="">
                                         </a>
                                     </div>
@@ -309,6 +316,21 @@
             <section id="about" data-hash="about" class="section about" style="background-size: cover;" v-if="about"
                 :style="{ backgroundImage: 'url('+serverPath+about.background+')'}">
                 <div class="d-flex flex-column justify-content-between h-100 w-100">
+                    <div class="modal fade exampleModal" id="aboutExampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog custom-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body p-2">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <!-- ?autoplay=1 -->
+                                        <iframe class="embed-responsive-item" width="100%" :src="home.video_link"
+                                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="head-content h-auto h-md-50 d-flex flex-column section-tag"
                         :data-aos="[language=='ar' ? 'fade-left' : 'fade-right']" data-aos-offset="600"
                         data-aos-delay="200" data-aos-anchor=".about">
@@ -318,10 +340,10 @@
                         <div class="section-body d-none d-md-block">
                             {{about.description}}
                         </div>
-                        <a href="{{about.video_link}}" class="section-link mt-lg-4 mt-3 rounded">
-                            <i class="fas fa-play"></i>
-                            <span class="ml-2">{{tr.watchVideo}}</span>
-                        </a>
+                        <button type="button" class="section-link mt-lg-4 mt-3 rounded" data-toggle="modal"
+                            data-target="#aboutExampleModal">
+                            <i class="fas fa-play"></i> {{tr.watchVideo}}
+                        </button>
                     </div>
                     <div class="body-content h-auto h-md-50 text-center text-md-left">
                         <div class="h-100">
@@ -466,7 +488,7 @@
             <section class="section mob-subscribe d-block d-md-none" v-if="sub">
                 <div class="container-fluid bg-white h-100">
                     <div class="row d-flex flex-column justify-content-between h-100">
-                        <div class="d-flex flex-column justify-content-between h-50">
+                        <div class="d-flex flex-column justify-content-between h-50 m-auto">
                             <div class="left-content">
                                 <div class="text-info">
                                     <h1 class="news-title text-red m-0 text-uppercase">{{tr.subscribeMsg}}</h1>
@@ -497,9 +519,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="background h-auto">
-                            <img src="./imgs/email1.svg" alt="">
                         </div>
                     </div>
                 </div>

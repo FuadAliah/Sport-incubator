@@ -85,7 +85,7 @@ var locales_en = {
     //contacts_page
     "call": "Call",
     "write": "Write",
-    "email": "Email",
+    "emailInfo": "Email",
     "send": "Send Message",
     "country": "country",
     "t_about": "I'd like to talk about",

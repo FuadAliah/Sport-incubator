@@ -106,7 +106,7 @@ html {
   width: 60px;
   height: 60px;
   background-color: $redColor;
-  z-index: 9999;
+  z-index: 999;
   top: 0;
   left: 0;
   transform: translateX(0px);
@@ -159,6 +159,9 @@ body {
   max-width: 100vw;
   height: auto;
   font-family: "Soho Pro";
+  .modal-backdrop{
+    display: none !important;
+  }
 }
 ::-webkit-scrollbar {
   display: none;
@@ -278,29 +281,35 @@ section {
       color: $redColor !important;
     }
   }
-  .popup {
-    display: none;
-    position: absolute;
-    z-index: 99999999;
+  .exampleModal{
     width: 100%;
-    height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 8px;
-    box-shadow: 1px 0 3px 0 rgba(0, 0, 0, 0.6);
-    .background {
-      display: none;
-      background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    &::before{
+      content: "";
+      width: 100vw;
+      height: 100vh;
       position: absolute;
+      background: rgba(0, 0, 0, 0.8);
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      z-index: 0;
+    }
+    .custom-dialog{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      max-width: 60%;
+      @media (max-width: 768) {
+        min-width: 90% !important;
+      }
     }
   }
-  .show {
-    display: unset;
+  .bg-transparent{
+    background: none;
+    border: 0;
+    outline: none;
   }
   @media (max-width: 768px) {
     .logo-white img {
@@ -486,6 +495,32 @@ section {
 }
 
 .about {
+  .exampleModal{
+    width: 100%;
+    height: 100vh;
+    top: 200vh;
+    &::before{
+      content: "";
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.8);
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    .custom-dialog{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      max-width: 60%;
+      @media (max-width: 768) {
+        min-width: 90% !important;
+      }
+    }
+  }
   .section-tag::before {
     content: "About us";
     text-transform: uppercase;
@@ -521,6 +556,7 @@ section {
       color: #fff;
       background-color: $blueColor;
       transition: $ease-in-out;
+      border: 0;
       &:hover {
         color: $blueColor;
         background-color: #fff;
@@ -926,11 +962,6 @@ section {
   }
   .news-paragraph {
     line-height: 2rem;
-  }
-  .background {
-    position: absolute;
-    bottom: 0;
-    left: 0;
   }
   .subscribeSuccess {
     position: absolute;
