@@ -83,6 +83,7 @@ var locales_ar = {
     "yes": "نعم",
     "no": "لا",
     "teamMembers": "عدد أعضاء فريق العمل",
+    "regSuccess": "تم التسجيل بنجاح",
 
     //contacts_page
     "call": "إتصل بنا",

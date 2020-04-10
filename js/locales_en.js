@@ -84,6 +84,7 @@ var locales_en = {
     "yes": "Yes",
     "no": "No",
     "teamMembers": "Number of Team members",
+    "regSuccess": "Registration completed successfully!",
 
 
     //contacts_page

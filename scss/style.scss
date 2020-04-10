@@ -159,7 +159,7 @@ body {
   max-width: 100vw;
   height: auto;
   font-family: "Soho Pro";
-  .modal-backdrop{
+  .modal-backdrop {
     display: none !important;
   }
 }
@@ -281,10 +281,10 @@ section {
       color: $redColor !important;
     }
   }
-  .exampleModal{
+  .exampleModal {
     width: 100%;
     height: 100vh;
-    &::before{
+    &::before {
       content: "";
       width: 100vw;
       height: 100vh;
@@ -294,19 +294,19 @@ section {
       left: 0;
       z-index: 0;
     }
-    .custom-dialog{
+    .custom-dialog {
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       margin: auto;
       max-width: 60%;
-      @media (max-width: 768) {
-        min-width: 90% !important;
+      @media (max-width: 768px) {
+        max-width: 90% !important;
       }
     }
   }
-  .bg-transparent{
+  .bg-transparent {
     background: none;
     border: 0;
     outline: none;
@@ -495,11 +495,11 @@ section {
 }
 
 .about {
-  .exampleModal{
+  .exampleModal {
     width: 100%;
     height: 100vh;
     top: 200vh;
-    &::before{
+    &::before {
       content: "";
       width: 100vw;
       height: 100vh;
@@ -509,7 +509,7 @@ section {
       left: 0;
       z-index: 0;
     }
-    .custom-dialog{
+    .custom-dialog {
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -948,6 +948,7 @@ section {
 
 .mob-subscribe {
   position: relative;
+  min-height: 100%;
   button {
     margin-top: 10px;
     line-height: 46px;
@@ -965,7 +966,7 @@ section {
   }
   .subscribeSuccess {
     position: absolute;
-    top: 58%;
+    top: 86%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 88%;

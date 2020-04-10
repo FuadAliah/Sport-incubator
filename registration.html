@@ -27,6 +27,16 @@
             style="padding: 0; margin: 0; width: 100vw;height: 100vh;background: #f6f4e2;z-index: 9999;display: flex;align-items: center;justify-content: center;">
             <img src="./imgs/logo-animation.gif" height="120px" alt="">
         </div>
+        <div id="regSuccess" class="regSuccess" v-if="registerPage.regSuccess == true">
+            <div class="bg-white content">
+                <div class="d-flex flex-column align-items-center parent" role="alert">
+                    <i class="far fa-check-circle mb-4 fa-lg text-success"></i>
+                    <div class="textMessage text-success mt-3">
+                        {{tr.regSuccess}}
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="sidebar h-100 position-fixed border-right" :class="[open == true ? 'show' : '']">
             <div class="bg-white custom-height" id="sidebar-wrapper" @click="open = false">
                 <div class="list-group list-group-flush h-auto side-links">
@@ -130,13 +140,13 @@
                                         <div class="form-row custom-row">
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="text" class="form-control form-control-lg" id="f-name"
-                                                    req="true" onkeypress="return /[a-z]/i.test(event.key)"
-                                                    :placeholder="translate('firstName')" v-model="firstName">
+                                                    req="true" :placeholder="translate('firstName')"
+                                                    v-model="registerPage.first_name">
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="text" class="form-control form-control-lg" id="l-name"
-                                                    req="true" onkeypress="return /[a-z]/i.test(event.key)"
-                                                    :placeholder="translate('lastName')" v-model="lastName">
+                                                    req="true" :placeholder="translate('lastName')"
+                                                    v-model="registerPage.last_name">
                                             </div>
                                         </div>
                                         <div class="form-row custom-row">
@@ -145,7 +155,7 @@
                                                     req="true" :placeholder="translate('date')">
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
-                                                <select class="custom-select" req="true">
+                                                <select class="custom-select" req="true" v-model="registerPage.gender">
                                                     <option value="" disabled selected hidden>{{tr.gender}}</option>
                                                     <option value="Male">{{tr.male}}</option>
                                                     <option value="Female">{{tr.female}}</option>
@@ -155,7 +165,8 @@
                                         </div>
                                         <div class="form-row custom-row position-relative">
                                             <div class="col-12 col-md-6 custom-input">
-                                                <select class="custom-select" req="true" v-if="language=='en'">
+                                                <select class="custom-select" req="true" v-if="language=='en'"
+                                                    v-model="registerPage.nationality">
                                                     <option value="" disabled selected hidden>{{tr.nationality}}
                                                     </option>
                                                     <div class="en">
@@ -448,7 +459,8 @@
                                                         <option value="Zimbabwe">Zimbabwe</option>
                                                     </div>
                                                 </select>
-                                                <select class="custom-select" req="true" v-if="language=='ar'">
+                                                <select class="custom-select" req="true" v-if="language=='ar'"
+                                                    v-model="registerPage.nationality">
                                                     <option value="" disabled selected hidden>{{tr.nationality}}
                                                     </option>
                                                     <div class="ar">
@@ -655,7 +667,8 @@
                                                 <i class="fas fa-caret-down"></i>
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
-                                                <select class="custom-select" req="true" v-if="language=='en'">
+                                                <select class="custom-select" req="true" v-if="language=='en'"
+                                                    v-model="registerPage.place_of_birth">
                                                     <option value="" disabled selected hidden>{{tr.placeOfBirth}}
                                                     </option>
                                                     <div class="en">
@@ -948,7 +961,8 @@
                                                         <option value="Zimbabwe">Zimbabwe</option>
                                                     </div>
                                                 </select>
-                                                <select class="custom-select" req="true" v-if="language=='ar'">
+                                                <select class="custom-select" req="true" v-if="language=='ar'"
+                                                    v-model="registerPage.place_of_birth">
                                                     <option value="" disabled selected hidden>{{tr.placeOfBirth}}
                                                     </option>
                                                     <div class="ar">
@@ -1163,16 +1177,19 @@
                                         <div class="form-row custom-row position-relative">
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="number" class="form-control form-control-lg" req="true"
-                                                    id="phone-reg" :placeholder="translate('phone-reg')"  v-model="phone">
+                                                    id="phone-reg" :placeholder="translate('phone-reg')"
+                                                    v-model="registerPage.mobile">
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
                                                 <input type="email" class="form-control form-control-lg" id="email"
-                                                    req="true" :placeholder="translate('email')" v-model="email">
+                                                    req="true" :placeholder="translate('email')"
+                                                    v-model="registerPage.email">
                                             </div>
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 custom-input">
-                                                <textarea name="" rows="8" :placeholder="translate('address')" id="address"
+                                                <textarea name="" rows="8" :placeholder="translate('address')"
+                                                    v-model="registerPage.home_address" id="address"
                                                     req="true"></textarea>
                                             </div>
                                         </div>
@@ -1183,29 +1200,36 @@
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 custom-input">
-                                                <textarea name="" rows="6" id="about_you" :placeholder="translate('about_you')"></textarea>
+                                                <textarea name="" rows="6" id="about_you"
+                                                    v-model="registerPage.about_you"
+                                                    :placeholder="translate('about_you')"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 custom-input">
                                                 <textarea name="" rows="6" req="true" id="about_idea"
+                                                    v-model="registerPage.about_project"
                                                     :placeholder="translate('about_idea')"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 custom-input">
-                                                <textarea name="" rows="6" id="yChoose" :placeholder="translate('yChoose')"></textarea>
+                                                <textarea name="" rows="6" id="yChoose"
+                                                    v-model="registerPage.about_validity"
+                                                    :placeholder="translate('yChoose')"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 col-md-6 custom-input">
-                                                <select class="custom-select" v-if="language=='en'">
+                                                <select class="custom-select" v-if="language=='en'"
+                                                    v-model="registerPage.has_team">
                                                     <option value="" disabled selected hidden>{{tr.haveTeam}}
                                                     </option>
                                                     <option value="Yes">{{tr.yes}}</option>
                                                     <option value="No">{{tr.no}}</option>
                                                 </select>
-                                                <select class="custom-select" v-if="language=='ar'">
+                                                <select class="custom-select" v-if="language=='ar'"
+                                                    v-model="registerPage.has_team">
                                                     <option value="" disabled selected hidden>{{tr.haveTeam}}
                                                     </option>
                                                     <option value="Yes">{{tr.yes}}</option>
@@ -1214,14 +1238,16 @@
                                                 <i class="fas fa-caret-down"></i>
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
-                                                <select class="custom-select" v-if="language=='en'">
+                                                <select class="custom-select" v-if="language=='en'"
+                                                    v-model="registerPage.count_team">
                                                     <option value="" disabled selected hidden>{{tr.teamMembers}}
                                                     </option>
                                                     <option value="5">1-5</option>
                                                     <option value="10">5-10</option>
                                                     <option value="10">10-&</option>
                                                 </select>
-                                                <select class="custom-select" v-if="language=='ar'">
+                                                <select class="custom-select" v-if="language=='ar'"
+                                                    v-model="registerPage.count_team">
                                                     <option value="" disabled selected hidden>{{tr.teamMembers}}
                                                     </option>
                                                     <option value="5">5-1</option>
@@ -1240,6 +1266,7 @@
                                             </div>
                                         </div>
                                     </form>
+
                                 </div>
                             </div>
                         </div>
@@ -1290,8 +1317,7 @@
                                         </li>
                                         <li class="py-1">
                                             <p class="m-0 text-secondary"><i class="fas fa-envelope mr-1"></i>
-                                                <a href="mailto:info@streetsportsincubator.org"
-                                                    class="text-secondary">
+                                                <a href="mailto:info@streetsportsincubator.org" class="text-secondary">
                                                     {{ footer.contact_info.info[0].contact_email }}
                                                 </a>
                                             </p>
@@ -1341,8 +1367,8 @@
                 <div
                     class="copy-rights p-2 px-2 px-md-5 d-flex justify-content-between flex-column flex-md-row text-center text-md-left">
                     <h6 class="m-0"><small>{{ footer.contact_info.info[0].copy_write }}</small></h6 class="p-0">
-                    <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com"
-                                target="_blank" class="text-info">EappEra</a></small>
+                    <h6 class="m-0 mt-2 mt-md-0"><small>{{tr.powered}}<a href="http://www.eappera.com" target="_blank"
+                                class="text-info">EappEra</a></small>
                     </h6>
                 </div>
             </div>

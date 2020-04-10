@@ -6,6 +6,40 @@ html body {
   overflow-x: hidden;
 }
 
+.regSuccess,
+.messageSent {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+}
+
+.regSuccess .content,
+.messageSent .content {
+  width: 100vw;
+  height: 100vh;
+  padding: 12% 8%;
+}
+
+@media (max-width: 768px) {
+  .regSuccess .content,
+  .messageSent .content {
+    padding: 50% 0;
+  }
+}
+
+.regSuccess .content .parent i,
+.messageSent .content .parent i {
+  font-size: 4rem;
+  line-height: 4rem;
+}
+
+.regSuccess .content .parent .textMessage,
+.messageSent .content .parent .textMessage {
+  font-size: 2rem;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

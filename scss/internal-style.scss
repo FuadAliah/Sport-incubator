@@ -18,6 +18,32 @@ html {
   }
 }
 
+.regSuccess,
+.messageSent {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  .content {
+    width: 100vw;
+    height: 100vh;
+    padding: 12% 8%;
+    @media (max-width: 768px) {
+      padding: 50% 0;
+    }
+    .parent {
+      i {
+        font-size: 4rem;
+        line-height: 4rem;
+      }
+      .textMessage {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

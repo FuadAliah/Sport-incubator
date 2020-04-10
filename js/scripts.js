@@ -48,7 +48,21 @@ var home = new Vue({
             messageSent: false,
         },
         registerPage: {
-            //values
+            first_name: null,
+            last_name: null,
+            date_of_birth: null,
+            place_of_birth: null,
+            nationality: null,
+            mobile: null,
+            email: null,
+            about_you: null,
+            about_project: null,
+            about_validity: null,
+            has_team: null,
+            count_team: null,
+            gender: null,
+            home_address: null,
+            regSuccess: false,
         },
         subscribe: {
             email: null,
@@ -656,7 +670,6 @@ var home = new Vue({
                 var postBody = this.contactPagePostBody;
                 axios.post(this.serverPath + 'contact-us/save', postBody)
                     .then(function (response) {
-                        // new
                         home.contactPagePostBody = {
                             first_name: null,
                             sure_name: null,
@@ -671,6 +684,9 @@ var home = new Vue({
                         setTimeout(function () {
                             $('#mesSent').fadeOut('slow')
                         }, 3000)
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000)
                     })
                     .catch(function (error) {
                         console.log(error.response);
@@ -678,12 +694,33 @@ var home = new Vue({
             }
         },
         postRegister(form) {
-            alert(form)
             if (this.validateForm(form)) {
                 var postBody = this.registerPage;
                 axios.post(this.serverPath + 'registration/save', postBody)
                     .then(function (response) {
-                        console.log(response);
+                        home.registerPage = {
+                            first_name: null,
+                            last_name: null,
+                            date_of_birth: null,
+                            place_of_birth: null,
+                            nationality: null,
+                            mobile: null,
+                            email: null,
+                            about_you: null,
+                            about_project: null,
+                            about_validity: null,
+                            has_team: null,
+                            count_team: null,
+                            gender: null,
+                            home_address: null,
+                            regSuccess: true,
+                        }
+                        setTimeout(function () {
+                            $('#regSuccess').fadeOut('slow')
+                        }, 3000)
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000)
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -700,7 +737,7 @@ var home = new Vue({
                             subscribeSuccess: true,
                         }
                         setTimeout(function () {
-                            $('#subSuccess').fadeOut('slow')
+                            $('.subscribeSuccess').fadeOut('slow')
                         }, 3000);
                     })
                     .catch(function (error) {
