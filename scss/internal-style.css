@@ -25,7 +25,8 @@ html body {
 @media (max-width: 768px) {
   .regSuccess .content,
   .messageSent .content {
-    padding: 50% 0;
+    padding: 50% 10%;
+    text-align: center;
   }
 }
 
@@ -35,9 +36,24 @@ html body {
   line-height: 4rem;
 }
 
+@media (max-width: 768px) {
+  .regSuccess .content .parent i,
+  .messageSent .content .parent i {
+    font-size: 3rem;
+    line-height: 2rem;
+  }
+}
+
 .regSuccess .content .parent .textMessage,
 .messageSent .content .parent .textMessage {
   font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .regSuccess .content .parent .textMessage,
+  .messageSent .content .parent .textMessage {
+    font-size: 1.5rem;
+  }
 }
 
 input[type="number"]::-webkit-inner-spin-button,

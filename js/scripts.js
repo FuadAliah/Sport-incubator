@@ -719,7 +719,7 @@ var home = new Vue({
                             $('#regSuccess').fadeOut('slow')
                         }, 3000)
                         setTimeout(function () {
-                            location.reload();
+                            // location.reload();
                         }, 2000)
                     })
                     .catch(function (error) {
