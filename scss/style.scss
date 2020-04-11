@@ -516,8 +516,8 @@ section {
       align-items: center;
       margin: auto;
       max-width: 60%;
-      @media (max-width: 768) {
-        min-width: 90% !important;
+      @media (max-width: 768px) {
+        max-width: 90% !important;
       }
     }
   }
