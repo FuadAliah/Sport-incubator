@@ -81,6 +81,13 @@ var home = new Vue({
         this.getFooter();
     },
     methods: {
+        //https://www.youtube.com/embed/LQKRVVtIccU"
+        getYoutubeEmbed() {
+            if (this.home.video_link) {
+                var embedCode = this.home.video_link.split("v=")[1].split("&")[0];
+                return "https://www.youtube.com/embed/" + embedCode;
+            }
+        },
         setLanguage(newLang) {
             lang = localStorage.lang || 'en';
             if (newLang) {
@@ -719,7 +726,7 @@ var home = new Vue({
                             $('#regSuccess').fadeOut('slow')
                         }, 3000)
                         setTimeout(function () {
-                            // location.reload();
+                            location.reload();
                         }, 2000)
                     })
                     .catch(function (error) {
@@ -829,6 +836,9 @@ if (home.activeLink == 'home' && !window.matchMedia("(max-width: 700px)").matche
         } else if (scroll / height == 6) {
             window.location.hash = 'contacts';
             home.activeLink = 'contacts'
+        } else {
+            home.activeLink = 'home'
+
         }
     })
 }
