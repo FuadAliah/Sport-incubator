@@ -754,14 +754,19 @@ var home = new Vue({
         },
     }
 });
+
+$(document).click(function (e) {
+    var x = e.pageX
+    var videoSrc = $(".player").attr('src');
+    if (window.matchMedia("(min-width: 992px)").matches && x < 380 || x > 1540) {
+        $(".player").attr('src', '');
+        $(".player").attr('src', videoSrc);
+    }
+});
+
 $('.data.dragged').on('click', function () {
     $(this).removeClass('dragged');
 });
-
-function videoPopup() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-}
 
 function goBack() {
     window.history.back();
@@ -841,4 +846,12 @@ if (home.activeLink == 'home' && !window.matchMedia("(max-width: 700px)").matche
 
         }
     })
+    // var src = $(this).find('iframe').attr('src');
+    // $(".modal").on('click', function () {
+    //     console.log('cs')
+    //     $(this).find('iframe').attr('src', '');
+    //     $(this).find('iframe').attr('src', src);
+    // });
+
+
 }

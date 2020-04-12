@@ -93,7 +93,7 @@
                             <div class="modal-content">
                                 <div class="modal-body p-2">
                                     <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe width="560" height="315" :src="getYoutubeEmbed()" frameborder="0"
+                                        <iframe class="player" width="560" height="315" :src="getYoutubeEmbed()" frameborder="0"
                                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                             allowfullscreen>
                                         </iframe>
@@ -174,7 +174,7 @@
                                                 {{ news[1].title.slice(0, 90) }}</a>
                                             <p class="card-text custom-paragraph m-0">
                                                 {{ news[1].text.slice(0, 65) + '...' }}</p>
-                                            <a :href="'news-detailed.html?news-id='+news[1].id+'&page-type=news'"
+                                            <a href="'news-detailed.html?news-id='+news[1].id+'&page-type=news'"
                                                 class="btn btn-link p-0 text-left text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}<i
                                                     class="fas ml-2"
                                                     :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i></a>
@@ -228,7 +228,7 @@
                                                 class="card-title text-red custom-title m-0 text-uppercase">{{ news[0].title.slice(0, 90) }}</a>
                                             <p class="card-text custom-paragraph m-0">
                                                 {{ news[0].text.slice(0, 65) + '...' }}</p>
-                                            <a :href="'news-detailed.html?news-id='+news[0].id+'&page-type=news'"
+                                            <a href="'news-detailed.html?news-id='+news[0].id+'&page-type=news'"
                                                 class="btn btn-link p-0 text-left text-red font-weight-bold text-uppercase custom-more">{{tr.read_more}}<i
                                                     class="fas ml-2"
                                                     :class="[language=='ar' ? 'fa-chevron-left': 'fa-chevron-right']"></i></a>
@@ -323,7 +323,7 @@
                                 <div class="modal-body p-2">
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <!-- ?autoplay=1 -->
-                                        <iframe width="560" height="315" :src="getYoutubeEmbed()" frameborder="0"
+                                        <iframe class="player" width="560" height="315" :src="getYoutubeEmbed()" frameborder="0"
                                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                             allowfullscreen>
                                         </iframe>
