@@ -4,7 +4,7 @@ var home = new Vue({
         language: '',
         tr: {},
         loading: true,
-        scrolling: $(window).scrollTop(),
+        scrolling: window.scrollTo(),
         open: false,
         activeLink: 'home',
         home: null,
@@ -130,7 +130,6 @@ var home = new Vue({
                 this.activeLink = "registration";
             }
         },
-        // en & ar
         getHome() {
             var self = this;
             this.loading = true;
@@ -200,7 +199,6 @@ var home = new Vue({
                     })
             }
         },
-        // en & ar
         getNews() {
             var self = this;
             this.loading = true;
@@ -261,7 +259,6 @@ var home = new Vue({
                 return obj.id === parseInt(newsId);
             })
         },
-        // en & ar
         getِAbout() {
             var self = this;
             this.loading = true;
@@ -279,7 +276,6 @@ var home = new Vue({
                     })
             }
         },
-        // en & ar
         getFooter() {
             var self = this;
             if (this.language == 'ar') {
@@ -595,13 +591,6 @@ var home = new Vue({
                 });
             }
         },
-        scrollTop() {
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
-        },
         scrollToSection(hash) {
             var target = '';
             if (hash) {
@@ -762,6 +751,12 @@ $(document).click(function (e) {
         $(".player").attr('src', '');
         $(".player").attr('src', videoSrc);
     }
+    $(document).keyup(function (e) {
+        if (e.keyCode == 27) { // Esc
+            $(".player").attr('src', '');
+            $(".player").attr('src', videoSrc);
+        }
+    });
 });
 
 $('.data.dragged').on('click', function () {
@@ -796,24 +791,24 @@ if (home.activeLink == 'home' && !window.matchMedia("(max-width: 700px)").matche
             home.open = false;
             $('html,body').stop().animate({
                 scrollTop: $(window).scrollTop() - $(window).height()
-            }, 1000);
+            }, 750);
 
         } else {
             home.open = false
             $('html,body').stop().animate({
                 scrollTop: $(window).scrollTop() + $(window).height()
-            }, 1000);
+            }, 750);
         }
-    }, 2100));
+    }, 1000));
     $(document).keydown(function (e) {
         if (e.which == 40) {
             $('html,body').stop().animate({
                 scrollTop: $(window).scrollTop() + $(window).height()
-            }, 1000);
+            }, 750);
         } else if (e.which == 38) {
             $('html,body').stop().animate({
                 scrollTop: $(window).scrollTop() - $(window).height()
-            }, 1000);
+            }, 750);
         }
     });
 }
@@ -846,12 +841,4 @@ if (home.activeLink == 'home' && !window.matchMedia("(max-width: 700px)").matche
 
         }
     })
-    // var src = $(this).find('iframe').attr('src');
-    // $(".modal").on('click', function () {
-    //     console.log('cs')
-    //     $(this).find('iframe').attr('src', '');
-    //     $(this).find('iframe').attr('src', src);
-    // });
-
-
 }

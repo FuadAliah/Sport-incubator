@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Almarai:500, 700, 800&display=swap&subset=arabic");
 html {
   margin: 0;
 }
@@ -98,7 +99,7 @@ html {
 .sidebar .side-links .languages-links .ar-link {
   font-size: 18px;
   font-weight: bold;
-  font-family: "Almarai", sans-serif;
+  font-family: "Almarai";
   line-height: 16px;
   position: relative;
 }
