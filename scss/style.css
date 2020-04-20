@@ -1033,6 +1033,10 @@ section {
   }
 }
 
+.library .body-content a {
+  max-height: 260px;
+}
+
 .library .body-content a .overlay {
   bottom: 0;
   left: 0;
