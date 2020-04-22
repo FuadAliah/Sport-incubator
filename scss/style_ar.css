@@ -420,6 +420,11 @@ section {
   }
 }
 
+.home .exampleModal .custom-dialog .modal-content .close {
+  left: -1.6%;
+  right: unset;
+}
+
 .home .bg-transparent {
   background: none;
   border: 0;

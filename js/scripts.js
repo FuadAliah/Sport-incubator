@@ -38,7 +38,7 @@ var home = new Vue({
         },
         contactPagePostBody: {
             first_name: null,
-            sure_name: null,
+            surname: null,
             email: null,
             phone: null,
             country: null,
@@ -59,7 +59,7 @@ var home = new Vue({
             about_project: null,
             about_validity: null,
             has_team: null,
-            count_team: null,
+            count_team_members: null,
             gender: null,
             home_address: null,
             regSuccess: false,
@@ -120,6 +120,10 @@ var home = new Vue({
                 this.activeLink = "news-detailed";
             }
 
+            if (window.location.href.indexOf("library-list") > 0) { //detailed news page
+                this.getNews();
+                this.activeLink = "library";
+            }
 
             if (window.location.href.indexOf("contacts") > 0) {
                 this.getHome();
@@ -668,7 +672,7 @@ var home = new Vue({
                     .then(function (response) {
                         home.contactPagePostBody = {
                             first_name: null,
-                            sure_name: null,
+                            surname: null,
                             email: null,
                             phone: null,
                             country: null,
@@ -706,7 +710,7 @@ var home = new Vue({
                             about_project: null,
                             about_validity: null,
                             has_team: null,
-                            count_team: null,
+                            count_team_members: null,
                             gender: null,
                             home_address: null,
                             regSuccess: true,
@@ -715,7 +719,7 @@ var home = new Vue({
                             $('#regSuccess').fadeOut('slow')
                         }, 3000)
                         setTimeout(function () {
-                            location.reload();
+                            // location.reload();
                         }, 2000)
                     })
                     .catch(function (error) {

@@ -150,7 +150,7 @@
                                         </div>
                                         <div class="form-row custom-row">
                                             <div class="col-12 col-md-6 custom-input">
-                                                <input type="text" onfocus="(this.type='date')"
+                                                <input type="text" onfocus="(this.type='date')" v-model="registerPage.date_of_birth"
                                                     onblur="(this.type='text')" class="form-control form-control-lg"
                                                     id="date" req="true" :placeholder="translate('date')">
                                             </div>
@@ -1239,7 +1239,7 @@
                                             </div>
                                             <div class="col-12 col-md-6 custom-input">
                                                 <select class="custom-select" v-if="language=='en'"
-                                                    v-model="registerPage.count_team">
+                                                    v-model="registerPage.count_team_members">
                                                     <option value="" disabled selected hidden>{{tr.teamMembers}}
                                                     </option>
                                                     <option value="5">1-5</option>
@@ -1247,7 +1247,7 @@
                                                     <option value="10">10-&</option>
                                                 </select>
                                                 <select class="custom-select" v-if="language=='ar'"
-                                                    v-model="registerPage.count_team">
+                                                    v-model="registerPage.count_team_members">
                                                     <option value="" disabled selected hidden>{{tr.teamMembers}}
                                                     </option>
                                                     <option value="5">5-1</option>

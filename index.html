@@ -90,6 +90,9 @@
                         data-keyboard="true" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog custom-dialog" role="document">
                             <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" style="font-family: Soho Pro">&times;</span>
+                                </button>
                                 <div class="modal-body p-2">
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <iframe class="player" width="560" height="315" :src="getYoutubeEmbed()"
@@ -101,6 +104,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="text-white">
                         <h5 class="m-0 text-white text-uppercase" style="font-weight: normal">{{tr.implement}}</h5>
@@ -500,7 +504,7 @@
                                 </div>
                             </div>
                             <form class="custom-form d-flex flex-column position-relative" id="validated-form" action=""
-                                method="post">
+                                method="post" onsubmit="subscription('#validated-form')">
                                 <input type="email" class="custom-input rounded form-control form-control-lg bg-light"
                                     v-if="language=='en'" req="true" placeholder="Enter Your E-mail"
                                     v-model="subscribe.email">

@@ -305,6 +305,21 @@ section {
       @media (max-width: 768px) {
         max-width: 90% !important;
       }
+      .modal-content {
+        .close {
+          position: absolute;
+          top: -2.5%;
+          right: -1.6%;
+          font-size: 40px;
+          height: 40px;
+          width: 40px;
+          line-height: 30px;
+          background: #fff;
+          z-index: 9999;
+          opacity: 1;
+          border-radius: 50%;
+        }
+      }
     }
   }
   .bg-transparent {
