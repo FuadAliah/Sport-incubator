@@ -498,7 +498,7 @@
                 <div id="subscribeSuccess" class="subscribeSuccess" v-if="subscribe.subscribeSuccess == true">
                     <div class="bg-white content">
                         <div class="d-flex flex-column align-items-center parent">
-                            <i class="far fa-check-circle mb-4 fa-lg text-success"></i>
+                            <i class="far fa-check-circle mb-2 fa-lg text-success"></i>
                             <div class="textMessage text-success mt-3">
                                 {{tr.subSuccess}}
                             </div>
@@ -507,10 +507,9 @@
                 </div>
                 <div class="container-fluid bg-white subscribeFix">
                     <div class="row d-flex flex-column justify-content-between subscribeFix">
-                        <div class="d-flex flex-column justify-content-between h-75 m-auto">
+                        <div class="d-flex flex-column justify-content-between h-100 m-auto">
                             <div class="left-content">
                                 <div class="text-info">
-                                    <h1 class="news-title text-red m-0 text-uppercase">{{tr.subscribeMsg}}</h1>
                                     <h5 class="news-paragraph mt-3 text-capitalize text-muted">
                                         {{tr.subscribeSlog}}
                                     </h5>
@@ -519,7 +518,7 @@
                             <form class="custom-form d-flex flex-column position-relative" id="validated-form" action=""
                                 method="post" onsubmit="subscription('#validated-form')">
                                 <input type="email" class="custom-input rounded form-control form-control-lg bg-light"
-                                    v-if="language=='en'" req="true" placeholder="Enter Your E-mail"
+                                    v-if="language=='en'" req="true" placeholder="Enter Your E-mail" id="emailSub"
                                     v-model="subscribe.email">
                                 <input type="email" class="custom-input form-control form-control-lg bg-light"
                                     v-if="language=='ar'" req="true" placeholder="أدخل بريدك الإلكتروني"
@@ -529,16 +528,6 @@
                                     type="button">{{tr.subscribe}}
                                 </button>
                             </form>
-                            <!-- <div class="subscribeSuccess" v-if="subscribe.subscribeSuccess">
-                                <div class="alert alert-success text-success d-flex align-items-center mt-3"
-                                    role="alert">
-                                    <i class="far fa-check-circle mr-2 fa-lg"></i>
-                                    <div class="textMessage">
-                                        {{tr.subSuccess}}
-                                    </div>
-                                </div>
-                            </div> -->
-
                         </div>
                     </div>
                 </div>

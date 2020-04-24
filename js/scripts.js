@@ -785,11 +785,12 @@ $('.languages-links a').on('click', function () {
 // });
 
 
-// $(".mob-subscribe").click(function () {
-//     $('html, body').stop().animate({
-//         scrollTop: $(".mob-subscribe").offset().top
-//     }, 10);
-// });
+$(".mob-subscribe").click(function () {
+    $('html, body').stop().animate({
+        scrollTop: $(".mob-subscribe").offset().top
+    }, 10);
+});
+
 
 if (!window.matchMedia("(max-width: 700px)").matches) {
     function debounce(fn, wait) {

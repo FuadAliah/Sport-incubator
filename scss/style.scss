@@ -983,6 +983,7 @@ section {
 
 .mob-subscribe {
   position: relative;
+  height: 400px;
   .subscribeSuccess {
     position: absolute;
     top: 0%;
@@ -995,16 +996,19 @@ section {
     justify-content: center;
     align-items: center;
     .content {
-      position: static;
-      height: 300px;
+      .parent {
+        i {
+          font-size: 2rem !important;
+          line-height: 2rem;
+        }
+        .text-success{
+          font-size: 1.5rem;
+        }
+      }
     }
   }
-  min-height: 100%;
   .subscribeFix {
     height: 100%;
-    @media (max-height: 400px) {
-      height: 600px !important;
-    }
   }
 
   button {

@@ -1124,7 +1124,7 @@ section {
 
 .mob-subscribe {
   position: relative;
-  min-height: 100%;
+  height: 400px;
 }
 
 .mob-subscribe .subscribeSuccess {
@@ -1146,19 +1146,17 @@ section {
           align-items: center;
 }
 
-.mob-subscribe .subscribeSuccess .content {
-  position: static;
-  height: 300px;
+.mob-subscribe .subscribeSuccess .content .parent i {
+  font-size: 2rem !important;
+  line-height: 2rem;
+}
+
+.mob-subscribe .subscribeSuccess .content .parent .text-success {
+  font-size: 1.5rem;
 }
 
 .mob-subscribe .subscribeFix {
   height: 100%;
-}
-
-@media (max-height: 400px) {
-  .mob-subscribe .subscribeFix {
-    height: 600px !important;
-  }
 }
 
 .mob-subscribe button {
