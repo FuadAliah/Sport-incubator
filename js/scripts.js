@@ -739,6 +739,9 @@ var home = new Vue({
                         setTimeout(function () {
                             $('.subscribeSuccess').fadeOut('slow')
                         }, 3000);
+                        $('html, body').stop().animate({
+                            scrollTop: $(".mob-subscribe").offset().top
+                        }, 10);
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -775,6 +778,19 @@ $('.languages-links a').on('click', function () {
     location.reload();
 })
 
+// $("#handleBtn").click(function () {
+//     $('html, body').animate({
+//         scrollTop: $(".mob-subscribe").offset().top
+//     }, 10);
+// });
+
+
+// $(".mob-subscribe").click(function () {
+//     $('html, body').stop().animate({
+//         scrollTop: $(".mob-subscribe").offset().top
+//     }, 10);
+// });
+
 if (!window.matchMedia("(max-width: 700px)").matches) {
     function debounce(fn, wait) {
         var time = Date.now();
@@ -795,24 +811,24 @@ if (home.activeLink == 'home' && !window.matchMedia("(max-width: 700px)").matche
             home.open = false;
             $('html,body').stop().animate({
                 scrollTop: $(window).scrollTop() - $(window).height()
-            }, 750);
+            }, 500);
 
         } else {
             home.open = false
             $('html,body').stop().animate({
                 scrollTop: $(window).scrollTop() + $(window).height()
-            }, 750);
+            }, 500);
         }
     }, 1000));
     $(document).keydown(function (e) {
         if (e.which == 40) {
             $('html,body').stop().animate({
                 scrollTop: $(window).scrollTop() + $(window).height()
-            }, 750);
+            }, 500);
         } else if (e.which == 38) {
             $('html,body').stop().animate({
                 scrollTop: $(window).scrollTop() - $(window).height()
-            }, 750);
+            }, 500);
         }
     });
 }

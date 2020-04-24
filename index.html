@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="html" :dir="language=='ar' ? 'rtl' : 'ltr'">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=1">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -324,6 +324,9 @@
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog custom-dialog" role="document">
                             <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" style="font-family: Soho Pro">&times;</span>
+                                </button>
                                 <div class="modal-body p-2">
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <!-- ?autoplay=1 -->
@@ -491,9 +494,19 @@
                     </div>
                 </div>
             </section>
-            <section class="section mob-subscribe d-block d-md-none" v-if="sub">
-                <div class="container-fluid bg-white h-100">
-                    <div class="row d-flex flex-column justify-content-between h-100">
+            <section class="section mob-subscribe d-block d-md-none v-if=" sub">
+                <div id="subscribeSuccess" class="subscribeSuccess" v-if="subscribe.subscribeSuccess == true">
+                    <div class="bg-white content">
+                        <div class="d-flex flex-column align-items-center parent">
+                            <i class="far fa-check-circle mb-4 fa-lg text-success"></i>
+                            <div class="textMessage text-success mt-3">
+                                {{tr.subSuccess}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid bg-white subscribeFix">
+                    <div class="row d-flex flex-column justify-content-between subscribeFix">
                         <div class="d-flex flex-column justify-content-between h-75 m-auto">
                             <div class="left-content">
                                 <div class="text-info">
@@ -511,12 +524,12 @@
                                 <input type="email" class="custom-input form-control form-control-lg bg-light"
                                     v-if="language=='ar'" req="true" placeholder="أدخل بريدك الإلكتروني"
                                     v-model="subscribe.email">
-                                <button @click="subscription('#validated-form')"
+                                <button @click="subscription('#validated-form')" id="handleBtn"
                                     class="rounded border-0 bg-red text-white text-uppercase w-100"
                                     type="button">{{tr.subscribe}}
                                 </button>
                             </form>
-                            <div class="subscribeSuccess" v-if="subscribe.subscribeSuccess">
+                            <!-- <div class="subscribeSuccess" v-if="subscribe.subscribeSuccess">
                                 <div class="alert alert-success text-success d-flex align-items-center mt-3"
                                     role="alert">
                                     <i class="far fa-check-circle mr-2 fa-lg"></i>
@@ -524,7 +537,8 @@
                                         {{tr.subSuccess}}
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+
                         </div>
                     </div>
                 </div>

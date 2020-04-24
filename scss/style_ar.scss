@@ -318,7 +318,7 @@ section {
       }
       .modal-content {
         .close {
-          left: -1.6%;
+          left: -4%;
           right: unset;
         }
       }
@@ -545,6 +545,12 @@ section {
       max-width: 60%;
       @media (max-width: 768) {
         min-width: 90% !important;
+      }
+      .modal-content {
+        .close {
+          left: -4%;
+          right: unset;
+        }
       }
     }
   }

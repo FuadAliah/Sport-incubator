@@ -308,8 +308,8 @@ section {
       .modal-content {
         .close {
           position: absolute;
-          top: -2.5%;
-          right: -1.6%;
+          top: -6%;
+          right: -4%;
           font-size: 40px;
           height: 40px;
           width: 40px;
@@ -534,6 +534,21 @@ section {
       max-width: 60%;
       @media (max-width: 768px) {
         max-width: 90% !important;
+      }
+      .modal-content {
+        .close {
+          position: absolute;
+          top: -6%;
+          right: -4%;
+          font-size: 40px;
+          height: 40px;
+          width: 40px;
+          line-height: 30px;
+          background: #fff;
+          z-index: 9999;
+          opacity: 1;
+          border-radius: 50%;
+        }
       }
     }
   }
@@ -925,6 +940,9 @@ section {
           color: #fff;
         }
       }
+      @media (max-width: 400px) {
+        max-height: 170px;
+      }
     }
   }
   @media (max-width: 1200px) {
@@ -965,7 +983,30 @@ section {
 
 .mob-subscribe {
   position: relative;
+  .subscribeSuccess {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content {
+      position: static;
+      height: 300px;
+    }
+  }
   min-height: 100%;
+  .subscribeFix {
+    height: 100%;
+    @media (max-height: 400px) {
+      height: 600px !important;
+    }
+  }
+
   button {
     margin-top: 10px;
     line-height: 46px;
@@ -980,13 +1021,6 @@ section {
   }
   .news-paragraph {
     line-height: 2rem;
-  }
-  .subscribeSuccess {
-    position: absolute;
-    top: 86%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 88%;
   }
 }
 

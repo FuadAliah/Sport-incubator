@@ -421,7 +421,7 @@ section {
 }
 
 .home .exampleModal .custom-dialog .modal-content .close {
-  left: -1.6%;
+  left: -4%;
   right: unset;
 }
 
@@ -683,6 +683,11 @@ section {
   .about .exampleModal .custom-dialog {
     min-width: 90% !important;
   }
+}
+
+.about .exampleModal .custom-dialog .modal-content .close {
+  left: -4%;
+  right: unset;
 }
 
 .about .section-tag::before {
