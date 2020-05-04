@@ -753,8 +753,12 @@ var home = new Vue({
 
 $(document).click(function (e) {
     var x = e.pageX
+    var y = e.pageY
     var videoSrc = $(".player").attr('src');
     if (window.matchMedia("(min-width: 992px)").matches && x < 380 || x > 1540) {
+        $(".player").attr('src', '');
+        $(".player").attr('src', videoSrc);
+    } else if(window.matchMedia("(max-width: 576px)").matches && y < 330 || y > 540){        
         $(".player").attr('src', '');
         $(".player").attr('src', videoSrc);
     }
