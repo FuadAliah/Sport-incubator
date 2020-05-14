@@ -751,24 +751,15 @@ var home = new Vue({
     }
 });
 
-$(document).click(function (e) {
-    var x = e.pageX
-    var y = e.pageY
-    var videoSrc = $(".player").attr('src');
-    if (window.matchMedia("(min-width: 992px)").matches && x < 380 || x > 1540) {
-        $(".player").attr('src', '');
-        $(".player").attr('src', videoSrc);
-    } else if(window.matchMedia("(max-width: 576px)").matches && y < 330 || y > 540){        
-        $(".player").attr('src', '');
-        $(".player").attr('src', videoSrc);
-    }
-    $(document).keyup(function (e) {
-        if (e.keyCode == 27) { // Esc
-            $(".player").attr('src', '');
-            $(".player").attr('src', videoSrc);
-        }
-    });
+$(document).click(function () {
+    var videoSrc = $("#iFrame").attr('src');
+    $("#iFrame").attr('src', '');
+    $("#iFrame").attr('src', videoSrc);
 });
+
+
+
+
 
 $('.data.dragged').on('click', function () {
     $(this).removeClass('dragged');

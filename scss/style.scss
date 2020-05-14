@@ -283,18 +283,10 @@ section {
     }
   }
   .exampleModal {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    &::before {
-      content: "";
-      width: 100vw;
-      height: 100vh;
-      position: absolute;
-      background: rgba(0, 0, 0, 0.8);
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
+    background: rgba(0, 0, 0, 0.8);
+
     .custom-dialog {
       height: 100vh;
       display: flex;
@@ -322,10 +314,13 @@ section {
       }
     }
   }
-  .bg-transparent {
-    background: none;
+
+  .playBtn {
     border: 0;
     outline: none;
+    &:focus {
+      box-shadow: none;
+    }
   }
   @media (max-width: 768px) {
     .logo-white img {
@@ -1001,7 +996,7 @@ section {
           font-size: 2rem !important;
           line-height: 2rem;
         }
-        .text-success{
+        .text-success {
           font-size: 1.5rem;
         }
       }

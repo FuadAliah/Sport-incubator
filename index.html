@@ -82,10 +82,11 @@
                     </div>
                     <div class="text-white">
                         <h2 class="m-0 text-white text-uppercase">{{tr.about_street}}</h2>
-                        <button type="button" class="bg-transparent" data-toggle="modal" data-target="#exampleModal">
+                        <a href="#exampleModal" class="btn btn-lg playBtn" data-toggle="modal">
                             <i class="fas fa-play-circle mt-4 text-white" style="font-size: 48px;"></i>
-                        </button>
+                        </a>
                     </div>
+
                     <div class="modal fade exampleModal" id="exampleModal" tabindex="-1" role="dialog"
                         data-keyboard="true" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog custom-dialog" role="document">
@@ -93,10 +94,11 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true" style="font-family: Soho Pro">&times;</span>
                                 </button>
+
                                 <div class="modal-body p-2">
                                     <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="player" width="560" height="315" :src="getYoutubeEmbed()"
-                                            frameborder="0"
+                                        <iframe id="iFrame" class="player" width="560" height="315"
+                                            :src="getYoutubeEmbed()" frameborder="0"
                                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                             allowfullscreen>
                                         </iframe>
@@ -104,8 +106,8 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
                     <div class="text-white">
                         <h5 class="m-0 text-white text-uppercase" style="font-weight: normal">{{tr.implement}}</h5>
                         <div class="mt-4">

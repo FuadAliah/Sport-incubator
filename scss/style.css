@@ -369,19 +369,9 @@ section {
 }
 
 .home .exampleModal {
-  width: 100%;
-  height: 100vh;
-}
-
-.home .exampleModal::before {
-  content: "";
   width: 100vw;
   height: 100vh;
-  position: absolute;
   background: rgba(0, 0, 0, 0.8);
-  top: 0;
-  left: 0;
-  z-index: 0;
 }
 
 .home .exampleModal .custom-dialog {
@@ -419,10 +409,14 @@ section {
   border-radius: 50%;
 }
 
-.home .bg-transparent {
-  background: none;
+.home .playBtn {
   border: 0;
   outline: none;
+}
+
+.home .playBtn:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 @media (max-width: 768px) {
