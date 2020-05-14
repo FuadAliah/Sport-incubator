@@ -752,9 +752,9 @@ var home = new Vue({
 });
 
 $(document).click(function () {
-    var videoSrc = $("#iFrame").attr('src');
-    $("#iFrame").attr('src', '');
-    $("#iFrame").attr('src', videoSrc);
+    var videoSrc = $(".player").attr('src');
+    $(".player").attr('src', '');
+    $(".player").attr('src', videoSrc);
 });
 
 
